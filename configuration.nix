@@ -110,6 +110,21 @@
         config = ./xmonad.hs;
       };
     };
+    programs = {
+      git = {
+        enable = true;
+        userName = "sballert";
+        userEmail = "sballert@posteo.de";
+        signing = {
+          key = "0D13923C4C030FC9B916E001A9B01ECA2EF6466B";
+          signByDefault = true;
+        };
+        extraConfig = {
+          log.decorate = "full";
+          github.user = "sballert";
+        };
+      };
+    };
   };
 
   # This value determines the NixOS release with which your system is to be
