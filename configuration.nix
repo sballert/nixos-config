@@ -28,7 +28,7 @@
   # };
 
   # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Europe/Berlin";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
