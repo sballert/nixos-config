@@ -31,7 +31,7 @@
     enable = true;
     layout = "us";
     libinput.enable = true;
-    xkbOptions = "compose:ralt,compose:rwin,caps:ctrl_modifier";
+    xkbOptions = "compose:ralt,compose:rwin,ctrl:nocaps";
     displayManager.lightdm = {
       enable = true;
       greeters.gtk.enable = false;
@@ -65,6 +65,12 @@
       gnome-keyring = {
         enable = true;
         components = [ "secrets" ];
+      };
+      xcape = {
+        enable = true;
+        mapExpression = {
+          Control_L = "Escape";
+        };
       };
     };
     xsession = {
