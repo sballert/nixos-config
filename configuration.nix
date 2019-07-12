@@ -96,6 +96,22 @@
         };
       };
     };
+    systemd.user.services = {
+      autorepeat = {
+        Unit = {
+          Description = "Keyboard autorepeat rate";
+          PartOf = [ "hm-graphical-session.target" ];
+        };
+        Service = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          ExecStart = "${pkgs.xorg.xset}/bin/xset r rate 200 60";
+        };
+        Install = {
+          WantedBy = [ "hm-graphical-session.target" ];
+        };
+      };
+    };
   };
 
   system.stateVersion = "19.09";
