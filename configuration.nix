@@ -85,6 +85,14 @@
   home-manager.users.sballert = {
     home = {
     };
+    xsession = {
+      enable = true;
+      windowManager.xmonad = {
+        enable = true;
+        enableContribAndExtras = true;
+        config = ./xmonad.hs;
+      };
+    };
   };
 
   # This value determines the NixOS release with which your system is to be
