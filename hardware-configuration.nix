@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelParams = [ "acpi_osi=!" ''acpi_osi="Windows 2009"'' ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.blacklistedKernelModules = [ "nouveau" "rivafb" "nvidiafb" "rivatv" "nv" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
