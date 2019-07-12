@@ -84,6 +84,23 @@
 
   home-manager.users.sballert = {
     home = {
+      packages = with pkgs; [ gnupg st ];
+      file = {
+        ".gnupg/sshcontrol".text = ''
+          447910F828DF001601E7FAECF768DFA93DF87136
+        '';
+      };
+    };
+    services = {
+      gpg-agent = {
+        enable = true;
+        defaultCacheTtl = 1800;
+        enableSshSupport = true;
+      };
+      gnome-keyring = {
+        enable = true;
+        components = [ "secrets" ];
+      };
     };
     xsession = {
       enable = true;
