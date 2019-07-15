@@ -42,6 +42,23 @@
     };
   };
 
+  fonts = {
+    enableFontDir = true;
+    enableDefaultFonts = true;
+    fontconfig = {
+      ultimate.enable = true;
+      defaultFonts = {
+        monospace = ["Roboto Mono"];
+        sansSerif = ["Noto Sans Display"];
+        serif = ["Noto Serif Display"];
+      };
+    };
+    fonts = with pkgs; [
+      noto-fonts
+      roboto-mono
+    ];
+  };
+
   users.users.sballert = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
