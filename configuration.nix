@@ -95,6 +95,7 @@
           github.user = "sballert";
         };
       };
+      firefox.enable = true;
     };
     systemd.user.services = {
       autorepeat = {
