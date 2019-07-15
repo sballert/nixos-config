@@ -54,6 +54,7 @@
         ".gnupg/sshcontrol".text = ''
           447910F828DF001601E7FAECF768DFA93DF87136
         '';
+        ".emacs.d/init.el".text = builtins.readFile ./init.el;
       };
     };
     services = {
