@@ -96,6 +96,9 @@
         };
       };
       firefox.enable = true;
+      emacs = {
+        enable = true;
+      };
     };
     systemd.user.services = {
       autorepeat = {
