@@ -43,9 +43,8 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 
   services.xserver = {
     enable = true;
@@ -90,7 +89,10 @@
 
   home-manager.users.sballert = {
     home = {
-      packages = with pkgs; [ gnupg st xmobar ];
+      packages = with pkgs; [
+        gnupg st xmobar
+        pulseaudio-ctl
+      ];
       file = {
         ".gnupg/sshcontrol".text = ''
           447910F828DF001601E7FAECF768DFA93DF87136
