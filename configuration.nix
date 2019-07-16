@@ -92,6 +92,7 @@
       packages = with pkgs; [
         gnupg st xmobar
         pulseaudio-ctl
+        pass
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
@@ -159,6 +160,10 @@
         enable = true;
         font = "Noto Sans Display 10";
         theme = builtins.toPath "${pkgs.gruvbox-rofi}/gruvbox-dark.rasi";
+      };
+      browserpass = {
+        enable = true;
+        browsers = [ "firefox" ];
       };
     };
     systemd.user.services = {
