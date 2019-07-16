@@ -93,6 +93,7 @@
         gnupg st xmobar
         pulseaudio-ctl
         pass
+        udiskie
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
@@ -120,6 +121,10 @@
       screen-locker = {
         enable = true;
         lockCmd = "slock";
+      };
+      udiskie = {
+        enable = true;
+        tray = "never";
       };
     };
     xsession = {
