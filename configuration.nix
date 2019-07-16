@@ -78,13 +78,18 @@
     ];
   };
 
+  virtualisation.virtualbox.host.enable = true;
+
   programs = {
     slock.enable = true;
   };
 
   users.users.sballert = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "vboxusers"
+    ];
   };
 
   home-manager.users.sballert = {
