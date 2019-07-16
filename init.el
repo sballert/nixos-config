@@ -90,6 +90,15 @@
 (setq-default major-mode 'text-mode
               indent-tabs-mode nil)
 
+;; files.el --- file input and output commands for Emacs
+(use-package files
+  :demand t
+  :config
+  (setq save-silently t
+        large-file-warning-threshold 100000000
+        auto-save-default nil
+        make-backup-files nil))
+
 ;; menu-bar.el --- define a default menu bar
 (use-package menu-bar :commands menu-bar-mode :config (menu-bar-mode -1))
 
