@@ -46,17 +46,19 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    libinput.enable = true;
-    xkbOptions = "compose:ralt,compose:rwin,ctrl:nocaps";
-    displayManager.lightdm = {
+  services = {
+    xserver = {
       enable = true;
-      greeters.gtk.enable = false;
-      greeters.mini = {
+      layout = "us";
+      libinput.enable = true;
+      xkbOptions = "compose:ralt,compose:rwin,ctrl:nocaps";
+      displayManager.lightdm = {
         enable = true;
-        user = "sballert";
+        greeters.gtk.enable = false;
+        greeters.mini = {
+          enable = true;
+          user = "sballert";
+        };
       };
     };
   };
