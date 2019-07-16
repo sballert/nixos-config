@@ -173,6 +173,10 @@
 ;; and authoring documents with a fast and effective plain-text system.
 (use-package org :demand t)
 
+;; https://orgmode.org/
+;; Dynamic indentation for Org
+(use-package org-indent :diminish :hook (org-mode . org-indent-mode))
+
 ;; https://github.com/sabof/org-bullets
 ;; utf-8 bullets for org-mode
 (use-package org-bullets :hook (org-mode . org-bullets-mode))
