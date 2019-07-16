@@ -29,16 +29,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;
-
   time.timeZone = "Europe/Berlin";
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking = {
+    hostName = "nixos";
+    wireless.enable = true;
+    firewall = {
+      enable = true;
+    };
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
