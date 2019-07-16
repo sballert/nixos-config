@@ -100,6 +100,7 @@
         pass
         udiskie
         libreoffice
+        vagrant
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
