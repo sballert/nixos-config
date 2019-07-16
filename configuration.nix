@@ -36,6 +36,12 @@
     wireless.enable = true;
     firewall = {
       enable = true;
+      allowedTCPPorts = [
+        111 2049 20048
+      ];
+      allowedUDPPorts = [
+        111 2049 20048
+      ];
     };
   };
 
@@ -59,6 +65,12 @@
           user = "sballert";
         };
       };
+    };
+    nfs.server = {
+      enable = true;
+      extraNfsdConfig = ''
+        udp=y
+      '';
     };
   };
 
