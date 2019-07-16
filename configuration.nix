@@ -94,6 +94,7 @@
         pulseaudio-ctl
         pass
         udiskie
+        libreoffice
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
