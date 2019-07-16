@@ -92,7 +92,7 @@
 ;; frame.el --- multi-frame management independent of window systems
 (use-package frame
   :config
-  (add-to-list 'default-frame-alist '(font . "Roboto Mono-11"))
+  (add-to-list 'default-frame-alist '(font . "Roboto Mono-10"))
   (blink-cursor-mode 0)
   (setq-default cursor-in-non-selected-windows nil))
 
