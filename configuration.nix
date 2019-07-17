@@ -22,6 +22,14 @@
             install -m755 -D $src/*.rasi $out
           '';
         };
+        xrandr-toggle = stdenv.mkDerivation {
+          name = "xrandr-toggle";
+          buildInputs = [ xorg.xrandr ];
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/xrandr-toggle.sh} $out/bin/xrandr-toggle
+          '';
+        };
       })
     ];
   };
@@ -114,6 +122,7 @@
         udiskie
         libreoffice
         vagrant
+        xrandr-toggle
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
