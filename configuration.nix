@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -75,6 +76,11 @@
   users.users.sballert = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+  };
+
+  home-manager.users.sballert = {
+    home = {
+    };
   };
 
   # This value determines the NixOS release with which your system is to be
