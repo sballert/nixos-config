@@ -172,7 +172,8 @@
       firefox.enable = true;
       emacs = {
         enable = true;
-        extraPackages = epkgs: with epkgs.melpaPackages; [
+        extraPackages = epkgs: with epkgs; [
+        ] ++ (with melpaPackages; [
           use-package diminish
           evil evil-collection
           general
@@ -185,7 +186,7 @@
           nix-mode
           ws-butler
           php-mode
-        ] ++ (with epkgs.orgPackages; [
+        ]) ++ (with orgPackages; [
           org-plus-contrib
         ]);
       };
