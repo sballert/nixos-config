@@ -7,8 +7,10 @@
   ];
 
   nixpkgs = {
-    overlays = with pkgs; [
-      (self: super: {
+    overlays = [
+      (self: super: let
+        inherit (super) stdenv fetchFromGitHub;
+      in {
         gruvbox-rofi = stdenv.mkDerivation {
           name = "gruvbox-rofi";
           src = fetchFromGitHub {
@@ -24,7 +26,7 @@
         };
         xrandr-toggle = stdenv.mkDerivation {
           name = "xrandr-toggle";
-          buildInputs = [ xorg.xrandr ];
+          buildInputs = [ self.xorg.xrandr ];
           unpackPhase = ":";
           installPhase = ''
             install -m755 -D ${./scripts/xrandr-toggle.sh} $out/bin/xrandr-toggle
