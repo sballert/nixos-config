@@ -62,6 +62,11 @@
   hardware.pulseaudio.enable = true;
 
   services = {
+    undervolt = {
+      enable = true;
+      coreOffset = "-140";
+      gpuOffset = "-75";
+    };
     xserver = {
       enable = true;
       layout = "us";
