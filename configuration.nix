@@ -34,6 +34,14 @@ in {
             install -m755 -D ${./scripts/xrandr-toggle.sh} $out/bin/xrandr-toggle
           '';
         };
+        xrandr-primary = stdenv.mkDerivation {
+          name = "xrandr-primary";
+          buildInputs = [ self.xorg.xrandr ];
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/xrandr-primary.sh} $out/bin/xrandr-primary
+          '';
+        };
       })
     ];
   };
@@ -147,6 +155,7 @@ in {
         libreoffice
         vagrant
         xrandr-toggle
+        xrandr-primary
         gimp
       ];
       file = {
@@ -190,6 +199,7 @@ in {
       };
       initExtra = ''
         feh --bg-scale ${wallpaper} &
+        ${pkgs.xrandr-primary}/bin/xrandr-primary
       '';
     };
     programs = {
