@@ -16,6 +16,9 @@ in {
         slock = super.slock.override {
           conf = builtins.readFile ./slock.h;
         };
+        st = super.st.override {
+          conf = builtins.readFile ./st.h;
+        };
         gruvbox-rofi = stdenv.mkDerivation {
           name = "gruvbox-rofi";
           src = fetchFromGitHub {
