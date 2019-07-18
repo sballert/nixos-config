@@ -46,6 +46,17 @@ in {
   networking = {
     hostName = "nixos";
     wireless.enable = true;
+    dhcpcd = {
+      enable = true;
+      runHook = ''
+        if [[ $reason =~ BOUND ]]; then
+          if grep -q '^domain silversurfer7.de' /etc/resolv.conf; then
+            echo "Add default route for domain silversurfer7.de"
+            ${pkgs.iproute}/bin/ip route add default via 192.168.100.1
+          fi
+        fi
+      '';
+    };
     firewall = {
       enable = true;
       allowedTCPPorts = [
