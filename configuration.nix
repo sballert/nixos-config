@@ -175,6 +175,7 @@ in {
         xrandr-toggle
         xrandr-primary
         gimp
+        gnome3.dconf
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
@@ -219,6 +220,18 @@ in {
         feh --bg-scale ${wallpaper} &
         ${pkgs.xrandr-primary}/bin/xrandr-primary
       '';
+    };
+    gtk = {
+      enable = true;
+      font.name = "Noto Sans Display 10";
+      theme = {
+        package = pkgs.arc-theme;
+        name = "Arc-Dark";
+      };
+      iconTheme = {
+        package = pkgs.arc-icon-theme;
+        name = "Arc";
+      };
     };
     programs = {
       git = {
