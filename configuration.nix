@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: let
 
-{
+  wallpaper = builtins.fetchurl https://s3.amazonaws.com/psiu/wallpapers/heic1209a/heic1209a_desktop.jpg;
+
+in {
   imports = [
     ./hardware-configuration.nix
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
@@ -171,6 +173,9 @@
         enableContribAndExtras = true;
         config = ./xmonad.hs;
       };
+      initExtra = ''
+        feh --bg-scale ${wallpaper} &
+      '';
     };
     programs = {
       git = {
