@@ -114,6 +114,10 @@ in {
     slock.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    cifs-utils
+  ];
+
   users.users.sballert = {
     isNormalUser = true;
     extraGroups = [
