@@ -130,6 +130,7 @@
         libreoffice
         vagrant
         xrandr-toggle
+        gimp
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
