@@ -219,6 +219,10 @@
         enable = true;
         browsers = [ "firefox" ];
       };
+      feh = {
+        enable = true;
+        keybindings = { zoom_in = "j"; zoom_out = "k"; };
+      };
     };
     systemd.user.services = {
       autorepeat = {
