@@ -13,6 +13,9 @@ in {
       (self: super: let
         inherit (super) stdenv fetchFromGitHub;
       in {
+        slock = super.slock.override {
+          conf = builtins.readFile ./slock.h;
+        };
         gruvbox-rofi = stdenv.mkDerivation {
           name = "gruvbox-rofi";
           src = fetchFromGitHub {
