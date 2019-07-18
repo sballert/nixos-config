@@ -101,10 +101,22 @@ in {
       xkbOptions = "compose:ralt,compose:rwin,ctrl:nocaps";
       displayManager.lightdm = {
         enable = true;
+        background = wallpaper;
         greeters.gtk.enable = false;
         greeters.mini = {
           enable = true;
           user = "sballert";
+          extraConfig = ''
+            [greeter]
+            show-password-label = false
+            [greeter-theme]
+            text-color = "#ebdbb2"
+            error-color = "#fb4934"
+            window-color = "#282828"
+            border-color = "#665c54"
+            password-color = "#ebdbb2"
+            password-background-color = "#3c3836"
+          '';
         };
       };
     };
