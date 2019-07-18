@@ -9,6 +9,7 @@ in {
   ];
 
   nixpkgs = {
+    config.allowUnfree = true;
     overlays = [
       (self: super: let
         inherit (super) stdenv fetchFromGitHub;
@@ -176,6 +177,7 @@ in {
         xrandr-primary
         gimp
         gnome3.dconf
+        spotify
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
