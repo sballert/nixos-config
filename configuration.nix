@@ -49,6 +49,13 @@ in {
             install -m755 -D ${./scripts/xrandr-primary.sh} $out/bin/xrandr-primary
           '';
         };
+        xlogout = stdenv.mkDerivation {
+          name = "xlogout";
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/xlogout.sh} $out/bin/xlogout
+          '';
+        };
       })
     ];
   };
@@ -176,6 +183,7 @@ in {
         vagrant
         xrandr-toggle
         xrandr-primary
+        xlogout
         gimp
         gnome3.dconf
         spotify
