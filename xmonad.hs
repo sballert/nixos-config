@@ -9,6 +9,8 @@ myConfig = def
   { modMask = mod4Mask
   , terminal = "st"
   , borderWidth = 1
+  , normalBorderColor = "#3c3836"
+  , focusedBorderColor = "#665c54"
   }
   `additionalKeys`
   [ ((mod4Mask, xK_Return), spawn "rofi -show drun")
