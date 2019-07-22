@@ -12,4 +12,5 @@ myConfig = def
   }
   `additionalKeys`
   [ ((mod4Mask, xK_Return), spawn "rofi -show drun")
+  , ((mod4Mask, xK_s), spawn "loginctl lock-session")
   ]

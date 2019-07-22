@@ -79,6 +79,10 @@
     ];
   };
 
+  programs = {
+    slock.enable = true;
+  };
+
   users.users.sballert = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -109,6 +113,10 @@
         mapExpression = {
           Control_L = "Escape";
         };
+      };
+      screen-locker = {
+        enable = true;
+        lockCmd = "slock";
       };
     };
     xsession = {
