@@ -8,8 +8,14 @@ Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=tru
        , iconOffset = -1
        , commands = [ Run StdinReader
                     , Run Date "<fc=#458588><fn=1>\xf073</fn> %m/%d/%Y      <fn=1>\xf017</fn> %H:%M:%S</fc>" "date" 10
+                    , Run MultiCpu [ "-t" ,"<fc=#d65d0e><fn=1>\xf085</fn> <autototal>%</fc>"
+                              , "-L" , "40"
+                              , "-H" , "60"
+                              , "-h" , "#cc241d"
+                              ] 10
                     ]
        , alignSep = "}{"
        , template = "   %StdinReader% }\
+                    \ %multicpu%      \
                     \{ %date% "
 }
