@@ -1,7 +1,8 @@
 import XMonad
+import XMonad.Hooks.DynamicLog (xmobar)
 
 main = do
-  xmonad myConfig
+  xmonad =<< xmobar myConfig
 
 myConfig = def
   { modMask = mod4Mask

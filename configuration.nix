@@ -66,7 +66,7 @@
 
   home-manager.users.sballert = {
     home = {
-      packages = with pkgs; [ gnupg st ];
+      packages = with pkgs; [ gnupg st xmobar ];
       file = {
         ".gnupg/sshcontrol".text = ''
           447910F828DF001601E7FAECF768DFA93DF87136
