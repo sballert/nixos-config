@@ -13,9 +13,14 @@ Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=tru
                               , "-H" , "60"
                               , "-h" , "#cc241d"
                               ] 10
+                    , Run Memory [ "-t" , "<fc=#d65d0e><fn=1>\xf039</fn> <usedratio>%</fc>"
+                                 , "-p" , "2"
+                                 , "-h", "#cc241d"
+                                 ] 10
                     ]
        , alignSep = "}{"
        , template = "   %StdinReader% }\
                     \ %multicpu%      \
+                    \ %memory%      \
                     \{ %date% "
 }
