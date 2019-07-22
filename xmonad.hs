@@ -5,7 +5,7 @@ import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Util.Run (spawnPipe, hPutStrLn)
 
 main = do
-  xmobar <- spawnPipe "xmobar"
+  xmobar <- spawnPipe "xmobar /home/sballert/.config/xmobar/xmobarrc"
   xmonad $ myConfig xmobar
 
 myConfig xmobar = def

@@ -1,0 +1,14 @@
+Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=true"
+       , additionalFonts = [ "xft:FontAwesome:pixelsize=14:antialias=true:hinting=true" ]
+       , bgColor = "#1d2021"
+       , fgColor = "#928374"
+       , alpha = 235
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , commands = [ Run StdinReader
+                    ]
+       , alignSep = "}{"
+       , template = "   %StdinReader% }\
+                    \{ "
+}

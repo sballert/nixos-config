@@ -143,6 +143,7 @@ in {
     fonts = with pkgs; [
       noto-fonts
       roboto-mono
+      emacs-all-the-icons-fonts
     ];
   };
 
@@ -184,6 +185,7 @@ in {
           447910F828DF001601E7FAECF768DFA93DF87136
         '';
         ".emacs.d/init.el".text = builtins.readFile ./init.el;
+        ".config/xmobar/xmobarrc".text = builtins.readFile ./xmobarrc;
       };
     };
     services = {
