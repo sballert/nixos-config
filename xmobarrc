@@ -7,8 +7,9 @@ Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=tru
        , textOffset = -1
        , iconOffset = -1
        , commands = [ Run StdinReader
+                    , Run Date "<fc=#458588><fn=1>\xf073</fn> %m/%d/%Y      <fn=1>\xf017</fn> %H:%M:%S</fc>" "date" 10
                     ]
        , alignSep = "}{"
        , template = "   %StdinReader% }\
-                    \{ "
+                    \{ %date% "
 }
