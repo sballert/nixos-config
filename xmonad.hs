@@ -1,5 +1,6 @@
 import XMonad
-import XMonad.Hooks.DynamicLog (dynamicLogWithPP, ppOutput)
+import XMonad.Hooks.DynamicLog (dynamicLogWithPP, ppOutput, ppCurrent, wrap
+                               ,xmobarColor)
 import XMonad.Hooks.ManageDocks (avoidStruts, manageDocks, docksEventHook)
 import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Util.Run (spawnPipe, hPutStrLn)
@@ -29,4 +30,5 @@ myConfig xmobar = def
 
 myLogHook xmobar = def
   { ppOutput = hPutStrLn xmobar
+  , ppCurrent = xmobarColor "#d79921" "" . wrap "[" "]"
   }
