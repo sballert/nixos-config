@@ -6,6 +6,26 @@
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
   ];
 
+  nixpkgs = {
+    overlays = with pkgs; [
+      (self: super: {
+        gruvbox-rofi = stdenv.mkDerivation {
+          name = "gruvbox-rofi";
+          src = fetchFromGitHub {
+            owner = "bardisty";
+            repo = "gruvbox-rofi";
+            rev = "0b4cf703087e2150968826b7508cf119437eba7a";
+            sha256 = "18rkm03p08bjkgiqh599pcvyqxmwldza600pq3sinmpk4sv4s1cw";
+          };
+          installPhase = ''
+            install -d $out
+            install -m755 -D $src/*.rasi $out
+          '';
+        };
+      })
+    ];
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -124,6 +144,11 @@
           gruvbox-theme
           counsel
         ];
+      };
+      rofi = {
+        enable = true;
+        font = "Noto Sans Display 10";
+        theme = builtins.toPath "${pkgs.gruvbox-rofi}/gruvbox-dark.rasi";
       };
     };
     systemd.user.services = {
