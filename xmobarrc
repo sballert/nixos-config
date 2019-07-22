@@ -40,6 +40,13 @@ Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=tru
                                   , "--off-icon-pattern" , "<fn=1>\xf1e6</fn>"
                                   , "--on-icon-pattern" , "<fn=1>\xf1e6</fn>"
                                   ] 10
+                    , Run Volume "default" "Master" [ "-t" , "<fc=#d65d0e> <status> <volume>% </fc>"
+                                                    , "--"
+                                                    , "-O" , "<fn=1>\xf028</fn>"
+                                                    , "-o" , "<fn=1>\xf026</fn>"
+                                                    , "-C" , "#d65d0e"
+                                                    , "-c" , "#cc241d"
+                                                    ] 10
                     ]
        , alignSep = "}{"
        , template = "   %StdinReader% }\
@@ -48,5 +55,6 @@ Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=tru
                     \ %memory%      \
                     \ %wlp59s0wi%      \
                     \ %battery%      \
+                    \ %default:Master%      \
                     \{ %date% "
 }
