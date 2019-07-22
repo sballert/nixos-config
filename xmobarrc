@@ -22,12 +22,19 @@ Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=tru
                                  , "-p" , "2"
                                  , "-h", "#cc241d"
                                  ] 10
-
+                    , Run Wireless "wlp59s0" [ "-a" , "l"
+                                            , "-x" , "-"
+                                            , "-t" , "<fc=#d65d0e><fn=1>\xf1eb</fn> <essid> <quality>%</fc>"
+                                            , "-L" , "50"
+                                            , "-H" , "75"
+                                            , "-l" , "#cc241d"
+                                            ] 10
                     ]
        , alignSep = "}{"
        , template = "   %StdinReader% }\
                     \ %multicpu%      \
                     \ %coretemp%      \
                     \ %memory%      \
+                    \ %wlp59s0wi%      \
                     \{ %date% "
 }
