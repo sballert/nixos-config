@@ -13,14 +13,21 @@ Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=tru
                               , "-H" , "60"
                               , "-h" , "#cc241d"
                               ] 10
+                    , Run CoreTemp [ "-t" , "<fc=#d65d0e><fn=1>\xf185</fn> <core0> <core2> <core3> <core4> <core5>C</fc>"
+                                   , "-L" , "40"
+                                   , "-H" , "60"
+                                   , "-h" , "#cc241d"
+                                   ] 10
                     , Run Memory [ "-t" , "<fc=#d65d0e><fn=1>\xf039</fn> <usedratio>%</fc>"
                                  , "-p" , "2"
                                  , "-h", "#cc241d"
                                  ] 10
+
                     ]
        , alignSep = "}{"
        , template = "   %StdinReader% }\
                     \ %multicpu%      \
+                    \ %coretemp%      \
                     \ %memory%      \
                     \{ %date% "
 }
