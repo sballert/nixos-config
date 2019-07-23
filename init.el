@@ -359,6 +359,12 @@
 ;; https://github.com/haskell/haskell-mode
 ;; Emacs mode for Haskell
 (use-package haskell-mode
+  :general
+  (local-def
+    :keymaps '(haskell-mode-map)
+    "i" 'haskell-navigate-imports
+    "," 'haskell-mode-format-imports
+    "s" 'haskell-sort-imports)
   :init (load "haskell-mode-autoloads")
   :mode ("\\.hs$" . haskell-mode))
 
