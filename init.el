@@ -31,8 +31,8 @@
     :prefix-map 'prefix-map)
   (general-create-definer local-def
     :states '(normal insert emacs)
-    :prefix "\\"
-    :non-normal-prefix "M-\\")
+    :prefix "SPC SPC"
+    :non-normal-prefix "M-SPC SPC")
   (prefix-def
     "/" '(:ignore t :which-key "search")
     "b" '(:ignore t :which-key "buffer")
