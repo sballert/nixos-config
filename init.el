@@ -70,6 +70,16 @@
   (setq evil-collection-setup-minibuffer t)
   (evil-collection-init))
 
+;; Builtins ====================================================================
+;; menu-bar.el --- define a default menu bar
+(use-package menu-bar :commands menu-bar-mode :config (menu-bar-mode -1))
+
+;; scroll-bar.el --- window system-independent scroll bar support
+(use-package scroll-bar :commands scroll-bar-mode :config (scroll-bar-mode -1))
+
+;; tool-bar.el --- setting up the tool bar
+(use-package tool-bar :commands tool-bar-mode :config (tool-bar-mode -1))
+
 ;; Finalize ====================================================================
 (setq gc-cons-threshold 16777216
       gc-cons-percentage 0.1)
