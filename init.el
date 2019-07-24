@@ -218,6 +218,24 @@
 ;; Black magic or evil keys for magit
 (use-package evil-magit :diminish :demand t :after (evil magit))
 
+;; NixOS =======================================================================
+;; https://github.com/NixOS/nix-mode
+;; An Emacs major mode for editing Nix expressions.
+(use-package nix-mode
+  :mode "\\.nix$"
+  :general
+  (prefix-def
+    "N" '(:ignore t :which-key "nix")
+    "Nb" 'nix-build
+    "NR" 'nix-repl
+    "Ns" 'nix-shell
+    "Nu" 'nix-unpack)
+  :config (setq nix-indent-function 'nix-indent-line))
+
+;; https://github.com/NixOS/nix-mode
+;; nix-drv-mode.el --- Major mode for viewing .drv files
+(use-package nix-drv-mode :mode "\\.drv\\'")
+
 ;; Misc ========================================================================
 ;; https://github.com/bbatsov/super-save
 ;; Save Emacs buffers when they lose focus

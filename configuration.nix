@@ -182,6 +182,7 @@
           evil-org org-bullets
           super-save
           magit evil-magit
+          nix-mode
         ] ++ (with epkgs.orgPackages; [
           org-plus-contrib
         ]);
