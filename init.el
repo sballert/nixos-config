@@ -123,6 +123,14 @@
         column-number-mode t
         save-interprogram-paste-before-kill t))
 
+;; dired.el --- directory-browsing commands
+(use-package dired
+  :config
+  (setq dired-auto-revert-buffer t
+        dired-dwim-target t
+        dired-listing-switches "-alh")
+  (put 'dired-find-alternate-file 'disabled nil))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
