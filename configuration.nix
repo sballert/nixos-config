@@ -180,6 +180,7 @@
           gruvbox-theme
           counsel
           evil-org org-bullets
+          super-save
         ] ++ (with epkgs.orgPackages; [
           org-plus-contrib
         ]);

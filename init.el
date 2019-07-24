@@ -36,8 +36,6 @@
   (prefix-def
     "/" '(:ignore t :which-key "search")
     "b" '(:ignore t :which-key "buffer")
-    "bq" 'save-buffers-kill-terminal
-    "bs" 'save-buffer
     "f" '(:ignore t :which-key "find")
     "ff" 'find-file
     "w" '(:ignore t :which-key "window")
@@ -201,6 +199,15 @@
   :demand t
   :after (evil-org)
   :config (evil-org-agenda-set-keys))
+
+;; Misc ========================================================================
+;; https://github.com/bbatsov/super-save
+;; Save Emacs buffers when they lose focus
+(use-package super-save
+  :diminish
+  :hook (after-init . super-save-mode)
+  :config
+  (setq super-save-auto-save-when-idle t))
 
 ;; Theme =======================================================================
 (require 'gruvbox)
