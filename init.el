@@ -80,6 +80,10 @@
 ;; tool-bar.el --- setting up the tool bar
 (use-package tool-bar :commands tool-bar-mode :config (tool-bar-mode -1))
 
+;; Theme =======================================================================
+(require 'gruvbox)
+(load-theme 'gruvbox t)
+
 ;; Finalize ====================================================================
 (setq gc-cons-threshold 16777216
       gc-cons-percentage 0.1)

@@ -104,6 +104,7 @@
           evil evil-collection
           general
           which-key
+          gruvbox-theme
         ];
       };
     };
