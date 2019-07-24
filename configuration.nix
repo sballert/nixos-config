@@ -272,6 +272,7 @@ in {
         };
       };
       firefox.enable = true;
+      google-chrome.enable = true;
       emacs = {
         enable = true;
         extraPackages = epkgs: with epkgs; [
