@@ -99,6 +99,9 @@
       firefox.enable = true;
       emacs = {
         enable = true;
+        extraPackages = epkgs: with epkgs.melpaPackages; [
+          use-package diminish
+        ];
       };
     };
     systemd.user.services = {
