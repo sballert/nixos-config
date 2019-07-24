@@ -144,6 +144,14 @@
   :hook ((prog-mode text-mode) . whitespace-mode)
   :config (setq whitespace-style '(face trailing tabs tab-mark)))
 
+;; recentf.el --- setup a menu of recently opened files
+(use-package recentf
+  :demand t
+  :hook ((after-init) . recentf-mode)
+  :config
+  (setq recentf-max-saved-items 1000
+        recentf-max-menu-items 200))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
