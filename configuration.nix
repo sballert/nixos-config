@@ -2,12 +2,6 @@
 
   wallpaper = builtins.fetchurl https://s3.amazonaws.com/psiu/wallpapers/heic1209a/heic1209a_desktop.jpg;
 
-in {
-  imports = [
-    ./hardware-configuration.nix
-    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
-  ];
-
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
@@ -59,6 +53,14 @@ in {
       })
     ];
   };
+
+in {
+  imports = [
+    ./hardware-configuration.nix
+    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
+  ];
+
+  inherit nixpkgs;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -173,6 +175,7 @@ in {
   };
 
   home-manager.users.sballert = {
+    inherit nixpkgs;
     home = {
       packages = with pkgs; [
         gnupg st xmobar
