@@ -251,6 +251,10 @@
   :config
   (setq super-save-auto-save-when-idle t))
 
+;; https://github.com/lewang/ws-butler
+;; Unobtrusively trim extraneous white-space *ONLY* in lines edited.
+(use-package ws-butler :diminish :hook (after-init . ws-butler-global-mode))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)

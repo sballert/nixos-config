@@ -183,6 +183,7 @@
           super-save
           magit evil-magit
           nix-mode
+          ws-butler
         ] ++ (with epkgs.orgPackages; [
           org-plus-contrib
         ]);
