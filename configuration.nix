@@ -122,6 +122,7 @@
           general
           which-key
           gruvbox-theme
+          counsel
         ];
       };
     };

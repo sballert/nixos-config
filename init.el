@@ -34,6 +34,7 @@
     :prefix "\\"
     :non-normal-prefix "M-\\")
   (prefix-def
+    "/" '(:ignore t :which-key "search")
     "b" '(:ignore t :which-key "buffer")
     "bq" 'save-buffers-kill-terminal
     "bs" 'save-buffer
@@ -91,6 +92,35 @@
   (add-to-list 'default-frame-alist '(font . "Roboto Mono-11"))
   (blink-cursor-mode 0)
   (setq-default cursor-in-non-selected-windows nil))
+
+;; Swiper ======================================================================
+;; https://github.com/abo-abo/swiper
+;; Ivy - a generic completion frontend for Emacs
+(use-package ivy
+  :diminish
+  :hook (after-init . ivy-mode)
+  :general
+  (general-def 'normal  'ivy-occur-mode-map
+    "<escape>" 'minibuffer-keyboard-quit)
+  (prefix-def "bb" 'ivy-switch-buffer)
+  :config
+  (setq ivy-use-virtual-buffers t
+        ivy-count-format "%d/%d "
+        ivy-use-selectable-prompt t))
+
+;; https://github.com/abo-abo/swiper
+;; Various completion functions using Ivy
+(use-package counsel
+  :diminish
+  :hook (after-init . counsel-mode)
+  :general
+  (prefix-def
+    "r" 'counsel-recentf
+    "x" 'counsel-M-x))
+
+;; https://github.com/abo-abo/swiper
+;; Swiper - isearch with an overview
+(use-package swiper :general (prefix-def "/s" 'swiper))
 
 ;; Theme =======================================================================
 (require 'gruvbox)
