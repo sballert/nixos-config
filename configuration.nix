@@ -184,6 +184,7 @@
           magit evil-magit
           nix-mode
           ws-butler
+          php-mode
         ] ++ (with epkgs.orgPackages; [
           org-plus-contrib
         ]);

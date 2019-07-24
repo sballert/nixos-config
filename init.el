@@ -255,6 +255,11 @@
 ;; Unobtrusively trim extraneous white-space *ONLY* in lines edited.
 (use-package ws-butler :diminish :hook (after-init . ws-butler-global-mode))
 
+;; PHP =========================================================================
+;; https://github.com/emacs-php/php-mode
+;; A PHP mode for GNU Emacs
+(use-package php-mode :mode ("\\.php$" . php-mode))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)
