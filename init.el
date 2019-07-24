@@ -160,6 +160,9 @@
   :hook (after-init . global-auto-revert-mode)
   :config (setq auto-revert-check-vc-info t))
 
+;; eldoc.el --- Show function arglist or variable docstring in echo area
+(use-package eldoc :diminish)
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
