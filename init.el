@@ -348,6 +348,13 @@
 ;; A PHP mode for GNU Emacs
 (use-package php-mode :mode ("\\.php$" . php-mode))
 
+;; Haskell =====================================================================
+;; https://github.com/haskell/haskell-mode
+;; Emacs mode for Haskell
+(use-package haskell-mode
+  :init (load "haskell-mode-autoloads")
+  :mode ("\\.hs$" . haskell-mode))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)

@@ -205,6 +205,7 @@
           ws-butler
           php-mode
           fill-column-indicator
+          haskell-mode
         ]) ++ (with orgPackages; [
           org-plus-contrib
         ]);
