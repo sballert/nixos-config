@@ -40,6 +40,7 @@
     "bs" 'save-buffer
     "f" '(:ignore t :which-key "find")
     "ff" 'find-file
+    "w" '(:ignore t :which-key "window")
     "Q" 'save-buffers-kill-terminal))
 
 ;; https://github.com/justbur/emacs-which-key
@@ -58,6 +59,20 @@
 ;; The extensible vi layer for Emacs.
 (use-package evil
   :hook (after-init . evil-mode)
+  :general
+  (prefix-def
+    "wh" 'evil-window-left
+    "wj" 'evil-window-down
+    "wk" 'evil-window-up
+    "wl" 'evil-window-right
+    "wo" 'delete-other-windows
+    "ws" 'evil-window-split
+    "wv" 'evil-window-vsplit
+    "wq" 'evil-quit
+    "wH" 'evil-window-decrease-width
+    "wL" 'evil-window-increase-width
+    "wJ" 'evil-window-decrease-height
+    "wK" 'evil-window-increase-height)
   :init
   (setq evil-want-integration t
         evil-want-keybinding nil))
