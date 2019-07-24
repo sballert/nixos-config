@@ -102,6 +102,7 @@
         extraPackages = epkgs: with epkgs.melpaPackages; [
           use-package diminish
           evil evil-collection
+          general
         ];
       };
     };

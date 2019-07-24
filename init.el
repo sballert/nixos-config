@@ -16,6 +16,29 @@
   (setq use-package-always-defer t)
   (require 'diminish))
 
+;; general.el ==================================================================
+;; https://github.com/noctuid/general.el
+;; More convenient key definitions in emacs
+(use-package general
+  :demand t
+  :config
+  (general-create-definer prefix-def
+    :keymaps 'override
+    :states '(normal insert emacs)
+    :prefix "SPC"
+    :non-normal-prefix "M-SPC"
+    :prefix-command 'prefix-command
+    :prefix-map 'prefix-map)
+  (general-create-definer local-def
+    :states '(normal insert emacs)
+    :prefix "\\"
+    :non-normal-prefix "M-\\")
+  (prefix-def
+    "bq" 'save-buffers-kill-terminal
+    "bs" 'save-buffer
+    "ff" 'find-file
+    "Q" 'save-buffers-kill-terminal))
+
 ;; evil-mode ===================================================================
 ;; https://github.com/emacs-evil/evil
 ;; The extensible vi layer for Emacs.
