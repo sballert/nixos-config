@@ -173,6 +173,7 @@
       emacs = {
         enable = true;
         extraPackages = epkgs: with epkgs; [
+          pdf-tools
         ] ++ (with melpaPackages; [
           use-package diminish
           evil evil-collection

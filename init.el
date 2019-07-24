@@ -255,6 +255,61 @@
 ;; Unobtrusively trim extraneous white-space *ONLY* in lines edited.
 (use-package ws-butler :diminish :hook (after-init . ws-butler-global-mode))
 
+;; PDF Tools ===================================================================
+;; https://github.com/politza/pdf-tools
+;; Emacs support library for PDF files.
+(use-package pdf-tools
+  :mode (("\\.pdf\\'" . pdf-view-mode))
+  :functions (pdf-tools-disable-cursor pdf-tools-advice-evil-refresh-cursor)
+  :general (local-def :keymaps '(pdf-view-mode-map) "o" 'pdf-occur)
+  :config
+  (defun pdf-tools-advice-evil-refresh-cursor (evil-refresh-cursor &rest args)
+    (if (and (not (derived-mode-p 'evil-view-mode)) evil-default-cursor)
+        (apply evil-refresh-cursor args)
+      nil))
+  (advice-add 'evil-refresh-cursor :around #'pdf-tools-advice-evil-refresh-cursor)
+  (defun pdf-tools-disable-cursor ()
+    (setq-local evil-default-cursor nil))
+  (add-hook 'pdf-view-mode-hook #'pdf-tools-disable-cursor)
+  (add-hook 'pdf-view-mode-hook #'pdf-isearch-minor-mode)
+  (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-isearch --- Isearch in pdf buffers.
+(use-package pdf-isearch :demand t :after (pdf-tools))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-occur --- Display matching lines of PDF documents.
+(use-package pdf-occur :demand t :after (pdf-tools))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-links.el --- Handle PDF links.
+(use-package pdf-links :demand t :after (pdf-tools))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-annot.el --- Annotation support for PDF files.
+(use-package pdf-annot :demand t :after (pdf-tools))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-outline.el --- Outline for PDF buffer
+(use-package pdf-outline :demand t :after (pdf-tools))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-sync.el --- Use synctex to correlate LaTeX-Sources with PDF positions.
+(use-package pdf-sync :demand t :after (pdf-tools))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-virtual.el --- Virtual PDF documents
+(use-package pdf-virtual :demand t :after (pdf-tools))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-history.el --- A simple stack-based history in PDF buffers.
+(use-package pdf-history :demand t :after (pdf-tools))
+
+;; https://github.com/politza/pdf-tools
+;; pdf-misc.el --- Miscellaneous commands for PDF buffer.
+(use-package pdf-misc :demand t :after (pdf-tools))
+
 ;; PHP =========================================================================
 ;; https://github.com/emacs-php/php-mode
 ;; A PHP mode for GNU Emacs
