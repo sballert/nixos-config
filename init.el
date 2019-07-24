@@ -163,6 +163,11 @@
 ;; eldoc.el --- Show function arglist or variable docstring in echo area
 (use-package eldoc :diminish)
 
+;; display-line-numbers.el --- interface for display-line-numbers
+(use-package display-line-numbers
+  :hook (prog-mode . display-line-numbers-mode)
+  :config (setq display-line-numbers-type 'relative))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
