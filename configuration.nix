@@ -187,6 +187,7 @@
           nix-mode
           ws-butler
           php-mode
+          fill-column-indicator
         ]) ++ (with orgPackages; [
           org-plus-contrib
         ]);

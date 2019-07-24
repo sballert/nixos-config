@@ -279,6 +279,15 @@
 ;; Unobtrusively trim extraneous white-space *ONLY* in lines edited.
 (use-package ws-butler :diminish :hook (after-init . ws-butler-global-mode))
 
+;; https://github.com/alpaker/Fill-Column-Indicator
+;; An Emacs minor mode that graphically indicates the fill column.
+(use-package fill-column-indicator
+  :hook (prog-mode . fci-mode)
+  :config
+  (setq fci-rule-width 1
+        fci-rule-column 80
+        fci-rule-color "#665c54"))
+
 ;; PDF Tools ===================================================================
 ;; https://github.com/politza/pdf-tools
 ;; Emacs support library for PDF files.
