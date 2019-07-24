@@ -72,6 +72,9 @@
   (evil-collection-init))
 
 ;; Builtins ====================================================================
+(setq-default major-mode 'text-mode
+              indent-tabs-mode nil)
+
 ;; menu-bar.el --- define a default menu bar
 (use-package menu-bar :commands menu-bar-mode :config (menu-bar-mode -1))
 
