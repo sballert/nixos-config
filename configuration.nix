@@ -181,6 +181,7 @@
           counsel
           evil-org org-bullets
           super-save
+          magit evil-magit
         ] ++ (with epkgs.orgPackages; [
           org-plus-contrib
         ]);

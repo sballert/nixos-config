@@ -200,6 +200,20 @@
   :after (evil-org)
   :config (evil-org-agenda-set-keys))
 
+;; Magit =======================================================================
+;; https://github.com/magit/magit
+;; magit.el --- A Git porcelain inside Emacs
+(use-package magit
+  :general
+  (prefix-def
+    "g" '(:ignore t :which-key "magit")
+    "g SPC" 'magit-status
+    "gf" 'magit-log-buffer-file))
+
+;; https://github.com/emacs-evil/evil-magit
+;; Black magic or evil keys for magit
+(use-package evil-magit :diminish :demand t :after (evil magit))
+
 ;; Misc ========================================================================
 ;; https://github.com/bbatsov/super-save
 ;; Save Emacs buffers when they lose focus
