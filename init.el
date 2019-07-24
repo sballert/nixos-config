@@ -155,6 +155,11 @@
 ;; undo-tree.el --- Treat undo history as a tree
 (use-package undo-tree :diminish)
 
+;; autorevert.el --- revert buffers when files on disk change
+(use-package autorevert :diminish
+  :hook (after-init . global-auto-revert-mode)
+  :config (setq auto-revert-check-vc-info t))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
