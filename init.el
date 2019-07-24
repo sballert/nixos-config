@@ -96,6 +96,18 @@
   (blink-cursor-mode 0)
   (setq-default cursor-in-non-selected-windows nil))
 
+;; simple.el --- basic editing commands for Emacs
+(use-package simple
+  :general
+  (prefix-def
+    "!" 'shell-command
+    "&" 'async-shell-command
+    "bd" 'kill-current-buffer)
+  :config
+  (setq line-number-mode t
+        column-number-mode t
+        save-interprogram-paste-before-kill t))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
