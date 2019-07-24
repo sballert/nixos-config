@@ -80,6 +80,11 @@
 ;; tool-bar.el --- setting up the tool bar
 (use-package tool-bar :commands tool-bar-mode :config (tool-bar-mode -1))
 
+;; startup.el --- process Emacs shell arguments
+(eval-after-load "startup"
+  (setq inhibit-startup-screen t
+        initial-scratch-message ""))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)
