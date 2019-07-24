@@ -125,6 +125,39 @@
 ;; Swiper - isearch with an overview
 (use-package swiper :general (prefix-def "/s" 'swiper))
 
+;; org-mode ====================================================================
+;; https://orgmode.org/
+;; Org mode is for keeping notes, maintaining TODO lists, planning projects,
+;; and authoring documents with a fast and effective plain-text system.
+(use-package org :demand t)
+
+;; https://github.com/sabof/org-bullets
+;; utf-8 bullets for org-mode
+(use-package org-bullets :hook (org-mode . org-bullets-mode))
+
+;; https://github.com/Somelauw/evil-org-mode
+;; Supplemental evil-mode keybindings to emacs org-mode
+(use-package evil-org
+  :diminish
+  :after (evil org)
+  :hook (org-mode . evil-org-mode)
+  :config
+  (evil-org-set-key-theme '(navigation
+                            insert
+                            textobjects
+                            additional
+                            shift
+                            todo
+                            heading
+                            calendar)))
+
+;; https://github.com/Somelauw/evil-org-mode
+;; evil keybindings for org-agenda-mode
+(use-package evil-org-agenda
+  :demand t
+  :after (evil-org)
+  :config (evil-org-agenda-set-keys))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)

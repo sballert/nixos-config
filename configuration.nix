@@ -160,7 +160,10 @@
           which-key
           gruvbox-theme
           counsel
-        ];
+          evil-org org-bullets
+        ] ++ (with epkgs.orgPackages; [
+          org-plus-contrib
+        ]);
       };
       rofi = {
         enable = true;
