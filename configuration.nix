@@ -103,6 +103,7 @@
           use-package diminish
           evil evil-collection
           general
+          which-key
         ];
       };
     };

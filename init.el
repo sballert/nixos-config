@@ -34,10 +34,23 @@
     :prefix "\\"
     :non-normal-prefix "M-\\")
   (prefix-def
+    "b" '(:ignore t :which-key "buffer")
     "bq" 'save-buffers-kill-terminal
     "bs" 'save-buffer
+    "f" '(:ignore t :which-key "find")
     "ff" 'find-file
     "Q" 'save-buffers-kill-terminal))
+
+;; https://github.com/justbur/emacs-which-key
+;; Emacs package that displays available keybindings in popup
+(use-package which-key
+  :diminish
+  :hook (after-init . which-key-mode)
+  :general
+  (general-def :keymaps 'help-map "j" 'which-key-show-top-level)
+  :config
+  (setq which-key-sort-uppercase-first nil
+        which-key-sort-order 'which-key-prefix-then-key-order-reverse))
 
 ;; evil-mode ===================================================================
 ;; https://github.com/emacs-evil/evil
