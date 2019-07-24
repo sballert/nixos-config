@@ -85,6 +85,13 @@
   (setq inhibit-startup-screen t
         initial-scratch-message ""))
 
+;; frame.el --- multi-frame management independent of window systems
+(use-package frame
+  :config
+  (add-to-list 'default-frame-alist '(font . "Roboto Mono-11"))
+  (blink-cursor-mode 0)
+  (setq-default cursor-in-non-selected-windows nil))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)
