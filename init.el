@@ -138,6 +138,12 @@
         dired-listing-switches "-alh")
   (put 'dired-find-alternate-file 'disabled nil))
 
+;; whitespace.el --- minor mode to visualize TAB, (HARD) SPACE, NEWLINE
+(use-package whitespace
+  :diminish
+  :hook ((prog-mode text-mode) . whitespace-mode)
+  :config (setq whitespace-style '(face trailing tabs tab-mark)))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
