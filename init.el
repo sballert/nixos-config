@@ -152,6 +152,9 @@
   (setq recentf-max-saved-items 1000
         recentf-max-menu-items 200))
 
+;; undo-tree.el --- Treat undo history as a tree
+(use-package undo-tree :diminish)
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
