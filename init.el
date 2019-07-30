@@ -355,6 +355,36 @@
 ;; A PHP mode for GNU Emacs
 (use-package php-mode :mode ("\\.php$" . php-mode))
 
+;; https://github.com/ahungry/geben
+;; Geben - PHP xdebug for Emacs
+(use-package geben :demand t :after (php-mode)
+  :general
+  (local-def
+    :keymaps '(php-mode-map)
+    "gS" 'geben
+    "gE" 'geben-end
+    "gA" 'geben-add-current-line-to-predefined-breakpoints
+    "gC" 'geben-clear-predefined-breakpoints
+    "gV" 'geben-predefined-breakpoints
+    "gi" 'geben-step-into
+    "go" 'geben-step-out
+    "gn" 'geben-step-over
+    "gr" 'geben-run
+    "gc" 'geben-run-to-cursor
+    "ga" 'geben-step-again
+    "gb" 'geben-set-breakpoint-line
+    "gB" 'geben-breakpoint-menu
+    "gu" 'geben-unset-breakpoint-line
+    "gU" 'geben-clear-breakpoints
+    "ge" 'geben-eval-expression
+    "gl" 'geben-eval-current-line
+    "gw" 'geben-where
+    "gq" 'geben-stop
+    "gv" 'geben-display-context
+    "gt" 'geben-show-backtrace
+    "gp" 'geben-show-brackpoint-list
+    "g?" 'geben-mode-help))
+
 ;; Haskell =====================================================================
 ;; https://github.com/haskell/haskell-mode
 ;; Emacs mode for Haskell

@@ -85,6 +85,7 @@ in {
       enable = true;
       allowedTCPPorts = [
         111 2049 20048
+        9000
       ];
       allowedUDPPorts = [
         111 2049 20048
@@ -290,6 +291,7 @@ in {
           nix-mode
           ws-butler
           php-mode
+          geben
           fill-column-indicator
           haskell-mode
         ]) ++ (with orgPackages; [
