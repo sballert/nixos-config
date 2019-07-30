@@ -11,6 +11,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ "nouveau" "rivafb" "nvidiafb" "rivatv" "nv" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/d8e5c9de-6253-49bd-8b7e-20a84d53eb56";
