@@ -27,6 +27,14 @@
             install -m755 -D $src/*.rasi $out
           '';
         };
+        xrandr-util = stdenv.mkDerivation {
+          name = "xrandr-util";
+          buildInputs = [ self.xorg.xrandr ];
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/xrandr-util.sh} $out/bin/xrandr-util
+          '';
+        };
         xrandr-toggle = stdenv.mkDerivation {
           name = "xrandr-toggle";
           buildInputs = [ self.xorg.xrandr ];
@@ -187,6 +195,7 @@ in {
         vagrant
         xrandr-toggle
         xrandr-primary
+        xrandr-util
         xlogout
         gimp
         gnome3.dconf
