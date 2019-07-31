@@ -383,7 +383,11 @@
     "gv" 'geben-display-context
     "gt" 'geben-show-backtrace
     "gp" 'geben-show-brackpoint-list
-    "g?" 'geben-mode-help))
+    "g?" 'geben-mode-help)
+  :config
+  (setq geben-path-mappings
+        '(("/home/sballert/s7/repos/olimar" "/var/www/olimar")
+          ("/home/sballert/s7/repos/ameropa" "/var/www/ameropa"))))
 
 ;; Haskell =====================================================================
 ;; https://github.com/haskell/haskell-mode
