@@ -208,7 +208,9 @@
 ;; https://orgmode.org/
 ;; Org mode is for keeping notes, maintaining TODO lists, planning projects,
 ;; and authoring documents with a fast and effective plain-text system.
-(use-package org :demand t)
+(use-package org :demand t
+  :config
+  (add-hook 'org-mode-hook 'auto-fill-mode))
 
 ;; https://orgmode.org/
 ;; Dynamic indentation for Org
