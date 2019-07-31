@@ -252,7 +252,7 @@ in {
       };
       initExtra = ''
         feh --bg-scale ${wallpaper} &
-        ${pkgs.xrandr-primary}/bin/xrandr-primary
+        ${pkgs.xrandr-util}/bin/xrandr-util primary
       '';
     };
     gtk = {
