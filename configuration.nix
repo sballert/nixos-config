@@ -35,14 +35,6 @@
             install -m755 -D ${./scripts/xrandr-util.sh} $out/bin/xrandr-util
           '';
         };
-        xrandr-toggle = stdenv.mkDerivation {
-          name = "xrandr-toggle";
-          buildInputs = [ self.xorg.xrandr ];
-          unpackPhase = ":";
-          installPhase = ''
-            install -m755 -D ${./scripts/xrandr-toggle.sh} $out/bin/xrandr-toggle
-          '';
-        };
         xlogout = stdenv.mkDerivation {
           name = "xlogout";
           unpackPhase = ":";
@@ -185,7 +177,6 @@ in {
         udiskie
         libreoffice
         vagrant
-        xrandr-toggle
         xrandr-util
         xlogout
         gimp
