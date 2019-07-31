@@ -295,6 +295,7 @@ in {
           geben
           fill-column-indicator
           haskell-mode
+          shackle
         ]) ++ (with orgPackages; [
           org-plus-contrib
         ]);

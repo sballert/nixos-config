@@ -295,6 +295,42 @@
         fci-rule-column 80
         fci-rule-color "#665c54"))
 
+;; https://github.com/wasamasa/shackle
+;; Enforce rules for popup windows
+(use-package shackle
+  :hook (after-init . shackle-mode)
+  :config
+  (defun shackle--smart-split-dir ()
+    (if (>= (window-pixel-height)
+           (window-pixel-width))
+        'below
+      'right))
+  (defun shackle-dynamic-tyling (buffer alist plist)
+    (let
+        ((frame (shackle--splittable-frame))
+         (window (if (eq (shackle--smart-split-dir) 'below)
+                     (split-window-below)
+                   (split-window-right))))
+      (prog1
+          (window--display-buffer buffer window 'window alist display-buffer-mark-dedicated)
+        (when window
+          (setq shackle-last-window window
+                shackle-last-buffer buffer))
+        (unless (cdr (assq 'inhibit-switch-frame alist))
+          (window--maybe-raise-frame frame)))))
+  (defun shackle-org-src-pop-to-buffer (buffer _context)
+    "Open the src-edit in a way that shackle can detect."
+    (if (eq org-src-window-setup 'switch-invisibly)
+        (set-buffer buffer)
+      (pop-to-buffer buffer)))
+  (advice-add #'org-src-switch-to-buffer :override #'shackle-org-src-pop-to-buffer)
+  (setq shackle-rules
+        '(("*Help*" :select t :other t)
+          ("\\*Org Src[][[:space:][:word:].]*\\*"
+           :regexp t
+           :select t
+           :custom shackle-dynamic-tyling))))
+
 ;; PDF Tools ===================================================================
 ;; https://github.com/politza/pdf-tools
 ;; Emacs support library for PDF files.
