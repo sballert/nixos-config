@@ -389,6 +389,11 @@
         '(("/home/sballert/s7/repos/olimar" "/var/www/olimar")
           ("/home/sballert/s7/repos/ameropa" "/var/www/ameropa"))))
 
+;; HTML ========================================================================
+;; https://github.com/fxbois/web-mode
+;; major mode for editing web templates
+(use-package web-mode :mode("\\.twig$" "\\.html?$"))
+
 ;; Haskell =====================================================================
 ;; https://github.com/haskell/haskell-mode
 ;; Emacs mode for Haskell
