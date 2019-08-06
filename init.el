@@ -211,6 +211,10 @@
 ;; and authoring documents with a fast and effective plain-text system.
 (use-package org :demand t
   :config
+  (let ((languages '(haskell)))
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     (mapcar (lambda (mode) `(,mode . t)) languages)))
   (add-hook 'org-mode-hook 'auto-fill-mode))
 
 ;; https://orgmode.org/
