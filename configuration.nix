@@ -7,7 +7,7 @@
     overlays = [
       (self: super: let
         inherit (super) stdenv fetchFromGitHub;
-      in {
+      in rec {
         slock = super.slock.override {
           conf = builtins.readFile ./slock.h;
         };
@@ -47,6 +47,14 @@
           unpackPhase = ":";
           installPhase = ''
             install -m755 -D ${./scripts/xlogout.sh} $out/bin/xlogout
+          '';
+        };
+        session-menu = stdenv.mkDerivation {
+          name = "session-menu";
+          buildInputs = [ self.rofi xlogout ];
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/session-menu.sh} $out/bin/session-menu
           '';
         };
       })
@@ -193,6 +201,7 @@ in {
         libreoffice
         vagrant
         xrandr-util
+        session-menu
         nix-util
         xlogout
         gimp
