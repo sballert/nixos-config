@@ -35,6 +35,13 @@
             install -m755 -D ${./scripts/xrandr-util.sh} $out/bin/xrandr-util
           '';
         };
+        nix-util = stdenv.mkDerivation {
+          name = "nix-util";
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/nix-util.sh} $out/bin/nix-util
+          '';
+        };
         xlogout = stdenv.mkDerivation {
           name = "xlogout";
           unpackPhase = ":";
@@ -186,6 +193,7 @@ in {
         libreoffice
         vagrant
         xrandr-util
+        nix-util
         xlogout
         gimp
         gnome3.dconf
