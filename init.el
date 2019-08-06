@@ -88,6 +88,9 @@
 (setq-default major-mode 'text-mode
               indent-tabs-mode nil)
 
+;; subr.el --- basic lisp subroutines for Emacs
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; files.el --- file input and output commands for Emacs
 (use-package files
   :demand t
