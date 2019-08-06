@@ -89,7 +89,15 @@ in {
   # services.printing.enable = true;
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+
+  hardware = {
+    bluetooth.enable = true;
+
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
+  };
 
   services = {
     undervolt = {
