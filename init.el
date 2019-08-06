@@ -213,6 +213,10 @@
 ;; Org mode is for keeping notes, maintaining TODO lists, planning projects,
 ;; and authoring documents with a fast and effective plain-text system.
 (use-package org :demand t
+  :general
+  (local-def
+    :keymaps '(org-mode-map)
+    "t" 'org-babel-tangle)
   :config
   (let ((languages '(haskell)))
     (org-babel-do-load-languages
