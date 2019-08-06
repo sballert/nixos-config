@@ -215,6 +215,7 @@
     (org-babel-do-load-languages
      'org-babel-load-languages
      (mapcar (lambda (mode) `(,mode . t)) languages)))
+  (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-mode-hook 'auto-fill-mode))
 
 ;; https://orgmode.org/
