@@ -198,6 +198,7 @@
   :general
   (prefix-def
     "r" 'counsel-recentf
+    "/g" 'counsel-git-grep
     "x" 'counsel-M-x))
 
 ;; https://github.com/abo-abo/swiper
