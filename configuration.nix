@@ -249,6 +249,9 @@ in {
         fade = true;
         shadow = false;
       };
+      unclutter = {
+        enable = true;
+      };
     };
     xsession = {
       enable = true;
