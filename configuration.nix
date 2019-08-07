@@ -57,6 +57,14 @@
             install -m755 -D ${./scripts/session-menu.sh} $out/bin/session-menu
           '';
         };
+        toggle-touchpad = stdenv.mkDerivation {
+          name = "toggle-touchpad";
+          buildInputs = [ self.xorg.xinput ];
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/toggle-touchpad.sh} $out/bin/toggle-touchpad
+          '';
+        };
       })
     ];
   };
@@ -204,6 +212,7 @@ in {
         session-menu
         nix-util
         xlogout
+        toggle-touchpad
         gimp
         gnome3.dconf
         spotify
