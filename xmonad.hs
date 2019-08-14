@@ -27,6 +27,7 @@ myConfig xmobar = def
   , ((0, 0x1008ff13), spawn "pulseaudio-ctl up")
   , ((0, 0x1008ff11), spawn "pulseaudio-ctl down")
   , ((0, 0x1008ff12), spawn "pulseaudio-ctl mute")
+  , ((0, xK_Print), spawn "flameshot gui")
   ]
 
 myLogHook xmobar = def
