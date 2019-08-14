@@ -261,6 +261,9 @@ in {
       unclutter = {
         enable = true;
       };
+      flameshot = {
+        enable = true;
+      };
     };
     xsession = {
       enable = true;
