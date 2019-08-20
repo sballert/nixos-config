@@ -52,6 +52,16 @@
   (setq which-key-sort-uppercase-first nil
         which-key-sort-order 'which-key-prefix-then-key-order-reverse))
 
+;; hydra =======================================================================
+;; https://github.com/abo-abo/hydra
+;; make Emacs bindings that stick around
+(use-package hydra :demand t)
+
+(defhydra hydra-zoom (global-map "<f2>")
+  "zoom"
+  ("g" text-scale-increase "in")
+  ("l" text-scale-decrease "out"))
+
 ;; evil-mode ===================================================================
 ;; https://github.com/emacs-evil/evil
 ;; The extensible vi layer for Emacs.

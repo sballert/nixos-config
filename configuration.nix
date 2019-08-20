@@ -327,6 +327,7 @@ in {
           fill-column-indicator
           haskell-mode
           shackle
+          hydra
         ]) ++ (with orgPackages; [
           org-plus-contrib
         ]);
