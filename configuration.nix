@@ -252,9 +252,9 @@ in {
       };
       compton = {
         enable = true;
-        activeOpacity = "0.95";
-        inactiveOpacity = "0.95";
-        menuOpacity = "0.8";
+        opacityRule = [
+          "95:class_g = 'st-256color'"
+        ];
         blur = false;
         fade = true;
         shadow = false;
