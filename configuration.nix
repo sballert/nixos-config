@@ -216,6 +216,7 @@ in {
         gimp
         gnome3.dconf
         spotify
+        xorg.xprop
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
