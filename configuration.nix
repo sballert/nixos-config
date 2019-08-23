@@ -81,6 +81,7 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Europe/Berlin";
+  time.hardwareClockInLocalTime = true;
 
   networking = {
     hostName = "nixos";
