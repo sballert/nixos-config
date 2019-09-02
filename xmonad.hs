@@ -30,6 +30,8 @@ myConfig xmobar = def
   , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down")
   , ("<XF86AudioMute>", spawn "pulseaudio-ctl mute")
   , ("<Print>", spawn "flameshot gui")
+  , ("<XF86MonBrightnessUp>", spawn "brightnessctl set 10%+")
+  , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%-")
   ]
 
 myLogHook xmobar = def

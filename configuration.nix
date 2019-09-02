@@ -121,6 +121,8 @@ in {
       enable = true;
       package = pkgs.pulseaudioFull;
     };
+
+    brightnessctl.enable = true;
   };
 
   services = {
@@ -196,6 +198,7 @@ in {
     extraGroups = [
       "wheel"
       "vboxusers"
+      "video"
     ];
   };
 
@@ -218,6 +221,7 @@ in {
         gnome3.dconf
         spotify
         xorg.xprop
+        brightnessctl
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
