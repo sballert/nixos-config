@@ -2,8 +2,10 @@ import XMonad
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, ppOutput, ppCurrent, wrap
                                ,xmobarColor)
 import XMonad.Hooks.ManageDocks (avoidStruts, manageDocks, docksEventHook)
-import XMonad.Util.EZConfig (additionalKeys)
+import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.Run (spawnPipe, hPutStrLn)
+
+import Graphics.X11.ExtraTypes.XF86
 
 main = do
   xmobar <- spawnPipe "xmobar /home/sballert/.config/xmobar/xmobarrc"
@@ -20,14 +22,14 @@ myConfig xmobar = def
   , manageHook = manageDocks <+> manageHook defaultConfig
   , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
   }
-  `additionalKeys`
-  [ ((mod4Mask, xK_Return), spawn "rofi -show drun")
-  , ((mod4Mask, xK_s), spawn "session-menu")
-  , ((mod4Mask, xK_p), spawn "toggle-touchpad")
-  , ((0, 0x1008ff13), spawn "pulseaudio-ctl up")
-  , ((0, 0x1008ff11), spawn "pulseaudio-ctl down")
-  , ((0, 0x1008ff12), spawn "pulseaudio-ctl mute")
-  , ((0, xK_Print), spawn "flameshot gui")
+  `additionalKeysP`
+  [ ("M-<Return>", spawn "rofi -show drun")
+  , ("M-s", spawn "session-menu")
+  , ("M-p", spawn "toggle-touchpad")
+  , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up")
+  , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down")
+  , ("<XF86AudioMute>", spawn "pulseaudio-ctl mute")
+  , ("<Print>", spawn "flameshot gui")
   ]
 
 myLogHook xmobar = def
