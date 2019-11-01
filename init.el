@@ -422,17 +422,12 @@
   :general
   (local-def
     :keymaps '(php-mode-map)
-    "gS" 'geben
+    "g SPC" 'hydra-geben-run/body
+    "gg" 'geben
     "gE" 'geben-end
     "gA" 'geben-add-current-line-to-predefined-breakpoints
     "gC" 'geben-clear-predefined-breakpoints
     "gV" 'geben-predefined-breakpoints
-    "gi" 'geben-step-into
-    "go" 'geben-step-out
-    "gn" 'geben-step-over
-    "gr" 'geben-run
-    "gc" 'geben-run-to-cursor
-    "ga" 'geben-step-again
     "gb" 'geben-set-breakpoint-line
     "gB" 'geben-breakpoint-menu
     "gu" 'geben-unset-breakpoint-line
@@ -440,7 +435,6 @@
     "ge" 'geben-eval-expression
     "gl" 'geben-eval-current-line
     "gw" 'geben-where
-    "gq" 'geben-stop
     "gv" 'geben-display-context
     "gt" 'geben-show-backtrace
     "gp" 'geben-show-brackpoint-list
@@ -449,6 +443,19 @@
   (setq geben-path-mappings
         '(("/home/sballert/s7/repos/olimar" "/var/www/olimar")
           ("/home/sballert/s7/repos/ameropa" "/var/www/ameropa"))))
+
+(defhydra hydra-geben-run ()
+    "geben-run"
+    ("r" geben-run "run")
+    ("c" geben-run-to-cursor "run to cursor")
+    ("n" geben-step-over "step over")
+    ("o" geben-stepout "step out")
+    ("a" geben-step-again "step again")
+    ("i" geben-step-into "into")
+    ("e" geben-eval-expression "eval expression")
+    ("v" geben-display-context "display context")
+    ("u" geben-unset-breakpoint-line "unset breakpoint")
+    ("s" geben-stop "stop" :exit t))
 
 ;; HTML ========================================================================
 ;; https://github.com/fxbois/web-mode
