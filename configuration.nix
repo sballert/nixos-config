@@ -336,6 +336,7 @@ in {
           haskell-mode
           shackle
           hydra
+          password-store
         ]) ++ (with orgPackages; [
           org-plus-contrib
         ]);

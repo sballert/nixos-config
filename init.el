@@ -411,6 +411,26 @@
 ;; pdf-misc.el --- Miscellaneous commands for PDF buffer.
 (use-package pdf-misc :demand t :after (pdf-tools))
 
+;; Pass ========================================================================
+;; https://github.com/zx2c4/password-store
+;; This package provides functions for working with pass ("the standard Unix password manager").
+(use-package password-store
+  :general
+  (prefix-def
+    "P" '(:ignore t :which-key "password-store")
+    "Pd" 'password-store-remove
+    "Pe" 'password-store-edit
+    "Pg" 'password-store-get
+    "Pi" 'password-store-insert
+    "Pm" 'password-store-rename
+    "Pu" 'password-store-url
+    "PC" 'password-store-clear
+    "PG" 'password-store-generate
+    "PI" 'password-store-init
+    "Pc" 'password-store-copy)
+  :config
+  (setq password-store-password-length 30))
+
 ;; PHP =========================================================================
 ;; https://github.com/emacs-php/php-mode
 ;; A PHP mode for GNU Emacs
