@@ -169,7 +169,6 @@ in {
     enableFontDir = true;
     enableDefaultFonts = true;
     fontconfig = {
-      ultimate.enable = true;
       defaultFonts = {
         monospace = ["Roboto Mono"];
         sansSerif = ["Noto Sans Display"];
