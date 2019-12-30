@@ -136,6 +136,7 @@ in {
       layout = "us";
       libinput.enable = true;
       xkbOptions = "compose:ralt,compose:rwin,ctrl:nocaps";
+      desktopManager.xterm.enable = true;
       displayManager.lightdm = {
         enable = true;
         background = wallpaper;
