@@ -229,6 +229,7 @@ in {
         brightnessctl
         slack
         docker-compose
+        youtube-dl-light
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
