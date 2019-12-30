@@ -227,6 +227,7 @@ in {
         spotify
         xorg.xprop
         brightnessctl
+        slack
         docker-compose
       ];
       file = {
