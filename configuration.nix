@@ -183,7 +183,10 @@ in {
     ];
   };
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation = {
+    virtualbox.host.enable = true;
+    docker.enable = true;
+  };
 
   programs = {
     slock.enable = true;
@@ -200,6 +203,7 @@ in {
       "wheel"
       "vboxusers"
       "video"
+      "docker"
     ];
   };
 
@@ -223,6 +227,7 @@ in {
         spotify
         xorg.xprop
         brightnessctl
+        docker-compose
       ];
       file = {
         ".gnupg/sshcontrol".text = ''
