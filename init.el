@@ -188,6 +188,13 @@
     :keymaps '(prog-mode-map)
     "a" 'align-regexp))
 
+;; grep.el --- run `grep' and display the results
+(use-package grep
+  :general
+  (prefix-def
+    "/g" '(:ignore t :which-key "grep")
+    "/gf" 'grep-find))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
@@ -211,7 +218,7 @@
   :general
   (prefix-def
     "r" 'counsel-recentf
-    "/g" 'counsel-git-grep
+    "/gg" 'counsel-git-grep
     "x" 'counsel-M-x))
 
 ;; https://github.com/abo-abo/swiper
