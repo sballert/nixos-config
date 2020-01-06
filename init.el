@@ -181,7 +181,7 @@
   :hook (prog-mode . display-line-numbers-mode)
   :config (setq display-line-numbers-type 'relative))
 
-;;; align.el --- align text to a specific column, by regexp
+;; align.el --- align text to a specific column, by regexp
 (use-package align
   :general
   (local-def
