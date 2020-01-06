@@ -199,7 +199,8 @@
 (use-package find-dired
   :general
   (prefix-def
-    "/d" 'find-dired))
+    "/d" 'find-dired
+    "/gd" 'find-grep-dired))
 
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
