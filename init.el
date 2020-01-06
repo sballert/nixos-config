@@ -195,6 +195,12 @@
     "/g" '(:ignore t :which-key "grep")
     "/gf" 'grep-find))
 
+;; find-dired.el --- run a `find' command and dired the output
+(use-package find-dired
+  :general
+  (prefix-def
+    "/d" 'find-dired))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
