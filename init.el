@@ -202,6 +202,18 @@
     "/d" 'find-dired
     "/gd" 'find-grep-dired))
 
+;; tramp.el --- Transparent Remote Access, Multiple Protocol
+(use-package tramp
+  :general
+  (prefix-def "fs" 'find-file-as-sudo)
+  :commands (find-file-as-sudo)
+  :config
+  (defun find-file-as-sudo (file-name)
+    "Like find file, but opens the file as root."
+    (interactive "FFind File As Sudo: ")
+    (let ((tramp-file-name (concat "/sudo::" (expand-file-name file-name))))
+      (find-file tramp-file-name))))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
