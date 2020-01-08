@@ -214,6 +214,17 @@
     (let ((tramp-file-name (concat "/sudo::" (expand-file-name file-name))))
       (find-file tramp-file-name))))
 
+;; term.el --- general command interpreter in a window stuff
+(use-package term
+  :general
+  (prefix-def
+    "t" 'ansi-term-default)
+  :commands (ansi-term-default)
+  :config
+  (defun ansi-term-default ()
+    (interactive)
+    (ansi-term shell-file-name)))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
