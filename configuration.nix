@@ -237,6 +237,7 @@ in {
         '';
         ".emacs.d/init.el".text = builtins.readFile ./init.el;
         ".config/xmobar/xmobarrc".text = builtins.readFile ./xmobarrc;
+        ".ghci".text = builtins.readFile ./ghci;
       };
     };
     services = {
