@@ -144,6 +144,7 @@
         shackle
         hydra
         password-store
+        projectile
       ]) ++ (with orgPackages; [
         org-plus-contrib
       ]);

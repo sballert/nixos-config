@@ -317,6 +317,38 @@
 ;; Black magic or evil keys for magit
 (use-package evil-magit :diminish :demand t :after (evil magit))
 
+;; Projectile ==================================================================
+;; https://github.com/bbatsov/projectile
+;; Project Interaction Library for Emacs
+(use-package projectile
+  :hook (after-init . projectile-mode)
+  :general
+  (prefix-def
+    "p" '(:ignore t :which-key "projectile")
+    "p SPC" 'projectile-find-file
+
+    "pg" 'projectile-grep
+    "pr" 'projectile-replace
+    "pp" 'projectile-command-map
+
+    "pc" 'projectile-compile-project
+    "p!" 'projectile-run-shell-command-in-root
+    "p&" 'projectile-run-async-shell-command-in-root
+
+    "ps" '(:ignore t :which-key "switch")
+    "psp" 'projectile-switch-project
+    "pso" 'projectile-switch-open-project
+
+    "/gp" 'projectile-grep
+
+    "f SPC" 'projectile-find-file)
+  :config
+  (setq projectile-completion-system 'ivy
+        projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
+        projectile-project-search-path '("~/projects/"
+                                         "~/s7/repos/"
+                                         "~/school/")))
+
 ;; NixOS =======================================================================
 ;; https://github.com/NixOS/nix-mode
 ;; An Emacs major mode for editing Nix expressions.
