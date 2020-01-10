@@ -145,6 +145,7 @@
         hydra
         password-store
         projectile
+        nov
       ]) ++ (with orgPackages; [
         org-plus-contrib
       ]);

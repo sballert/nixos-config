@@ -425,6 +425,17 @@
            :select t
            :custom shackle-dynamic-tyling))))
 
+;; https://github.com/wasamasa/nov.el
+;; nov.el --- Featureful EPUB reader mode
+(use-package nov
+  :mode ("\\.epub\\'" . nov-mode)
+  :config
+  (setq nov-text-width 80)
+  (defun my-nov-font-setup ()
+    (face-remap-add-relative 'variable-pitch :family "Liberation Serif"
+                             :height 1.0))
+  (add-hook 'nov-mode-hook 'my-nov-font-setup))
+
 ;; PDF Tools ===================================================================
 ;; https://github.com/politza/pdf-tools
 ;; Emacs support library for PDF files.
