@@ -148,7 +148,7 @@
   :config
   (setq dired-auto-revert-buffer t
         dired-dwim-target t
-        dired-listing-switches "-alh")
+        dired-listing-switches "-alh --group-directories-first")
   (put 'dired-find-alternate-file 'disabled nil))
 
 ;; whitespace.el --- minor mode to visualize TAB, (HARD) SPACE, NEWLINE
