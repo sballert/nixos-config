@@ -146,10 +146,25 @@
 
 ;; dired.el --- directory-browsing commands
 (use-package dired
+  :commands (dired-dotfiles-toggle)
   :config
   (defun dired-mode-setup ()
     "Dired setup hook"
     (dired-hide-details-mode 1))
+
+  (defun dired-toggle-dotfiles ()
+    "Show/hide dot-files"
+    (interactive)
+    (when (equal major-mode 'dired-mode)
+      (if (or (not (boundp 'dired-dotfiles-show-p)) dired-dotfiles-show-p) ; if currently showing
+          (progn
+            (set (make-local-variable 'dired-dotfiles-show-p) nil)
+            (message "h")
+            (dired-mark-files-regexp "^\\\.")
+            (dired-do-kill-lines))
+        (progn (revert-buffer)      ; otherwise just revert to re-show
+               (set (make-local-variable 'dired-dotfiles-show-p) t)))))
+
   (add-hook 'dired-mode-hook 'dired-mode-setup)
   (setq dired-auto-revert-buffer t
         dired-dwim-target t
