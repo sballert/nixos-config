@@ -136,6 +136,7 @@
   :general
   (prefix-def
     "!" 'shell-command
+    ":" 'eval-expression
     "&" 'async-shell-command
     "bd" 'kill-current-buffer)
   :config
