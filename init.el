@@ -356,6 +356,7 @@
     "f SPC" 'projectile-find-file)
   :config
   (setq projectile-completion-system 'ivy
+        projectile-switch-project-action 'projectile-dired
         projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
         projectile-project-search-path '("~/projects/"
                                          "~/s7/repos/"
