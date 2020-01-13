@@ -147,6 +147,10 @@
 ;; dired.el --- directory-browsing commands
 (use-package dired
   :config
+  (defun dired-mode-setup ()
+    "Dired setup hook"
+    (dired-hide-details-mode 1))
+  (add-hook 'dired-mode-hook 'dired-mode-setup)
   (setq dired-auto-revert-buffer t
         dired-dwim-target t
         dired-listing-switches "-alh --group-directories-first")
