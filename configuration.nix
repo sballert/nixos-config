@@ -197,6 +197,10 @@ in {
     cifs-utils
   ];
 
+  i18n.extraLocaleSettings = {
+    LC_COLLATE = "C";
+  };
+
   users.users.sballert = {
     isNormalUser = true;
     extraGroups = [
