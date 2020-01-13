@@ -146,6 +146,7 @@
         password-store
         projectile
         nov
+        org-drill
       ]) ++ (with orgPackages; [
         org-plus-contrib
       ]);

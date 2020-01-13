@@ -303,6 +303,18 @@
   :after (evil-org)
   :config (evil-org-agenda-set-keys))
 
+(use-package org-drill
+  :general
+  (local-def
+    :keymaps '(org-mode-map)
+    "d" '(:ignore t :which-key "org-drill")
+    "d SPC" 'org-drill
+    "dt" 'org-drill-tree
+    "dd" 'org-drill-directory
+    "dr" 'org-drill-resume)
+  :config
+  (add-to-list 'org-modules 'org-drill))
+
 ;; Magit =======================================================================
 ;; https://github.com/magit/magit
 ;; magit.el --- A Git porcelain inside Emacs
