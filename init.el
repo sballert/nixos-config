@@ -225,6 +225,26 @@
     (interactive)
     (ansi-term shell-file-name)))
 
+;; help.el --- help commands for Emacs
+(use-package help
+  :general
+  (prefix-def
+    "h" '(:ignore t :which-key "help")
+
+    "hm" 'describe-mode
+    "hf" 'describe-function
+    "hv" 'describe-variable
+    "hk" 'describe-key
+
+    "ha" 'apropos
+    "hc" 'apropos-command
+    "hd" 'apropos-documentation
+    "hl" 'apropos-library
+    "hu" 'apropos-user-options
+    "hv" 'apropos-value
+
+    "hi" 'info))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
