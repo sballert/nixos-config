@@ -241,7 +241,7 @@
     "hd" 'apropos-documentation
     "hl" 'apropos-library
     "hu" 'apropos-user-options
-    "hv" 'apropos-value
+    "hV" 'apropos-value
 
     "hi" 'info))
 
