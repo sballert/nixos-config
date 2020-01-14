@@ -138,6 +138,7 @@
     "!" 'shell-command
     ":" 'eval-expression
     "&" 'async-shell-command
+    "u" 'universal-argument
     "bd" 'kill-current-buffer)
   :config
   (setq line-number-mode t
