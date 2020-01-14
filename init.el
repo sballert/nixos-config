@@ -224,7 +224,10 @@
   :general
   (prefix-def
     "/g" '(:ignore t :which-key "grep")
-    "/gf" 'grep-find))
+    "/gf" 'grep-find
+    "/gl" 'lgrep
+    "/gr" 'rgrep
+    "/gg" 'grep))
 
 ;; find-dired.el --- run a `find' command and dired the output
 (use-package find-dired
