@@ -233,8 +233,8 @@
 (use-package find-dired
   :general
   (prefix-def
-    "/d" 'find-dired
-    "/gd" 'find-grep-dired))
+    "fD" 'find-dired
+    "fd" 'find-grep-dired))
 
 ;; tramp.el --- Transparent Remote Access, Multiple Protocol
 (use-package tramp
