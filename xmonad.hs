@@ -26,6 +26,7 @@ myConfig xmobar = def
   [ ("M-<Return>", spawn "rofi -show drun")
   , ("M-s", spawn "session-menu")
   , ("M-p", spawn "toggle-touchpad")
+  , ("M-b", spawn "bluetoothctl-menu")
   , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up")
   , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down")
   , ("<XF86AudioMute>", spawn "pulseaudio-ctl mute")

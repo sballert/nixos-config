@@ -65,6 +65,14 @@
             install -m755 -D ${./scripts/toggle-touchpad.sh} $out/bin/toggle-touchpad
           '';
         };
+        bluetoothctl-menu = stdenv.mkDerivation {
+          name = "bluetoothctl-menu";
+          buildInputs = [ self.rofi self.libnotify ];
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/bluetoothctl-menu.sh} $out/bin/bluetoothctl-menu
+          '';
+        };
       })
     ];
   };

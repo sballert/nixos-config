@@ -24,6 +24,7 @@
       slack
       docker-compose
       youtube-dl-light
+      bluetoothctl-menu
     ];
     file = {
       ".gnupg/sshcontrol".text = ''
