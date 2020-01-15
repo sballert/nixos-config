@@ -227,7 +227,7 @@
     "/gf" 'grep-find
     "/gl" 'lgrep
     "/gr" 'rgrep
-    "/gg" 'grep))
+    "/gG" 'grep))
 
 ;; find-dired.el --- run a `find' command and dired the output
 (use-package find-dired
