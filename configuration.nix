@@ -1,5 +1,6 @@
 { config, pkgs, ... }: let
 
+################################################################################
   wallpaper = builtins.fetchurl https://s3.amazonaws.com/psiu/wallpapers/heic1209a/heic1209a_desktop.jpg;
 
   nixpkgs = {
@@ -77,6 +78,7 @@
     ];
   };
 
+################################################################################
 in {
   imports = [
     ./hardware-configuration.nix
@@ -84,17 +86,17 @@ in {
   ];
 
   inherit nixpkgs;
-
-
-
+################################################################################
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+################################################################################
   time = {
     timeZone = "Europe/Berlin";
     hardwareClockInLocalTime = true;
   };
+################################################################################
   networking = {
     hostName = "nixos";
     wireless.enable = true;
@@ -119,11 +121,14 @@ in {
         111 2049 20048
       ];
     };
+    hosts = {
+      "192.168.178.24" = [ "ev3dev" ];
+      "10.51.51.16" = [ "*.dev7.silversurfer7.de" ];
+    };
   };
-
-
+################################################################################
   sound.enable = true;
-
+################################################################################
   hardware = {
     bluetooth.enable = true;
 
@@ -134,7 +139,7 @@ in {
 
     brightnessctl.enable = true;
   };
-
+################################################################################
   services = {
     undervolt = {
       enable = true;
@@ -175,7 +180,7 @@ in {
       '';
     };
   };
-
+################################################################################
   fonts = {
     enableFontDir = true;
     enableDefaultFonts = true;
@@ -192,25 +197,25 @@ in {
       emacs-all-the-icons-fonts
     ];
   };
-
+################################################################################
   virtualisation = {
     virtualbox.host.enable = true;
     docker.enable = true;
   };
-
+################################################################################
   programs = {
     slock.enable = true;
     gnupg.agent.enable = true;
   };
-
+################################################################################
   environment.systemPackages = with pkgs; [
     cifs-utils
   ];
-
+################################################################################
   i18n.extraLocaleSettings = {
     LC_COLLATE = "C";
   };
-
+################################################################################
   users.users.sballert = {
     isNormalUser = true;
     extraGroups = [
@@ -220,10 +225,10 @@ in {
       "docker"
     ];
   };
-
+################################################################################
   home-manager.users.sballert = import ./home.nix {
     inherit pkgs nixpkgs wallpaper;
   };
-
+################################################################################
   system.stateVersion = "19.09";
 }
