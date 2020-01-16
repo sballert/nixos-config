@@ -86,12 +86,14 @@ in {
   inherit nixpkgs;
 
 
-  time.timeZone = "Europe/Berlin";
-  time.hardwareClockInLocalTime = true;
 
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
+  };
+  time = {
+    timeZone = "Europe/Berlin";
+    hardwareClockInLocalTime = true;
   };
   networking = {
     hostName = "nixos";
