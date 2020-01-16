@@ -85,12 +85,14 @@ in {
 
   inherit nixpkgs;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Europe/Berlin";
   time.hardwareClockInLocalTime = true;
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
   networking = {
     hostName = "nixos";
     wireless.enable = true;
