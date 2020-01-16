@@ -74,6 +74,14 @@
             install -m755 -D ${./scripts/bluetoothctl-menu.sh} $out/bin/bluetoothctl-menu
           '';
         };
+        backup = stdenv.mkDerivation {
+          name = "backup";
+          buildInputs = [ self.rsync ];
+          unpackPhase = ":";
+          installPhase = ''
+            install -m755 -D ${./scripts/backup.sh} $out/bin/backup
+          '';
+        };
       })
     ];
   };

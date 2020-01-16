@@ -25,6 +25,7 @@
       docker-compose
       youtube-dl-light
       bluetoothctl-menu
+      backup
     ];
     file = {
       ".gnupg/sshcontrol".text = ''
