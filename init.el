@@ -642,6 +642,24 @@
   :init (load "haskell-mode-autoloads")
   :mode ("\\.hs$" . haskell-mode))
 
+;; JSON ========================================================================
+;; https://github.com/joshwnj/json-mode
+;; Major mode for editing JSON files with emacs
+(use-package json-mode
+  :general
+  (local-def
+    :keymaps '(json-mode-map)
+    "f" 'evil-json-pretty-print)
+  :commands (evil-json-reformat)
+  :config
+  (evil-define-operator evil-json-pretty-print (beg end)
+    "Indent text."
+    :move-point nil
+    :type line
+    (goto-char beg)
+    (json-pretty-print beg end))
+  :mode("\\.json$"))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)

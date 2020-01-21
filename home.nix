@@ -205,6 +205,7 @@
         projectile
         nov
         org-drill
+        json-mode
       ]) ++ (with orgPackages; [
         org-plus-contrib
       ]);
