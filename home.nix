@@ -206,6 +206,7 @@
         nov
         org-drill
         json-mode
+        markdown-mode
       ]) ++ (with orgPackages; [
         org-plus-contrib
       ]);
