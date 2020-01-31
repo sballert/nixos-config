@@ -377,6 +377,7 @@
   (prefix-def
     "g" '(:ignore t :which-key "magit")
     "g SPC" 'magit-status
+    "gb" 'magit-blame
     "gf" 'magit-log-buffer-file))
 
 ;; https://github.com/emacs-evil/evil-magit
