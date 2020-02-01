@@ -363,6 +363,8 @@
   :after (evil-org)
   :config (evil-org-agenda-set-keys))
 
+;; https://bitbucket.org/eeeickythump/org-drill
+;; Self-testing using spaced repetition
 (use-package org-drill
   :general
   (local-def
