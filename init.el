@@ -279,6 +279,12 @@
 
     "hi" 'info))
 
+;; find-func.el --- find the definition of the Emacs Lisp function near point
+(use-package find-func
+  :general
+  (prefix-def
+    "fl" 'find-library))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
