@@ -367,6 +367,7 @@
     "dd" 'org-drill-directory
     "dr" 'org-drill-resume)
   :config
+  (require 'cl)
   (add-to-list 'org-modules 'org-drill))
 
 ;; Magit =======================================================================
