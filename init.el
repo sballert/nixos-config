@@ -629,7 +629,10 @@
 ;; HTML ========================================================================
 ;; https://github.com/fxbois/web-mode
 ;; major mode for editing web templates
-(use-package web-mode :mode("\\.twig$" "\\.html?$"))
+(use-package web-mode
+  :mode("\\.twig$" "\\.html?$")
+  :config
+  (setq web-mode-script-padding 4))
 
 ;; Haskell =====================================================================
 ;; https://github.com/haskell/haskell-mode
