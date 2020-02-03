@@ -9,13 +9,6 @@ in rec {
   st = super.st.override {
     conf = readConfig "st.h";
   };
-  nix-util = stdenv.mkDerivation {
-    name = "nix-util";
-    unpackPhase = ":";
-    installPhase = ''
-      install -m755 -D ${./../scripts/nix-util.sh} $out/bin/nix-util
-    '';
-  };
   xlogout = stdenv.mkDerivation {
     name = "xlogout";
     unpackPhase = ":";
