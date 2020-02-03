@@ -38,8 +38,8 @@ in {
       ".gnupg/sshcontrol".text = ''
         447910F828DF001601E7FAECF768DFA93DF87136
       '';
-      ".config/xmobar/xmobarrc".text = builtins.readFile ./xmobarrc;
       ".emacs.d/init.el".text = readConfig "init.el";
+      ".config/xmobar/xmobarrc".text = readConfig "xmobarrc";
       ".ghci".text = builtins.readFile ./ghci;
     };
   };
