@@ -83,7 +83,9 @@
     "wK" 'evil-window-increase-height)
   :init
   (setq evil-want-integration t
-        evil-want-keybinding nil))
+        evil-want-keybinding nil)
+  :config
+  (require 'goto-chg))
 
 ;; https://github.com/emacs-evil/evil-collection
 ;; A set of keybindings for evil-mode
