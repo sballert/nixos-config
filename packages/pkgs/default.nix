@@ -3,6 +3,7 @@
 with pkgs;
 
 {
+  bluetoothctl-menu = callPackage ./bluetoothctl-menu {};
   gruvbox-rofi = callPackage ./gruvbox-rofi {};
   nix-util = callPackage ./nix-util {};
   session-menu = callPackage ./session-menu {};
