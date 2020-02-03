@@ -9,14 +9,6 @@ in rec {
   st = super.st.override {
     conf = readConfig "st.h";
   };
-  xrandr-util = stdenv.mkDerivation {
-    name = "xrandr-util";
-    buildInputs = [ self.xorg.xrandr ];
-    unpackPhase = ":";
-    installPhase = ''
-      install -m755 -D ${./../scripts/xrandr-util.sh} $out/bin/xrandr-util
-    '';
-  };
   nix-util = stdenv.mkDerivation {
     name = "nix-util";
     unpackPhase = ":";
