@@ -5,28 +5,30 @@
 ################################################################################
   home = {
     packages = with pkgs; [
-      gnupg st xmobar
-      pulseaudio-ctl
-      pass
-      udiskie
-      libreoffice
-      vagrant
-      xrandr-util
-      session-menu
-      nix-util
-      xlogout
-      toggle-touchpad
-      gimp
-      gnome3.dconf
-      spotify
-      xorg.xprop
-      brightnessctl
-      slack
-      docker-compose
-      youtube-dl-light
-      bluetoothctl-menu
       backup
+      bluetoothctl-menu
+      brightnessctl
+      docker-compose
+      gimp
       gitAndTools.gitflow
+      gnome3.dconf
+      gnupg
+      libreoffice
+      nix-util
+      pass
+      pulseaudio-ctl
+      session-menu
+      slack
+      spotify
+      st
+      toggle-touchpad
+      udiskie
+      vagrant
+      xlogout
+      xmobar
+      xorg.xprop
+      xrandr-util
+      youtube-dl-light
     ];
     file = {
       ".gnupg/sshcontrol".text = ''
