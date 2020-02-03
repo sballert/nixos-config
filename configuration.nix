@@ -249,7 +249,7 @@ in {
     ];
   };
 ################################################################################
-  home-manager.users.sballert = import ./home.nix {
+  home-manager.users.sballert = import ./home {
     inherit pkgs nixpkgs wallpaper pathToConfig readConfig;
   };
 ################################################################################
