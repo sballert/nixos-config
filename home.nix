@@ -1,4 +1,10 @@
-{ pkgs, nixpkgs, wallpaper, ... }: {
+{ pkgs, nixpkgs, wallpaper, ... }: let
+
+  configDir = "/config";
+
+  readConfig = path: builtins.readFile (./. + "${configDir}/${path}");
+
+in {
 
   inherit nixpkgs;
 
@@ -32,8 +38,8 @@
       ".gnupg/sshcontrol".text = ''
         447910F828DF001601E7FAECF768DFA93DF87136
       '';
-      ".emacs.d/init.el".text = builtins.readFile ./init.el;
       ".config/xmobar/xmobarrc".text = builtins.readFile ./xmobarrc;
+      ".emacs.d/init.el".text = readConfig "init.el";
       ".ghci".text = builtins.readFile ./ghci;
     };
   };
