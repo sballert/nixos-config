@@ -66,4 +66,6 @@
     font = "Noto Sans Display 10";
     theme = builtins.toPath "${pkgs.gruvbox-rofi}/gruvbox-dark.rasi";
   };
+
+  zsh = import ./zsh.nix { inherit pkgs; };
 }

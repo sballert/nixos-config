@@ -156,6 +156,7 @@ in {
     adb.enable = true;
     slock.enable = true;
     gnupg.agent.enable = true;
+    zsh.enable = true;
   };
 ################################################################################
   environment.systemPackages = with pkgs; [
@@ -175,6 +176,7 @@ in {
       "docker"
       "adbusers"
     ];
+    shell = "/run/current-system/sw/bin/zsh";
   };
 ################################################################################
   home-manager.users.sballert = import ./home {
