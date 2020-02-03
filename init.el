@@ -80,7 +80,8 @@
     "wH" 'evil-window-decrease-width
     "wL" 'evil-window-increase-width
     "wJ" 'evil-window-decrease-height
-    "wK" 'evil-window-increase-height)
+    "wK" 'evil-window-increase-height
+    "em" 'evil-show-marks)
   :init
   (setq evil-want-integration t
         evil-want-keybinding nil)
