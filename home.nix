@@ -40,7 +40,7 @@ in {
       '';
       ".emacs.d/init.el".text = readConfig "init.el";
       ".config/xmobar/xmobarrc".text = readConfig "xmobarrc";
-      ".ghci".text = builtins.readFile ./ghci;
+      ".ghci".text = readConfig "ghci";
     };
   };
 ################################################################################
