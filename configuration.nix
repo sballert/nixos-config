@@ -17,7 +17,7 @@
           conf = readConfig "slock.h";
         };
         st = super.st.override {
-          conf = builtins.readFile ./st.h;
+          conf = readConfig "st.h";
         };
         gruvbox-rofi = stdenv.mkDerivation {
           name = "gruvbox-rofi";
