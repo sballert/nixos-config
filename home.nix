@@ -26,6 +26,7 @@
       youtube-dl-light
       bluetoothctl-menu
       backup
+      gitAndTools.gitflow
     ];
     file = {
       ".gnupg/sshcontrol".text = ''
