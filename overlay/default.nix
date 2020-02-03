@@ -1,13 +1,13 @@
-self: super: let
+{ readConfig }: self: super: let
 
   inherit (super) stdenv fetchFromGitHub;
 
 in rec {
   slock = super.slock.override {
-    conf = builtins.readFile ../config/slock.h;
+    conf = readConfig "slock.h";
   };
   st = super.st.override {
-    conf = builtins.readFile ../config/st.h;
+    conf = readConfig "st.h";
   };
   gruvbox-rofi = stdenv.mkDerivation {
     name = "gruvbox-rofi";

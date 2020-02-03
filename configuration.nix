@@ -12,7 +12,7 @@
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      (import ./overlay)
+      (import ./overlay { inherit readConfig; })
     ];
   };
 
