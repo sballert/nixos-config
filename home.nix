@@ -207,6 +207,7 @@
         org-drill
         json-mode
         markdown-mode
+        yaml-mode
       ]) ++ (with orgPackages; [
         org-plus-contrib
       ]);

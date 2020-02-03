@@ -681,6 +681,12 @@
   :config
   (add-hook 'markdown-mode-hook #'smartparens-mode))
 
+;; YAML ========================================================================
+;; https://github.com/yoshiki/yaml-mode
+;; The emacs major mode for editing files in the YAML data serialization format.
+(use-package yaml-mode
+  :mode ("\\.yml\\'" . yaml-mode))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)
