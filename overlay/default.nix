@@ -9,16 +9,9 @@ in rec {
   st = super.st.override {
     conf = readConfig "st.h";
   };
-  xlogout = stdenv.mkDerivation {
-    name = "xlogout";
-    unpackPhase = ":";
-    installPhase = ''
-      install -m755 -D ${./../scripts/xlogout.sh} $out/bin/xlogout
-    '';
-  };
   session-menu = stdenv.mkDerivation {
     name = "session-menu";
-    buildInputs = [ self.rofi xlogout ];
+    buildInputs = [ self.rofi self.xlogout ];
     unpackPhase = ":";
     installPhase = ''
       install -m755 -D ${./../scripts/session-menu.sh} $out/bin/session-menu
