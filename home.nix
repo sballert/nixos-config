@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, wallpaper, readConfig, ... }: {
+{ pkgs, nixpkgs, wallpaper, pathToConfig, readConfig, ... }: {
 
   inherit nixpkgs;
 
