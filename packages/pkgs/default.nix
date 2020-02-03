@@ -3,6 +3,7 @@
 with pkgs;
 
 {
+  backup = callPackage ./backup {};
   bluetoothctl-menu = callPackage ./bluetoothctl-menu {};
   gruvbox-rofi = callPackage ./gruvbox-rofi {};
   nix-util = callPackage ./nix-util {};

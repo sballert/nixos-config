@@ -9,12 +9,4 @@ in rec {
   st = super.st.override {
     conf = readConfig "st.h";
   };
-  backup = stdenv.mkDerivation {
-    name = "backup";
-    buildInputs = [ self.rsync ];
-    unpackPhase = ":";
-    installPhase = ''
-      install -m755 -D ${./../scripts/backup.sh} $out/bin/backup
-    '';
-  };
 }
