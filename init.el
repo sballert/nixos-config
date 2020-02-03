@@ -596,47 +596,6 @@
 ;; A PHP mode for GNU Emacs
 (use-package php-mode :mode ("\\.php$" . php-mode))
 
-;; https://github.com/ahungry/geben
-;; Geben - PHP xdebug for Emacs
-(use-package geben :demand t :after (php-mode)
-  :general
-  (local-def
-    :keymaps '(php-mode-map)
-    "g SPC" 'hydra-geben-run/body
-    "gg" 'geben
-    "gE" 'geben-end
-    "gA" 'geben-add-current-line-to-predefined-breakpoints
-    "gC" 'geben-clear-predefined-breakpoints
-    "gV" 'geben-predefined-breakpoints
-    "gb" 'geben-set-breakpoint-line
-    "gB" 'geben-breakpoint-menu
-    "gu" 'geben-unset-breakpoint-line
-    "gU" 'geben-clear-breakpoints
-    "ge" 'geben-eval-expression
-    "gl" 'geben-eval-current-line
-    "gw" 'geben-where
-    "gv" 'geben-display-context
-    "gt" 'geben-show-backtrace
-    "gp" 'geben-show-brackpoint-list
-    "g?" 'geben-mode-help)
-  :config
-  (setq geben-path-mappings
-        '(("/home/sballert/s7/repos/olimar" "/var/www/olimar")
-          ("/home/sballert/s7/repos/ameropa" "/var/www/ameropa"))))
-
-(defhydra hydra-geben-run ()
-    "geben-run"
-    ("r" geben-run "run")
-    ("c" geben-run-to-cursor "run to cursor")
-    ("n" geben-step-over "step over")
-    ("o" geben-stepout "step out")
-    ("a" geben-step-again "step again")
-    ("i" geben-step-into "into")
-    ("e" geben-eval-expression "eval expression")
-    ("v" geben-display-context "display context")
-    ("u" geben-unset-breakpoint-line "unset breakpoint")
-    ("s" geben-stop "stop" :exit t))
-
 ;; HTML ========================================================================
 ;; https://github.com/fxbois/web-mode
 ;; major mode for editing web templates

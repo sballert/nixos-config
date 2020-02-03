@@ -197,7 +197,6 @@
         ws-butler
         php-mode
         web-mode
-        geben
         fill-column-indicator
         haskell-mode
         shackle
