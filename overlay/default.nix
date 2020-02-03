@@ -9,14 +9,6 @@ in rec {
   st = super.st.override {
     conf = readConfig "st.h";
   };
-  toggle-touchpad = stdenv.mkDerivation {
-    name = "toggle-touchpad";
-    buildInputs = [ self.xorg.xinput ];
-    unpackPhase = ":";
-    installPhase = ''
-      install -m755 -D ${./../scripts/toggle-touchpad.sh} $out/bin/toggle-touchpad
-    '';
-  };
   bluetoothctl-menu = stdenv.mkDerivation {
     name = "bluetoothctl-menu";
     buildInputs = [ self.makeWrapper  ];
