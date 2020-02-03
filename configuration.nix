@@ -10,7 +10,10 @@
   readConfig = conf: builtins.readFile (configDir + "/${conf}");
 
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      packageOverrides = pkgs: (import ./packages { inherit pkgs; });
+    };
     overlays = [
       (import ./overlay { inherit readConfig; })
     ];
