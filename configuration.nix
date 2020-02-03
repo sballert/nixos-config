@@ -15,7 +15,14 @@
       packageOverrides = pkgs: (import ./packages { inherit pkgs; });
     };
     overlays = [
-      (import ./overlay { inherit readConfig; })
+      (self: super: {
+        slock = super.slock.override {
+          conf = readConfig "slock.h";
+        };
+        st = super.st.override {
+          conf = readConfig "st.h";
+        };
+      })
     ];
   };
 
