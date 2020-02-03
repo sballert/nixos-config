@@ -9,14 +9,6 @@ in rec {
   st = super.st.override {
     conf = readConfig "st.h";
   };
-  session-menu = stdenv.mkDerivation {
-    name = "session-menu";
-    buildInputs = [ self.rofi self.xlogout ];
-    unpackPhase = ":";
-    installPhase = ''
-      install -m755 -D ${./../scripts/session-menu.sh} $out/bin/session-menu
-    '';
-  };
   toggle-touchpad = stdenv.mkDerivation {
     name = "toggle-touchpad";
     buildInputs = [ self.xorg.xinput ];
