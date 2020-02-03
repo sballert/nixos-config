@@ -1,10 +1,4 @@
-{ pkgs, nixpkgs, wallpaper, ... }: let
-
-  configDir = "/config";
-
-  readConfig = path: builtins.readFile (./. + "${configDir}/${path}");
-
-in {
+{ pkgs, nixpkgs, wallpaper, readConfig, ... }: {
 
   inherit nixpkgs;
 

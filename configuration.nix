@@ -1,7 +1,11 @@
 { config, pkgs, ... }: let
 
 ################################################################################
+  configDir = "/config";
+
   wallpaper = builtins.fetchurl https://s3.amazonaws.com/psiu/wallpapers/heic1209a/heic1209a_desktop.jpg;
+
+  readConfig = path: builtins.readFile (./. + "${configDir}/${path}");
 
   nixpkgs = {
     config.allowUnfree = true;
@@ -244,7 +248,7 @@ in {
   };
 ################################################################################
   home-manager.users.sballert = import ./home.nix {
-    inherit pkgs nixpkgs wallpaper;
+    inherit pkgs nixpkgs wallpaper readConfig;
   };
 ################################################################################
   system.stateVersion = "19.09";
