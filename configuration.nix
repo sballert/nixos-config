@@ -14,7 +14,7 @@
         inherit (super) stdenv fetchFromGitHub;
       in rec {
         slock = super.slock.override {
-          conf = builtins.readFile ./slock.h;
+          conf = readConfig "slock.h";
         };
         st = super.st.override {
           conf = builtins.readFile ./st.h;
