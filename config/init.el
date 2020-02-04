@@ -448,6 +448,15 @@
 (use-package nix-drv-mode :mode "\\.drv\\'")
 
 ;; Misc ========================================================================
+;; https://github.com/wbolster/emacs-direnv
+;; direnv integration for emacs
+(use-package direnv
+  :diminish
+  :hook
+  ((after-init) . direnv-mode)
+  :config
+  (setq direnv-always-show-summary nil))
+
 ;; https://github.com/bbatsov/super-save
 ;; Save Emacs buffers when they lose focus
 (use-package super-save

@@ -13,6 +13,7 @@
     ] ++ (with melpaPackages; [
       counsel
       diminish
+      direnv
       evil
       evil-collection
       evil-org
