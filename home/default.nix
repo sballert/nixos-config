@@ -21,6 +21,7 @@
       pass
       pulseaudio-ctl
       session-menu
+      shellcheck
       slack
       spaceship-prompt
       spotify
