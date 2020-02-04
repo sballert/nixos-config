@@ -22,9 +22,11 @@
       pulseaudio-ctl
       session-menu
       slack
+      spaceship-prompt
       spotify
       st
       toggle-touchpad
+      tree
       udiskie
       vagrant
       xlogout
