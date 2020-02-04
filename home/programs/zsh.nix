@@ -60,6 +60,8 @@ in {
     ydb = "${youtube-dl-light}/bin/youtube-dl -f bestvideo+bestaudio";
     ydm = ''${youtube-dl-light}/bin/youtube-dl -f "bestvideo[height<=480]+bestaudio/best[height<=480]"'';
     yda = "${youtube-dl-light}/bin/youtube-dl --extract-audio --audio-format mp3";
+
+    s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
   };
 
   history = {
