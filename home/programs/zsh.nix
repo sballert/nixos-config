@@ -42,7 +42,7 @@ in {
 
     p = "${pass}/bin/pass";
 
-    grep = "grep --color=always";
+    grep = "grep --color=auto";
     less = "less -R";
 
     la = "${exa}/bin/exa -aF";
