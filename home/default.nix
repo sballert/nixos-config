@@ -6,9 +6,12 @@
   home = {
     packages = with pkgs; [
       backup
+      bat
       bluetoothctl-menu
       brightnessctl
       docker-compose
+      exa
+      fd
       gimp
       gitAndTools.gitflow
       gnome3.dconf
