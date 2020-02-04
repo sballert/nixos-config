@@ -73,6 +73,8 @@ in {
     vag = "${vagrant}/bin/vagrant global-status";
     vash = "${vagrant}/bin/vagrant ssh";
 
+    nosr = "sudo nixos-rebuild switch";
+
     s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
   };
 
