@@ -51,9 +51,9 @@ in {
 
     pping = "${prettyping}/bin/prettyping";
 
-    r = "${rsync}/bin/rsync -vh --info=progress2";
-    ru = "${rsync}/bin/rsync -vhazu --info=progress2";
-    rud = "${rsync}/bin/rsync -vhazu --delete --info=progress2";
+    r = "${rsync}/bin/rsync -vhr --info=progress2";
+    ru = "${rsync}/bin/rsync -vharzu --info=progress2";
+    rud = "${rsync}/bin/rsync -vharzu --delete --info=progress2";
 
     yd = "${youtube-dl-light}/bin/youtube-dl";
     ydl = "${youtube-dl-light}/bin/youtube-dl --list-formats";
