@@ -21,6 +21,7 @@ in {
     "-g L" = "| less";
     "-g NUL" = "> /dev/null 2>&1";
     "-g T" = "| tail";
+    "-g F" = "| ${fzf}/bin/fzf -m";
 
     s = "sudo";
     se = "sudo -e";

@@ -45,6 +45,20 @@
 
   firefox.enable = true;
 
+  fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "${pkgs.fd}/bin/fd --type f";
+    defaultOptions = [
+      "--layout reverse"
+      "--height 40%"
+    ];
+    fileWidgetCommand = "${pkgs.fd}/bin/fd --type f";
+    fileWidgetOptions = [ "--preview '${pkgs.bat}/bin/bat {}'" ];
+    changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d";
+    changeDirWidgetOptions = [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
+  };
+
   git = {
     enable = true;
     userName = "sballert";
