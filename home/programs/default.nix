@@ -18,6 +18,7 @@
       evil-collection
       evil-org
       fill-column-indicator
+      flycheck
       general
       gruvbox-theme
       haskell-mode

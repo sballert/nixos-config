@@ -448,6 +448,22 @@
 (use-package nix-drv-mode :mode "\\.drv\\'")
 
 ;; Misc ========================================================================
+;; https://github.com/flycheck/flycheck
+;; On the fly syntax checking for GNU Emacs
+(use-package flycheck
+  :diminish
+  :hook
+  ((after-init) . global-flycheck-mode)
+  :config
+  (prefix-def
+    "F" '(:ignore t :which-key "flycheck")
+    "F SPC" 'flycheck-list-errors
+    "Fl" 'flycheck-list-errors
+    "Fc" 'flycheck-buffer
+    "FC" 'flycheck-clear
+    "Fp" 'flycheck-previous-error
+    "Fn" 'flycheck-next-error))
+
 ;; https://github.com/wbolster/emacs-direnv
 ;; direnv integration for emacs
 (use-package direnv
