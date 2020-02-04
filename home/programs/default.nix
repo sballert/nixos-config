@@ -4,34 +4,39 @@
     browsers = [ "firefox" ];
   };
 
+  direnv.enable = true;
+
   emacs = {
     enable = true;
     extraPackages = epkgs: with epkgs; [
       pdf-tools
     ] ++ (with melpaPackages; [
-      use-package diminish
-      evil evil-collection
-      general
-      which-key
-      gruvbox-theme
       counsel
-      evil-org org-bullets
-      super-save
-      magit evil-magit
-      nix-mode
-      ws-butler
-      php-mode
-      web-mode
+      diminish
+      evil
+      evil-collection
+      evil-org
       fill-column-indicator
+      general
+      gruvbox-theme
       haskell-mode
-      shackle
       hydra
-      password-store
-      projectile
-      nov
-      org-drill
       json-mode
+      magit evil-magit
       markdown-mode
+      nix-mode
+      nov
+      org-bullets
+      org-drill
+      password-store
+      php-mode
+      projectile
+      shackle
+      super-save
+      use-package
+      web-mode
+      which-key
+      ws-butler
       yaml-mode
     ]) ++ (with orgPackages; [
       org-plus-contrib
