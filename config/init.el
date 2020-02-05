@@ -339,7 +339,8 @@
           company-files
           (company-dabbrev-code company-keywords)
           company-dabbrev)
-        company-idle-delay 0))
+        company-idle-delay 0
+        company-minimum-prefix-length 3))
 
 ;; https://github.com/company-mode/company-mode
 ;; company-mode configuration for single-button interaction
