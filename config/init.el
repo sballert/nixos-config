@@ -288,6 +288,15 @@
   (prefix-def
     "fl" 'find-library))
 
+;; abbrev.el --- abbrev mode commands for Emacs
+(use-package abbrev
+  :diminish
+  :hook ((text-mode prog-mode) . abbrev-mode)
+  :config
+  (clear-abbrev-table global-abbrev-table)
+  (define-abbrev-table 'global-abbrev-table
+  '(("teh" "the"))))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
