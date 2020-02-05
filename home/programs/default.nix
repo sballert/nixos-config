@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, readConfig, ... }: {
   browserpass = {
     enable = true;
     browsers = [ "firefox" ];
@@ -88,5 +88,5 @@
     theme = builtins.toPath "${pkgs.gruvbox-rofi}/gruvbox-dark.rasi";
   };
 
-  zsh = import ./zsh.nix { inherit pkgs; };
+  zsh = import ./zsh.nix { inherit pkgs readConfig; };
 }

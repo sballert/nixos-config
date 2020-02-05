@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, readConfig }:
 
 with pkgs;
 
@@ -14,6 +14,8 @@ in {
   enableCompletion = true;
 
   enableAutosuggestions = false;
+
+  initExtra = readConfig "init-extra.zsh";
 
   shellAliases = {
     "-g G" = "| grep -i";
@@ -77,6 +79,7 @@ in {
     nosr = "sudo nixos-rebuild switch";
 
     s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
+    s7gc = "s7_git_config";
   };
 
   history = {

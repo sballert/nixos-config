@@ -76,7 +76,7 @@
     };
   };
 ################################################################################
-  programs = import ./programs { inherit pkgs; };
+  programs = import ./programs { inherit pkgs readConfig; };
 ################################################################################
   systemd.user.services = {
     autorepeat = {
