@@ -2,9 +2,9 @@ self: super:
 
 {
   slock = super.slock.override {
-    conf = builtins.readFile ../../config/slock.h;
+    conf = builtins.readFile ./slock.h;
   };
   st = super.st.override {
-    conf = builtins.readFile ../../config/st.h;
+    conf = builtins.readFile ./st.h;
   };
 }
