@@ -327,6 +327,27 @@
 ;; Swiper - isearch with an overview
 (use-package swiper :general (prefix-def "/s" 'swiper))
 
+;; Company =====================================================================
+;; https://github.com/company-mode/company-mode
+;; Modular in-buffer completion framework for Emacs
+(use-package company
+  :diminish
+  :hook ((prog-mode text-mode) . company-mode)
+  :config
+  (setq company-backends
+        '(company-capf
+          company-files
+          (company-dabbrev-code company-keywords)
+          company-dabbrev)
+        company-idle-delay 0))
+
+;; https://github.com/company-mode/company-mode
+;; company-mode configuration for single-button interaction
+(use-package company-tng
+  :demand t
+  :after (company)
+  :config (company-tng-configure-default))
+
 ;; org-mode ====================================================================
 ;; https://orgmode.org/
 ;; Org mode is for keeping notes, maintaining TODO lists, planning projects,

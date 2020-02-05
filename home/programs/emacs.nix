@@ -8,6 +8,7 @@ with pkgs;
   extraPackages = epkgs: with epkgs; [
     pdf-tools
   ] ++ (with melpaPackages; [
+    company
     counsel
     diminish
     direnv
