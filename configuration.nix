@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, options, ... }: let
 
 ################################################################################
   configDir = ./config;
@@ -12,17 +12,10 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      packageOverrides = pkgs: (import ./packages { inherit pkgs; });
     };
     overlays = [
-      (self: super: {
-        slock = super.slock.override {
-          conf = readConfig "slock.h";
-        };
-        st = super.st.override {
-          conf = readConfig "st.h";
-        };
-      })
+      (import ./packages/overlays/mypackages.nix)
+      (import ./packages/overlays/overwrites.nix)
     ];
   };
 
@@ -182,6 +175,14 @@ in {
   home-manager.users.sballert = import ./home {
     inherit pkgs nixpkgs wallpaper pathToConfig readConfig;
   };
+################################################################################
+
+  nix.nixPath = let
+    overlaysDir = builtins.toString ./packages/overlays;
+  in (options.nix.nixPath.default ++ [
+    "nixpkgs-overlays=${overlaysDir}"
+  ]);
+
 ################################################################################
   system.stateVersion = "19.09";
 }
