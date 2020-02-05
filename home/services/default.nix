@@ -28,7 +28,7 @@
 
   screen-locker = {
     enable = true;
-    lockCmd = "slock";
+    lockCmd = "/run/wrappers/bin/slock";
   };
 
   udiskie = {
