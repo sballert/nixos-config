@@ -11,4 +11,10 @@ with pkgs;
   toggle-touchpad = callPackage ./toggle-touchpad {};
   xlogout = callPackage ./xlogout {};
   xrandr-util = callPackage ./xrandr-util {};
+
+  myNodePackages = import ./node-packages/composition.nix {
+    inherit pkgs;
+    inherit (stdenv.hostPlatform) system;
+    nodejs = pkgs.nodejs-12_x;
+  };
 }
