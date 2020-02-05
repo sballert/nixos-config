@@ -518,6 +518,7 @@
 ;; https://github.com/alpaker/Fill-Column-Indicator
 ;; An Emacs minor mode that graphically indicates the fill column.
 (use-package fill-column-indicator
+  :disabled
   :hook (prog-mode . fci-mode)
   :config
   (setq fci-rule-width 1
