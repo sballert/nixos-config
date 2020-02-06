@@ -500,7 +500,8 @@
 (use-package direnv
   :diminish
   :hook
-  ((after-init) . direnv-mode)
+  ((after-init . direnv-mode)
+   (flycheck-before-syntax-check . direnv-update-environment))
   :config
   (setq direnv-always-show-summary nil))
 
