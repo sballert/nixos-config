@@ -360,6 +360,24 @@
   :after (company)
   :config (company-tng-configure-default))
 
+;; LSP =========================================================================
+(use-package lsp-mode
+  :hook ((php-mode . (lambda () (direnv-update-environment)(lsp))))
+  :custom
+  (lsp-auto-guess-root nil)
+  (lsp-prefer-flymake nil)
+  (lsp-file-watch-threshold nil)
+  :commands lsp)
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :commands lsp-ui-mode)
+
+(use-package company-lsp
+  :after (lsp-mode)
+  :config
+  (push 'company-lsp company-backends))
+
 ;; org-mode ====================================================================
 ;; https://orgmode.org/
 ;; Org mode is for keeping notes, maintaining TODO lists, planning projects,

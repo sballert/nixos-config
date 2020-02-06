@@ -9,6 +9,7 @@ with pkgs;
     pdf-tools
   ] ++ (with melpaPackages; [
     company
+    company-lsp
     counsel
     diminish
     direnv
@@ -22,6 +23,9 @@ with pkgs;
     haskell-mode
     hydra
     json-mode
+    lsp-mode
+    lsp-ui
+    lsp-ivy
     magit evil-magit
     markdown-mode
     nix-mode
