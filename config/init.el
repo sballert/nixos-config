@@ -297,6 +297,17 @@
   (define-abbrev-table 'global-abbrev-table
   '(("teh" "the"))))
 
+;; xref.el --- Cross-referencing commands
+(use-package xref
+  :general
+  (prefix-def
+    "j" '(:ignore t :which-key "jump")
+    "j SPC" 'xref-find-definitions
+    "jr" 'xref-find-references
+    "jo" 'xref-find-definitions-other-window
+    "jb" 'xref-pop-marker-stack
+    "ja" 'xref-find-apropos))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
