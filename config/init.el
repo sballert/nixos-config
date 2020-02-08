@@ -539,8 +539,17 @@
 (use-package super-save
   :diminish
   :hook (after-init . super-save-mode)
-  :config
-  (setq super-save-auto-save-when-idle t))
+  :custom
+  (super-save-triggers '(switch-to-buffer
+                         other-window
+                         windmove-up
+                         windmove-down
+                         windmove-left
+                         windmove-right
+                         next-buffer
+                         previous-buffer
+                         ansi-term))
+  (super-save-auto-save-when-idle t))
 
 ;; https://github.com/lewang/ws-butler
 ;; Unobtrusively trim extraneous white-space *ONLY* in lines edited.
