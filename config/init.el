@@ -548,6 +548,8 @@
                          windmove-right
                          next-buffer
                          previous-buffer
+                         kill-current-buffer
+                         magit-status
                          ansi-term))
   (super-save-auto-save-when-idle t))
 
