@@ -379,6 +379,56 @@
   :config
   (push 'company-lsp company-backends))
 
+;; DAP (Debug Adapter Protocol) ================================================
+;; https://github.com/emacs-lsp/dap-mode
+;; Emacs heart Debug Adapter Protocol
+(use-package dap-mode
+  :hook (php-mode . dap-mode))
+
+(use-package dap-ui
+  :hook ((dap-mode . dap-ui-mode)
+         (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra/body))))
+  :general
+  (prefix-def
+    "d" '(:ignore t :which-key "debug")
+    "d SPC" 'dap-debug
+    "dd" 'dap-debug
+    "dD" 'dap-debug-edit-template
+    "dh" 'dap-hydra/body
+
+    "db" '(:ignore t :which-key "breakpoint")
+    "dbt" 'dap-breakpoint-toggle
+    "dba" 'dap-breakpoint-add
+    "dbd" 'dap-breakpoint-delete
+    "dbc" 'dap-breakpoint-condition
+    "dbh" 'dap-breakpoint-hit-condition
+    "dbl" 'dap-breakpoint-log-message
+
+    "dw" '(:ignore t :which-key "window")
+    "dws" 'dap-ui-sessions
+    "dwl" 'dap-ui-locals
+    "dwe" 'dap-ui-expressions
+    "dwb" 'dap-ui-breakpoints
+    "dwr" 'dap-ui-repl
+
+    "dq" 'dap-disconnect)
+  :config
+  (require 'dap-hydra)
+  (require 'dap-ui-repl))
+
+(use-package dap-php
+  :after (dap-mode)
+  :demand t
+  :config
+  (dap-register-debug-template "Php FTI Debug"
+                               (list :type "php"
+                                     :cwd nil
+                                     :request "launch"
+                                     :name "PHP FTI Debug"
+                                     :stopOnEntry nil
+                                     :pathMappings (ht ("/var/www/fti-ibe" "/home/sballert/s7/repos/fti-ibe/"))
+                                     :sourceMaps t)))
+
 ;; org-mode ====================================================================
 ;; https://orgmode.org/
 ;; Org mode is for keeping notes, maintaining TODO lists, planning projects,

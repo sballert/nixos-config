@@ -11,6 +11,7 @@ with pkgs;
     company
     company-lsp
     counsel
+    dap-mode
     diminish
     direnv
     evil
