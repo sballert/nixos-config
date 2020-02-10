@@ -37,6 +37,7 @@
     "/" '(:ignore t :which-key "search")
     "b" '(:ignore t :which-key "buffer")
     "f" '(:ignore t :which-key "find")
+    "m" '(:ignore t :which-key "more")
     "ff" 'find-file
     "w" '(:ignore t :which-key "window")
     "Q" 'save-buffers-kill-terminal))
@@ -81,7 +82,7 @@
     "wL" 'evil-window-increase-width
     "wJ" 'evil-window-decrease-height
     "wK" 'evil-window-increase-height
-    "em" 'evil-show-marks)
+    "mm" 'evil-show-marks)
   :init
   (setq evil-want-integration t
         evil-want-keybinding nil)
