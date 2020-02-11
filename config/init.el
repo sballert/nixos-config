@@ -343,6 +343,9 @@
     "jb" 'xref-pop-marker-stack
     "ja" 'xref-find-apropos))
 
+;; paren.el --- highlight matching paren
+(use-package paren :hook (after-init . show-paren-mode))
+
 ;; Swiper ======================================================================
 ;; https://github.com/abo-abo/swiper
 ;; Ivy - a generic completion frontend for Emacs
