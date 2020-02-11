@@ -811,10 +811,7 @@
 ;; Markdown ====================================================================
 ;; https://github.com/jrblevin/markdown-mode
 ;; markdown-mode.el --- Major mode for Markdown-formatted text
-(use-package markdown-mode
-  :mode ("\\.\\(m\\(ark\\)?down\\|md\\)$" . markdown-mode)
-  :config
-  (add-hook 'markdown-mode-hook #'smartparens-mode))
+(use-package markdown-mode :mode ("\\.\\(m\\(ark\\)?down\\|md\\)$" . markdown-mode))
 
 ;; YAML ========================================================================
 ;; https://github.com/yoshiki/yaml-mode
