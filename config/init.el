@@ -531,6 +531,7 @@
 
     "/gp" 'projectile-grep
 
+    "b SPC" 'projectile-switch-to-buffer
     "f SPC" 'projectile-find-file)
   :config
   (setq projectile-completion-system 'ivy
