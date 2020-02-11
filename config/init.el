@@ -805,6 +805,13 @@
     "l" 'eval-last-sexp
     "e" 'eval-defun))
 
+;; pp.el --- pretty printer for Emacs Lisp
+(use-package pp
+  :general
+  (prefix-def
+    "p" 'pp-eval-last-sexp
+    ";" 'pp-eval-expression))
+
 ;; PHP =========================================================================
 ;; https://github.com/emacs-php/php-mode
 ;; A PHP mode for GNU Emacs
