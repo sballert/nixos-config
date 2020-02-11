@@ -791,6 +791,20 @@
   :config
   (setq password-store-password-length 30))
 
+;; Lispy Languages =============================================================
+
+;; elisp-mode.el --- Emacs Lisp mode
+(use-package elisp-mode
+  :general
+  (local-def
+    :keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
+    "b" 'eval-buffer
+    "d" 'toggle-debug-on-error
+    "f" 'debug-on-entry
+    "F" 'cancel-debug-on-entry
+    "l" 'eval-last-sexp
+    "e" 'eval-defun))
+
 ;; PHP =========================================================================
 ;; https://github.com/emacs-php/php-mode
 ;; A PHP mode for GNU Emacs
