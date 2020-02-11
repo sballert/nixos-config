@@ -44,9 +44,10 @@
 ;; general.el ==================================================================
 ;; https://github.com/noctuid/general.el
 ;; More convenient key definitions in emacs
-(use-package general
-  :demand t
-  :config
+(eval-and-compile
+  (require 'general))
+
+(eval-when-compile
   (general-create-definer prefix-def
     :keymaps 'override
     :states '(normal insert emacs)
@@ -57,7 +58,9 @@
   (general-create-definer local-def
     :states '(normal insert emacs)
     :prefix "SPC SPC"
-    :non-normal-prefix "M-SPC SPC")
+    :non-normal-prefix "M-SPC SPC"))
+
+(eval-and-compile
   (prefix-def
     "/" '(:ignore t :which-key "search")
     "b" '(:ignore t :which-key "buffer")
@@ -81,7 +84,8 @@
 ;; hydra =======================================================================
 ;; https://github.com/abo-abo/hydra
 ;; make Emacs bindings that stick around
-(use-package hydra :demand t)
+(eval-and-compile
+  (require 'hydra))
 
 (defhydra hydra-zoom (global-map "<f2>")
   "zoom"
@@ -118,6 +122,7 @@
 ;; A set of keybindings for evil-mode
 (use-package evil-collection
   :demand t
+  :commands (evil-collection-init)
   :after (evil)
   :config
   (setq evil-collection-setup-minibuffer t)
@@ -176,7 +181,11 @@
 
 ;; dired.el --- directory-browsing commands
 (use-package dired
-  :commands (dired-dotfiles-toggle)
+  :commands (dired-dotfiles-toggle
+             dired-hide-details-mode
+             dired-mark-files-regexp
+             dired-do-kill-lines)
+  :defines (dired-dotfiles-show-p)
   :config
   (defun dired-mode-setup ()
     "Dired setup hook"
@@ -383,6 +392,7 @@
 ;; company-mode configuration for single-button interaction
 (use-package company-tng
   :demand t
+  :commands (company-tng-configure-default)
   :after (company)
   :config (company-tng-configure-default))
 
@@ -443,6 +453,7 @@
 
 (use-package dap-php
   :after (dap-mode)
+  :functions (dap-register-debug-template)
   :demand t
   :config
   (dap-register-debug-template "Php FTI Debug"
@@ -483,6 +494,7 @@
 ;; Supplemental evil-mode keybindings to emacs org-mode
 (use-package evil-org
   :diminish
+  :commands (evil-org-set-key-theme)
   :after (evil org)
   :hook (org-mode . evil-org-mode)
   :config
@@ -499,6 +511,7 @@
 ;; evil keybindings for org-agenda-mode
 (use-package evil-org-agenda
   :demand t
+  :commands (evil-org-agenda-set-keys)
   :after (evil-org)
   :config (evil-org-agenda-set-keys))
 
@@ -646,6 +659,10 @@
 ;; Enforce rules for popup windows
 (use-package shackle
   :hook (after-init . shackle-mode)
+  :commands (shackle--splittable-frame)
+  :functions (shackle--smart-split-dir
+              org-src-switch-to-buffer
+              shackle-org-src-pop-to-buffer)
   :config
   (defun shackle--smart-split-dir ()
     (if (>= (window-pixel-height)
@@ -694,7 +711,10 @@
 ;; Emacs support library for PDF files.
 (use-package pdf-tools
   :mode (("\\.pdf\\'" . pdf-view-mode))
-  :functions (pdf-tools-disable-cursor pdf-tools-advice-evil-refresh-cursor)
+  :functions (pdf-tools-disable-cursor
+              pdf-tools-advice-evil-refresh-cursor)
+  :commands (pdf-isearch-minor-mode
+             pdf-view-midnight-minor-mode)
   :general (local-def :keymaps '(pdf-view-mode-map) "o" 'pdf-occur)
   :config
   (defun pdf-tools-advice-evil-refresh-cursor (evil-refresh-cursor &rest args)
@@ -799,6 +819,14 @@
     :keymaps '(json-mode-map)
     "f" 'evil-json-pretty-print)
   :commands (evil-json-reformat)
+  :after (evil)
+  :functions (evil-has-command-property-p
+              evil-get-command-property
+              evil-operator-range
+              evil-visual-state-p
+              evil-visual-rotate
+              evil-set-command-properties
+              json-pretty-print)
   :config
   (evil-define-operator evil-json-pretty-print (beg end)
     "Indent text."
