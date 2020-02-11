@@ -36,6 +36,7 @@ with pkgs;
     password-store
     php-mode
     projectile
+    rainbow-delimiters
     shackle
     super-save
     use-package

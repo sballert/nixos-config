@@ -709,6 +709,10 @@
                              :height 1.0))
   (add-hook 'nov-mode-hook 'my-nov-font-setup))
 
+;; https://github.com/Fanael/rainbow-delimiters
+;; Emacs rainbow delimiters mode
+(use-package rainbow-delimiters :hook (prog-mode . rainbow-delimiters-mode))
+
 ;; PDF Tools ===================================================================
 ;; https://github.com/politza/pdf-tools
 ;; Emacs support library for PDF files.
