@@ -136,6 +136,7 @@ in {
     fonts = with pkgs; [
       noto-fonts
       roboto-mono
+      powerline-fonts
       emacs-all-the-icons-fonts
     ];
   };

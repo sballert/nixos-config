@@ -51,5 +51,14 @@
     theme = builtins.toPath "${pkgs.gruvbox-rofi}/gruvbox-dark.rasi";
   };
 
+  tmux = {
+    enable = true;
+    keyMode = "vi";
+    plugins = with pkgs.tmuxPlugins; [
+      copycat
+      gruvbox
+    ];
+  };
+
   zsh = import ./zsh.nix { inherit pkgs readConfig; };
 }
