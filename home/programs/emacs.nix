@@ -24,6 +24,8 @@ with pkgs;
     haskell-mode
     hydra
     json-mode
+    lispy
+    lispyville
     lsp-mode
     lsp-ui
     lsp-ivy

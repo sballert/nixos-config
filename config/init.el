@@ -793,6 +793,37 @@
 
 ;; Lispy Languages =============================================================
 
+;; https://github.com/abo-abo/lispy
+;; lispy.el --- vi-like Paredit.
+(use-package lispy
+  :diminish
+  :hook
+  ((emacs-lisp-mode) . lispy-mode)
+  :after (ivy)
+  :custom
+  (lispy-completion-method #'ivy)
+  :config
+  (general-def 'insert 'local
+    "(" #'lispy-parens
+    "[" #'lispy-brackets
+    "{" #'lispy-braces
+    "\"" #'lispy-quotes))
+
+;; https://github.com/noctuid/lispyville
+;; lispyville.el --- A minor mode for integrating evil with lispy.
+(use-package lispyville
+  :diminish
+  :hook (lispy-mode . lispyville-mode)
+  :config
+  (lispyville-set-key-theme
+   '(operators
+     c-w
+     prettify
+     text-objects
+     slurp/barf-cp
+     (escape insert)
+     (additional-movement normal visual motion))))
+
 ;; elisp-mode.el --- Emacs Lisp mode
 (use-package elisp-mode
   :general
