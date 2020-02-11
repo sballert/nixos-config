@@ -483,7 +483,6 @@
   :general
   (local-def
     :keymaps '(org-mode-map)
-    "d" '(:ignore t :which-key "org-drill")
     "d SPC" 'org-drill
     "dt" 'org-drill-tree
     "dd" 'org-drill-directory
