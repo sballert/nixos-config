@@ -476,7 +476,10 @@
   :general
   (local-def
     :keymaps '(org-mode-map)
-    "t" 'org-babel-tangle)
+    "o" 'org-open-at-point
+    "t" 'org-babel-tangle
+    "l" 'org-insert-link
+    "L" 'org-toggle-link-display)
   :config
   (let ((languages '(haskell)))
     (org-babel-do-load-languages
