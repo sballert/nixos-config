@@ -840,8 +840,9 @@
 (use-package pp
   :general
   (prefix-def
-    "p" 'pp-eval-last-sexp
-    ";" 'pp-eval-expression))
+    ";" 'pp-eval-expression)
+  (local-def
+    "p" 'pp-eval-last-sexp))
 
 ;; PHP =========================================================================
 ;; https://github.com/emacs-php/php-mode
