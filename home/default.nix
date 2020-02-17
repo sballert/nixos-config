@@ -4,7 +4,7 @@
 
 ################################################################################
   home = {
-    packages = with pkgs; [
+    packages = (with pkgs; [
       backup
       bat
       bluetoothctl-menu
@@ -19,6 +19,7 @@
       libreoffice
       nix-util
       pass
+      perl
       pulseaudio-ctl
       session-menu
       shellcheck
@@ -35,7 +36,8 @@
       xorg.xprop
       xrandr-util
       youtube-dl-light
-    ];
+    ]);
+
     file = {
       ".config/xmobar/xmobarrc".text = readConfig "xmobarrc";
       ".emacs.d/init.el".text = readConfig "init.el";
