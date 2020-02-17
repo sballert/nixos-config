@@ -805,12 +805,12 @@
   :after (ivy)
   :custom
   (lispy-completion-method #'ivy)
-  :config
-  (general-def 'insert 'local
-    "(" #'lispy-parens
-    "[" #'lispy-brackets
-    "{" #'lispy-braces
-    "\"" #'lispy-quotes))
+  :general
+  (:states 'insert :keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
+           "(" #'lispy-parens
+           "[" #'lispy-brackets
+           "{" #'lispy-braces
+           "\"" #'lispy-quotes))
 
 ;; https://github.com/noctuid/lispyville
 ;; lispyville.el --- A minor mode for integrating evil with lispy.
