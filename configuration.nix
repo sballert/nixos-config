@@ -28,9 +28,12 @@ in {
 
   inherit nixpkgs;
 ################################################################################
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_4_19;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
   };
 ################################################################################
   time = {
