@@ -20,6 +20,7 @@
       nix-util
       pass
       pulseaudio-ctl
+      pythonPackages.yamllint
       session-menu
       shellcheck
       slack
