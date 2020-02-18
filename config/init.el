@@ -142,6 +142,9 @@
 ;; files.el --- file input and output commands for Emacs
 (use-package files
   :demand t
+  :general
+  (prefix-def
+    "bs" 'save-buffer)
   :config
   (setq save-silently t
         large-file-warning-threshold 100000000
@@ -626,6 +629,8 @@
     "pso" 'projectile-switch-open-project
 
     "/gp" 'projectile-grep
+
+    "b SPC" 'projectile-switch-to-buffer
 
     "f SPC" 'projectile-find-file)
   :config
