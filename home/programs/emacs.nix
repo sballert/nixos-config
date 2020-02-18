@@ -46,6 +46,7 @@ with pkgs;
     which-key
     ws-butler
     yaml-mode
+    yasnippet
   ]) ++ (with orgPackages; [
     org-plus-contrib
   ]);

@@ -124,8 +124,10 @@
   :demand t
   :commands (evil-collection-init)
   :after (evil)
+  :custom
+  (evil-collection-company-use-tng nil)
+  (evil-collection-setup-minibuffer t)
   :config
-  (setq evil-collection-setup-minibuffer t)
   (evil-collection-init))
 
 ;; Builtins ====================================================================
@@ -381,23 +383,56 @@
 ;; Modular in-buffer completion framework for Emacs
 (use-package company
   :diminish
+  :init
+  (defun company-backend-with-yas (backends)
+    "Add :with company-yasnippet to company BACKENDS."
+    (if (and (listp backends) (memq 'company-yasnippet backends))
+        backends
+      (append (if (consp backends)
+                  backends
+                (list backends))
+              '(:with company-yasnippet))))
   :hook ((prog-mode text-mode) . company-mode)
   :config
-  (setq company-backends
-        '(company-capf
-          company-files
-          (company-dabbrev-code company-keywords)
-          company-dabbrev)
-        company-idle-delay 0
-        company-minimum-prefix-length 3))
+  (setq company-backends (mapcar #'company-backend-with-yas
+                                 '(company-capf
+                                   company-files
+                                   (company-dabbrev-code company-keywords)
+                                   company-dabbrev)))
+  :custom
+  (company-idle-delay 0)
+  (company-minimum-prefix-length 3))
 
 ;; https://github.com/company-mode/company-mode
 ;; company-mode configuration for single-button interaction
 (use-package company-tng
+  :disabled
   :demand t
   :commands (company-tng-configure-default)
   :after (company)
   :config (company-tng-configure-default))
+
+;; https://github.com/joaotavora/yasnippet
+;; A template system for Emacs
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :hook ((prog-mode text-mode) . yas-minor-mode)
+  :general
+  (prefix-def
+    "hy" 'yas-describe-tables
+    "y" '(:ignore t :which-key "yasnippet")
+    "yh" 'yas-describe-tables
+    "yn" 'yas-new-snippet
+    "yv" 'yas-visit-snippet-file
+    "yr" 'yas-reload-all)
+  (local-def :keymaps '(snippet-mode-map)
+    "l" 'yas-load-snippet-buffer
+    "t" 'yas-tryout-snippet
+    "c" 'yas-load-snippet-buffer-and-close)
+  :custom
+  (yas-snippet-dirs '("~/nixos-config/config/snippets"))
+  :config
+  (yas-reload-all))
 
 ;; LSP =========================================================================
 (use-package lsp-mode
