@@ -981,7 +981,7 @@
 ;; https://github.com/yoshiki/yaml-mode
 ;; The emacs major mode for editing files in the YAML data serialization format.
 (use-package yaml-mode
-  :mode ("\\.yml\\'" . yaml-mode))
+  :mode ("\\.\\(\\yml\\|yaml\\)$" . yaml-mode))
 
 ;; Theme =======================================================================
 (require 'gruvbox)
