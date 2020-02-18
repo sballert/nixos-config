@@ -385,7 +385,9 @@
 ;; Modular in-buffer completion framework for Emacs
 (use-package company
   :diminish
-  :init
+  :hook ((prog-mode text-mode) . company-mode)
+  :functions (company-backend-with-yas)
+  :config
   (defun company-backend-with-yas (backends)
     "Add :with company-yasnippet to company BACKENDS."
     (if (and (listp backends) (memq 'company-yasnippet backends))
@@ -394,8 +396,6 @@
                   backends
                 (list backends))
               '(:with company-yasnippet))))
-  :hook ((prog-mode text-mode) . company-mode)
-  :config
   (setq company-backends (mapcar #'company-backend-with-yas
                                  '(company-capf
                                    company-files
@@ -441,6 +441,7 @@
   :hook
   ((find-file . auto-insert)
    (after-init . auto-insert-mode))
+  :functions (yas-expand-snippet)
   :custom
   (auto-insert-query nil)
   (auto-insert-directory "~/nixos-config/config/templates/")
@@ -606,6 +607,7 @@
 ;; Project Interaction Library for Emacs
 (use-package projectile
   :hook (after-init . projectile-mode)
+  :functions (ivy)
   :general
   (prefix-def
     "p" '(:ignore t :which-key "projectile")
@@ -868,6 +870,7 @@
 (use-package lispyville
   :diminish
   :hook (lispy-mode . lispyville-mode)
+  :commands (lispyville-set-key-theme)
   :config
   (lispyville-set-key-theme
    '(operators
