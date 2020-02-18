@@ -137,6 +137,8 @@
 ;; subr.el --- basic lisp subroutines for Emacs
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(setq user-full-name (user-real-login-name))
+
 ;; files.el --- file input and output commands for Emacs
 (use-package files
   :demand t
@@ -433,6 +435,20 @@
   (yas-snippet-dirs '("~/nixos-config/config/snippets"))
   :config
   (yas-reload-all))
+
+;; autoinsert.el --- automatic mode-dependent insertion of text into new files
+(use-package autoinsert
+  :hook
+  ((find-file . auto-insert)
+   (after-init . auto-insert-mode))
+  :custom
+  (auto-insert-query nil)
+  (auto-insert-directory "~/nixos-config/config/templates/")
+  :config
+  (defun autoinsert-yas-expand ()
+    "Replace text in yasnippet template."
+    (yas-expand-snippet (buffer-string) (point-min) (point-max)))
+  (define-auto-insert "\\.el$" ["elisp.el" autoinsert-yas-expand]))
 
 ;; LSP =========================================================================
 (use-package lsp-mode
