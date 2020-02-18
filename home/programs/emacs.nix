@@ -8,6 +8,7 @@ with pkgs;
   extraPackages = epkgs: with epkgs; [
     pdf-tools
   ] ++ (with melpaPackages; [
+    aggressive-indent
     company
     company-lsp
     counsel

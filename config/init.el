@@ -769,6 +769,20 @@
 ;; Emacs rainbow delimiters mode
 (use-package rainbow-delimiters :hook (prog-mode . rainbow-delimiters-mode))
 
+;; https://github.com/Malabarba/aggressive-indent-mode
+;; aggressive-indent.el --- Minor mode to aggressively keep your code always indented
+(use-package aggressive-indent
+  :hook
+  ((emacs-lisp-mode) . aggressive-indent-mode)
+  :defines (aggressive-indent-protected-commands)
+  :general
+  (prefix-def "ma" 'aggressive-indent-mode)
+  :custom
+  (aggressive-indent-comments-too nil)
+  :config
+  (dolist (command '(next-line previous-line))
+    (add-to-list 'aggressive-indent-protected-commands command)))
+
 ;; PDF Tools ===================================================================
 ;; https://github.com/politza/pdf-tools
 ;; Emacs support library for PDF files.
