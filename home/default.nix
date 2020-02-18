@@ -44,6 +44,9 @@
         447910F828DF001601E7FAECF768DFA93DF87136
       '';
     };
+    sessionVariables = {
+      EMAIL="sballert@posteo.de";
+    };
   };
 ################################################################################
   services = import ./services;
