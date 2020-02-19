@@ -605,6 +605,14 @@
 ;; Black magic or evil keys for magit
 (use-package evil-magit :diminish :demand t :after (evil magit))
 
+;; https://github.com/jtatarik/magit-gitflow
+;; GitFlow plugin for magit.el
+(use-package magit-gitflow
+  :after (magit)
+  :custom
+  (magit-gitflow-popup-key "C-q")
+  :hook (magit-mode . turn-on-magit-gitflow))
+
 ;; Projectile ==================================================================
 ;; https://github.com/bbatsov/projectile
 ;; Project Interaction Library for Emacs

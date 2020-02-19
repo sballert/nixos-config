@@ -17,6 +17,7 @@ with pkgs;
     direnv
     evil
     evil-collection
+    evil-magit
     evil-org
     fill-column-indicator
     flycheck
@@ -30,7 +31,8 @@ with pkgs;
     lsp-mode
     lsp-ui
     lsp-ivy
-    magit evil-magit
+    magit
+    magit-gitflow
     markdown-mode
     nix-mode
     nov
