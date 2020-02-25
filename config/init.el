@@ -514,6 +514,14 @@
   :functions (dap-register-debug-template)
   :demand t
   :config
+  (dap-register-debug-template "Php Ameropa Debug"
+                               (list :type "php"
+                                     :cwd nil
+                                     :request "launch"
+                                     :name "PHP FTI Debug"
+                                     :stopOnEntry nil
+                                     :pathMappings (ht ("/var/www/ameropa" "/home/sballert/s7/repos/ameropa/"))
+                                     :sourceMaps t))
   (dap-register-debug-template "Php FTI Debug"
                                (list :type "php"
                                      :cwd nil
