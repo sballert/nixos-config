@@ -1,3 +1,5 @@
 [
-    "intelephense"
+    "intelephense",
+    "typescript-language-server",
+    "typescript"
 ]

@@ -456,7 +456,7 @@
 
 ;; LSP =========================================================================
 (use-package lsp-mode
-  :hook ((php-mode . (lambda () (direnv-update-environment)(lsp))))
+  :hook (((php-mode js-mode) . (lambda () (direnv-update-environment)(lsp))))
   :custom
   (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil)
@@ -476,7 +476,7 @@
 ;; https://github.com/emacs-lsp/dap-mode
 ;; Emacs heart Debug Adapter Protocol
 (use-package dap-mode
-  :hook (php-mode . dap-mode))
+  :hook ((php-mode js-mode)  . dap-mode))
 
 (use-package dap-ui
   :hook ((dap-mode . dap-ui-mode)
@@ -511,6 +511,7 @@
 
 (use-package dap-php
   :after (dap-mode)
+  :command (dap-php-setup)
   :functions (dap-register-debug-template)
   :demand t
   :config
@@ -530,6 +531,25 @@
                                      :stopOnEntry nil
                                      :pathMappings (ht ("/var/www/fti-ibe" "/home/sballert/s7/repos/fti-ibe/"))
                                      :sourceMaps t)))
+
+(use-package dap-firefox
+  :demand t
+  :after (dap-mode)
+  :command (dap-firefox-setup))
+
+(use-package dap-node
+  :demand t
+  :after (dap-mode)
+  :command (dap-node-setup)
+  :config
+  (dap-register-debug-template "Node::Attach"
+                               (list :type "node"
+                                     :port 9229
+                                     :request "attach"
+                                     :protocol "inspector"
+                                     :sourceMaps t
+                                     :restart t
+                                     :name "Node::Attach")))
 
 ;; org-mode ====================================================================
 ;; https://orgmode.org/
