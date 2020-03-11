@@ -80,8 +80,6 @@ in {
       enable = true;
       package = pkgs.pulseaudioFull;
     };
-
-    brightnessctl.enable = true;
   };
 ################################################################################
   services = {
