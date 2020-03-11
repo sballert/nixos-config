@@ -47,6 +47,7 @@
     };
     sessionVariables = {
       EMAIL="sballert@posteo.de";
+      _JAVA_AWT_WM_NONREPARENTING="1";
     };
   };
 ################################################################################
