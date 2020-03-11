@@ -511,7 +511,7 @@
 
 (use-package dap-php
   :after (dap-mode)
-  :command (dap-php-setup)
+  :commands (dap-php-setup)
   :functions (dap-register-debug-template)
   :demand t
   :config
@@ -535,12 +535,12 @@
 (use-package dap-firefox
   :demand t
   :after (dap-mode)
-  :command (dap-firefox-setup))
+  :commands (dap-firefox-setup))
 
 (use-package dap-node
   :demand t
   :after (dap-mode)
-  :command (dap-node-setup)
+  :commands (dap-node-setup)
   :config
   (dap-register-debug-template "Node::Attach"
                                (list :type "node"
