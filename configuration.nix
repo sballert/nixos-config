@@ -66,6 +66,7 @@ in {
       ];
     };
     hosts = {
+      "127.0.0.1" = [ "localhost" "extranet.loc" "newsnet.loc" "expiclub.loc" "gateway.loc" "tui-auth.loc" ];
       "192.168.178.24" = [ "ev3dev" ];
       "10.51.51.16" = [ "*.dev7.silversurfer7.de" ];
     };
