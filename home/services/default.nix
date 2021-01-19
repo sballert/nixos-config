@@ -1,5 +1,5 @@
 {
-  compton = {
+  picom = {
     enable = true;
     opacityRule = [
       "95:class_g = 'st-256color'"
