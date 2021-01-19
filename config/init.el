@@ -702,6 +702,8 @@
   :diminish
   :hook
   ((after-init) . global-flycheck-mode)
+  :custom
+  (flycheck-checker-error-threshold 1000)
   :config
   (prefix-def
     "F" '(:ignore t :which-key "flycheck")
