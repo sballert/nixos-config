@@ -36,12 +36,14 @@ with pkgs;
     markdown-mode
     nix-mode
     nov
+    ob-restclient
     org-bullets
     org-drill
     password-store
     php-mode
     projectile
     rainbow-delimiters
+    restclient
     shackle
     super-save
     use-package
