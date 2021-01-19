@@ -21,6 +21,7 @@
       nix-util
       pass
       pulseaudio-ctl
+      python3
       pythonPackages.yamllint
       session-menu
       shellcheck
