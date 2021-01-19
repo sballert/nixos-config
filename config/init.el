@@ -1019,6 +1019,11 @@
 (use-package yaml-mode
   :mode ("\\.\\(\\yml\\|yaml\\)$" . yaml-mode))
 
+;; Tools ========================================================================
+;; https://github.com/pashky/restclient.el
+;; HTTP REST client tool for emacs
+(use-package restclient :mode ("\\.rest$" . restclient-mode))
+
 ;; Theme =======================================================================
 (require 'gruvbox)
 (load-theme 'gruvbox t)
