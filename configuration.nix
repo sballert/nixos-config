@@ -125,7 +125,7 @@ in {
   };
 ################################################################################
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     enableDefaultFonts = true;
     fontconfig = {
       defaultFonts = {
