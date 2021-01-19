@@ -85,8 +85,8 @@ in {
   services = {
     undervolt = {
       enable = true;
-      coreOffset = "-140";
-      gpuOffset = "-75";
+      coreOffset = -140;
+      gpuOffset = -75;
     };
     xserver = {
       enable = true;
