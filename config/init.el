@@ -564,7 +564,7 @@
     "l" 'org-insert-link
     "L" 'org-toggle-link-display)
   :config
-  (let ((languages '(haskell sql)))
+  (let ((languages '(haskell sql restclient)))
     (org-babel-do-load-languages
      'org-babel-load-languages
      (mapcar (lambda (mode) `(,mode . t)) languages)))
