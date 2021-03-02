@@ -17,7 +17,6 @@ with pkgs;
     direnv
     evil
     evil-collection
-    evil-magit
     evil-org
     fill-column-indicator
     flycheck

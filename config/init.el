@@ -629,10 +629,6 @@
     "gb" 'magit-blame
     "gf" 'magit-log-buffer-file))
 
-;; https://github.com/emacs-evil/evil-magit
-;; Black magic or evil keys for magit
-(use-package evil-magit :diminish :demand t :after (evil magit))
-
 ;; https://github.com/jtatarik/magit-gitflow
 ;; GitFlow plugin for magit.el
 (use-package magit-gitflow
