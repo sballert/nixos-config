@@ -506,8 +506,7 @@
 
     "dq" 'dap-disconnect)
   :config
-  (require 'dap-hydra)
-  (require 'dap-ui-repl))
+  (require 'dap-hydra))
 
 (use-package dap-php
   :after (dap-mode)
