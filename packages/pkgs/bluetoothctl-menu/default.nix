@@ -1,4 +1,4 @@
-{ stdenv, makeWrapper, libnotify, rofi, bluez, gawk, gnugrep }:
+{ stdenv, lib, makeWrapper, libnotify, rofi, bluez, gawk, gnugrep }:
 
 stdenv.mkDerivation {
   name = "bluetoothctl-menu";
@@ -7,7 +7,7 @@ stdenv.mkDerivation {
   installPhase = ''
     install -m755 -D ${./bluetoothctl-menu.sh} $out/bin/bluetoothctl-menu
     wrapProgram $out/bin/bluetoothctl-menu \
-    --prefix PATH : "${stdenv.lib.makeBinPath [ libnotify
+    --prefix PATH : "${lib.makeBinPath [ libnotify
     rofi
     bluez
     gawk
