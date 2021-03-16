@@ -564,7 +564,7 @@
     "l" 'org-insert-link
     "L" 'org-toggle-link-display)
   :config
-  (let ((languages '(haskell sql restclient)))
+  (let ((languages '(haskell sql restclient elasticsearch)))
     (org-babel-do-load-languages
      'org-babel-load-languages
      (mapcar (lambda (mode) `(,mode . t)) languages)))
@@ -1016,6 +1016,11 @@
 ;; The emacs major mode for editing files in the YAML data serialization format.
 (use-package yaml-mode
   :mode ("\\.\\(\\yml\\|yaml\\)$" . yaml-mode))
+
+;; Elasticsearch
+;; https://github.com/dakrone/es-mode
+;; A major mode for editing and executing Elasticsearch queries
+(use-package es-mode :mode ("\\.es$" . es-mode))
 
 ;; Tools ========================================================================
 ;; https://github.com/pashky/restclient.el

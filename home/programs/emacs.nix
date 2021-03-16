@@ -15,6 +15,7 @@ with pkgs;
     dap-mode
     diminish
     direnv
+    es-mode
     evil
     evil-collection
     evil-org
