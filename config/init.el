@@ -520,7 +520,17 @@
                                      :request "launch"
                                      :name "PHP FTI Debug"
                                      :stopOnEntry nil
-                                     :pathMappings (ht ("/var/www/ameropa" "/home/sballert/s7/repos/ameropa/"))
+                                     :pathMappings (ht ("/var/www/ameropa"
+                                                        "/home/sballert/s7/repos/ameropa/"))
+                                     :sourceMaps t))
+  (dap-register-debug-template "Php Olimar Debug"
+                               (list :type "php"
+                                     :cwd nil
+                                     :request "launch"
+                                     :name "PHP Olimar Debug"
+                                     :stopOnEntry nil
+                                     :pathMappings (ht ("/var/www/olimar-traffics"
+                                                        "/home/sballert/s7/repos/olimar-traffics/"))
                                      :sourceMaps t))
   (dap-register-debug-template "Php FTI Debug"
                                (list :type "php"
@@ -528,7 +538,8 @@
                                      :request "launch"
                                      :name "PHP FTI Debug"
                                      :stopOnEntry nil
-                                     :pathMappings (ht ("/var/www/fti-ibe" "/home/sballert/s7/repos/fti-ibe/"))
+                                     :pathMappings (ht ("/var/www/fti-ibe"
+                                                        "/home/sballert/s7/repos/fti-ibe/"))
                                      :sourceMaps t)))
 
 (use-package dap-firefox
