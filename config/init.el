@@ -504,6 +504,9 @@
     "dwb" 'dap-ui-breakpoints
     "dwr" 'dap-ui-repl
 
+    "dsd" 'dap-delete-session
+    "dsD" 'dap-delete-all-sessions
+
     "dq" 'dap-disconnect)
   :config
   (require 'dap-hydra))
