@@ -23,6 +23,7 @@
       libreoffice
       libxml2
       mpv
+      niv
       nix-util
       nix-linter
       openvpn
