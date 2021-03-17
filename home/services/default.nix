@@ -26,6 +26,10 @@
     enableSshSupport = true;
   };
 
+  lorri = {
+    enable = true;
+  };
+
   screen-locker = {
     enable = true;
     lockCmd = "/run/wrappers/bin/slock";
