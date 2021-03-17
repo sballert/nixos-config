@@ -24,6 +24,7 @@
       libxml2
       mpv
       nix-util
+      nix-linter
       openvpn
       p7zip
       pass
