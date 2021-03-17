@@ -22,7 +22,7 @@
       pass
       pulseaudio-ctl
       python3
-      pythonPackages.yamllint
+      python3Packages.yamllint
       session-menu
       shellcheck
       slack
