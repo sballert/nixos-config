@@ -43,7 +43,10 @@ in {
 ################################################################################
   networking = {
     hostName = "nixos";
-    wireless.enable = true;
+    wireless = {
+      enable = true;
+      interfaces = [ "wlp59s0" ];
+    };
     dhcpcd = {
       enable = true;
       runHook = ''
