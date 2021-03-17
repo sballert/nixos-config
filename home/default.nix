@@ -21,6 +21,7 @@
       htop
       jq
       libreoffice
+      libxml2
       mpv
       nix-util
       openvpn
