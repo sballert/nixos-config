@@ -10,7 +10,6 @@ with pkgs;
   ] ++ (with melpaPackages; [
     aggressive-indent
     company
-    company-lsp
     counsel
     dap-mode
     diminish

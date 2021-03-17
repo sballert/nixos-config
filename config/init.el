@@ -467,11 +467,6 @@
   :hook (lsp-mode . lsp-ui-mode)
   :commands lsp-ui-mode)
 
-(use-package company-lsp
-  :after (lsp-mode)
-  :config
-  (push 'company-lsp company-backends))
-
 ;; DAP (Debug Adapter Protocol) ================================================
 ;; https://github.com/emacs-lsp/dap-mode
 ;; Emacs heart Debug Adapter Protocol
