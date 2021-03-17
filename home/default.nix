@@ -6,6 +6,7 @@
   home = {
     stateVersion = "21.03";
     packages = with pkgs; [
+      aria2
       backup
       bat
       bluetoothctl-menu
@@ -17,12 +18,18 @@
       gitAndTools.gitflow
       gnome3.dconf
       gnupg
+      htop
+      jq
       libreoffice
+      mpv
       nix-util
+      openvpn
+      p7zip
       pass
       pulseaudio-ctl
       python3
       python3Packages.yamllint
+      pwgen
       session-menu
       shellcheck
       slack
@@ -32,12 +39,16 @@
       toggle-touchpad
       tree
       udiskie
+      unzip
       vagrant
+      veracrypt
+      wget
       xlogout
       xmobar
       xorg.xprop
       xrandr-util
       youtube-dl-light
+      zip
     ];
     file = {
       ".config/xmobar/xmobarrc".text = readConfig "xmobarrc";
