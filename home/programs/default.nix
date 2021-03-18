@@ -43,8 +43,6 @@
     };
   };
 
-  google-chrome.enable = true;
-
   rofi = {
     enable = true;
     font = "Noto Sans Display 10";

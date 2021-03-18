@@ -17,6 +17,7 @@
       gimp
       gitAndTools.gitflow
       gnome3.dconf
+      google-chrome
       gnupg
       htop
       jq
