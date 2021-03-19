@@ -456,12 +456,18 @@
 
 ;; LSP =========================================================================
 (use-package lsp-mode
-  :hook (((php-mode js-mode) . (lambda () (direnv-update-environment)(lsp))))
+  :hook (((php-mode
+           js-mode
+           haskell-mode
+           haskell-literate-mode
+           ) . (lambda () (direnv-update-environment)(lsp))))
   :custom
   (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil)
   (lsp-file-watch-threshold nil)
   :commands lsp)
+
+(use-package lsp-haskell)
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode)

@@ -27,6 +27,7 @@ with pkgs;
     json-mode
     lispy
     lispyville
+    lsp-haskell
     lsp-mode
     lsp-ui
     lsp-ivy
