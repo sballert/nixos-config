@@ -778,7 +778,7 @@
   :config
   (defun shackle--smart-split-dir ()
     (if (>= (window-pixel-height)
-           (window-pixel-width))
+            (window-pixel-width))
         'below
       'right))
   (defun shackle-dynamic-tyling (buffer alist plist)
@@ -788,7 +788,7 @@
                      (split-window-below)
                    (split-window-right))))
       (prog1
-          (window--display-buffer buffer window 'window alist display-buffer-mark-dedicated)
+          (window--display-buffer buffer window 'window alist )
         (when window
           (setq shackle-last-window window
                 shackle-last-buffer buffer))
