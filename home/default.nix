@@ -40,6 +40,7 @@
       spaceship-prompt
       spotify
       st
+      texlive.combined.scheme-full
       toggle-touchpad
       tree
       udiskie
