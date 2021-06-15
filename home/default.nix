@@ -12,6 +12,7 @@
       bluetoothctl-menu
       brightnessctl
       docker-compose
+      drill
       exa
       fd
       gimp
@@ -40,11 +41,14 @@
       spaceship-prompt
       spotify
       st
+      teams
       texlive.combined.scheme-full
       toggle-touchpad
+      traceroute
       tree
       udiskie
       unzip
+      unar
       vagrant
       veracrypt
       wget
