@@ -574,15 +574,19 @@
   (local-def
     :keymaps '(org-mode-map)
     "o" 'org-open-at-point
+    "b" 'org-babel-demarcate-block
     "t" 'org-babel-tangle
     "l" 'org-insert-link
     "L" 'org-toggle-link-display)
+  :custom
+  (org-confirm-babel-evaluate nil)
+  (org-highlight-latex-and-related '(latex script entities))
+  (org-startup-folded t)
   :config
   (let ((languages '(haskell sql restclient elasticsearch)))
     (org-babel-do-load-languages
      'org-babel-load-languages
      (mapcar (lambda (mode) `(,mode . t)) languages)))
-  (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-mode-hook 'auto-fill-mode))
 
 ;; https://orgmode.org/
