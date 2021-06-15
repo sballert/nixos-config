@@ -998,6 +998,37 @@
   :init (load "haskell-mode-autoloads")
   :mode ("\\.hs$" . haskell-mode))
 
+;; JavaScript ==================================================================
+;; js.el --- Major mode for editing JavaScript
+(use-package js-mode
+  :mode("\\.js$" "\\.jsx$")
+  :general
+  (local-def
+    :keymaps '(js-mode-map)
+    "r" 'nodejs-repl
+    "ce" 'nodejs-repl-send-last-expression
+    "cj" 'nodejs-repl-send-line
+    "cr" 'nodejs-repl-send-region
+    "cc" 'nodejs-repl-send-buffer
+    "cl" 'nodejs-repl-load-file
+    "cz" 'nodejs-repl-switch-to-repl)
+  :config
+  ;; https://github.com/abicky/nodejs-repl.el
+  ;; Run Node.js REPL in Emacs
+  (require 'nodejs-repl))
+
+;; https://github.com/mooz/js2-mode
+;; Improved JavaScript editing mode for GNU Emacs
+(use-package js2-mode
+  :diminish
+  :hook (js-mode . js2-minior-mode))
+
+;; https://github.com/jscheid/prettier.el
+;; Reformats your code by running Prettier on file save or on request
+(use-package prettier
+  :diminish
+  :hook (js-mode . prettier-mode))
+
 ;; JSON ========================================================================
 ;; https://github.com/joshwnj/json-mode
 ;; Major mode for editing JSON files with emacs

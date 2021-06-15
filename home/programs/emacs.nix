@@ -6,6 +6,7 @@ with pkgs;
   enable = true;
 
   extraPackages = epkgs: with epkgs; [
+    js2-mode
     pdf-tools
   ] ++ (with melpaPackages; [
     aggressive-indent
@@ -35,12 +36,14 @@ with pkgs;
     magit-gitflow
     markdown-mode
     nix-mode
+    nodejs-repl
     nov
     ob-restclient
     org-bullets
     org-drill
     password-store
     php-mode
+    prettier
     projectile
     rainbow-delimiters
     restclient
