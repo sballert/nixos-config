@@ -76,6 +76,13 @@ in {
     vag = "${vagrant}/bin/vagrant global-status";
     vash = "${vagrant}/bin/vagrant ssh";
 
+    dc = "${docker-compose}/bin/docker-compose";
+    dcu = "${docker-compose}/bin/docker-compose up -d";
+    dcd = "${docker-compose}/bin/docker-compose down";
+    dcr = "${docker-compose}/bin/docker-compose restart";
+    dcl = "${docker-compose}/bin/docker-compose logs";
+    dclf = "${docker-compose}/bin/docker-compose logs -f";
+
     nosr = "sudo nixos-rebuild switch";
 
     s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
