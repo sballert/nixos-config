@@ -998,6 +998,18 @@
   :init (load "haskell-mode-autoloads")
   :mode ("\\.hs$" . haskell-mode))
 
+(use-package haskell-interactive-mode
+  :diminish
+  :hook (haskell-mode . interactive-haskell-mode)
+  :general
+  (local-def
+    :keymaps '(haskell-mode-map)
+    "r" 'run-haskell)
+  :custom
+  (haskell-process-suggest-remove-import-lines t)
+  (haskell-process-auto-import-loaded-modules t)
+  (haskell-process-log t))
+
 ;; JavaScript ==================================================================
 ;; js.el --- Major mode for editing JavaScript
 (use-package js-mode
