@@ -8,6 +8,7 @@ with pkgs;
   gruvbox-rofi = callPackage ./gruvbox-rofi {};
   nix-util = callPackage ./nix-util {};
   session-menu = callPackage ./session-menu {};
+  toggle-screen-locker = callPackage ./toggle-screen-locker {};
   toggle-touchpad = callPackage ./toggle-touchpad {};
   xlogout = callPackage ./xlogout {};
   xrandr-util = callPackage ./xrandr-util {};
