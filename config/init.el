@@ -460,7 +460,8 @@
            js-mode
            haskell-mode
            haskell-literate-mode
-           ) . (lambda () (direnv-update-environment)(lsp))))
+           ) . (lambda ()
+           (direnv-update-environment)(lsp))))
   :custom
   (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil)
@@ -1012,8 +1013,8 @@
 
 ;; JavaScript ==================================================================
 ;; js.el --- Major mode for editing JavaScript
-(use-package js-mode
-  :mode("\\.js$" "\\.jsx$")
+(use-package js
+  :mode(("\\.js$". js-mode) ("\\.jsx$" . js-mode))
   :general
   (local-def
     :keymaps '(js-mode-map)
@@ -1033,13 +1034,14 @@
 ;; Improved JavaScript editing mode for GNU Emacs
 (use-package js2-mode
   :diminish
-  :hook (js-mode . js2-minior-mode))
+  :hook (js-mode . js2-minor-mode))
 
 ;; https://github.com/jscheid/prettier.el
 ;; Reformats your code by running Prettier on file save or on request
 (use-package prettier
   :diminish
-  :hook (js-mode . prettier-mode))
+  :hook (js-mode . (lambda ()
+                     (direnv-update-environment)(prettier-mode))))
 
 ;; JSON ========================================================================
 ;; https://github.com/joshwnj/json-mode
