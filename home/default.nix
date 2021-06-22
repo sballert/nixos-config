@@ -64,6 +64,7 @@
       ".config/xmobar/xmobarrc".text = readConfig "xmobarrc";
       ".emacs.d/init.el".text = readConfig "init.el";
       ".ghci".text = readConfig "ghci";
+      ".guile".text = readConfig "guile";
       ".gnupg/sshcontrol".text = ''
         447910F828DF001601E7FAECF768DFA93DF87136
       '';

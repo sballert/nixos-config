@@ -22,6 +22,8 @@ with pkgs;
     fill-column-indicator
     flycheck
     general
+    geiser
+    geiser-guile
     gruvbox-theme
     haskell-mode
     hydra

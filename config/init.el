@@ -584,7 +584,13 @@
   (org-highlight-latex-and-related '(latex script entities))
   (org-startup-folded t)
   :config
-  (let ((languages '(haskell sql restclient elasticsearch)))
+  (let ((languages '(
+                     elasticsearch
+                     haskell
+                     restclient
+                     scheme
+                     sql
+                     )))
     (org-babel-do-load-languages
      'org-babel-load-languages
      (mapcar (lambda (mode) `(,mode . t)) languages)))
@@ -1084,6 +1090,16 @@
 ;; https://github.com/dakrone/es-mode
 ;; A major mode for editing and executing Elasticsearch queries
 (use-package es-mode :mode ("\\.es$" . es-mode))
+
+;; Scheme =================+++===================================================
+;; https://www.nongnu.org/geiser/
+;; GNU Emacs and Scheme talk to each other
+(use-package geiser
+  :hook (scheme-mode . (lambda ()
+                         (direnv-update-environment)
+                         (require 'geiser-guile)
+                         (setq geiser-active-implementations '(guile))
+                         (geiser-mode))))
 
 ;; Tools ========================================================================
 ;; https://github.com/pashky/restclient.el
