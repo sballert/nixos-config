@@ -28,6 +28,7 @@ with pkgs;
     haskell-mode
     hydra
     json-mode
+    kotlin-mode
     lispy
     lispyville
     lsp-haskell

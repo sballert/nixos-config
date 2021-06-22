@@ -1091,6 +1091,11 @@
 ;; A major mode for editing and executing Elasticsearch queries
 (use-package es-mode :mode ("\\.es$" . es-mode))
 
+;; Kotlin
+;; https://github.com/Emacs-Kotlin-Mode-Maintainers/kotlin-mode
+;; Major mode for kotlin
+(use-package es-mode :mode ("\\.kt$" . kotlin-mode))
+
 ;; Scheme =================+++===================================================
 ;; https://www.nongnu.org/geiser/
 ;; GNU Emacs and Scheme talk to each other
