@@ -1,15 +1,36 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 with pkgs;
 
 {
   enable = true;
 
+  overrides = let
+
+    compileEmacsFiles = pkgs.callPackage ../../lib/compile-emacs-files.nix;
+
+  in self: super: rec {
+    clang-format-plus = compileEmacsFiles {
+      name = "clang-format-plus";
+      version = "20190824.221";
+
+      src = fetchFromGitHub {
+        owner = "SavchenkoValeriy";
+        repo = "emacs-clang-format-plus";
+        rev = "ddd4bfe1a13c2fd494ce339a320a51124c1d2f68";
+        sha256 =  "0y97f86qnpcscwj41icb4i6j40qhvpkyhg529hwibpf6f53j7ckl";
+      };
+
+      buildInputs = with self.melpaPackages; [ clang-format ];
+    };
+  };
+
   extraPackages = epkgs: with epkgs; [
     js2-mode
     pdf-tools
   ] ++ (with melpaPackages; [
     aggressive-indent
+    clang-format
     company
     counsel
     dap-mode
@@ -60,5 +81,7 @@ with pkgs;
     yasnippet
   ]) ++ (with orgPackages; [
     org-plus-contrib
-  ]);
+  ]) ++ [
+    clang-format-plus
+  ];
 }

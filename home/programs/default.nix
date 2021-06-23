@@ -1,4 +1,4 @@
-{ pkgs, readConfig, ... }: {
+{ pkgs, lib, readConfig, ... }: {
   browserpass = {
     enable = true;
     browsers = [ "firefox" ];
@@ -6,7 +6,7 @@
 
   direnv.enable = true;
 
-  emacs = import ./emacs.nix { inherit pkgs; };
+  emacs = import ./emacs.nix { inherit pkgs lib; };
 
   feh = {
     enable = true;

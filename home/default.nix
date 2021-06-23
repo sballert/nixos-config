@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, wallpaper, pathToConfig, readConfig, ... }: {
+{ pkgs, nixpkgs, wallpaper, pathToConfig, readConfig, lib, ... }: {
 
   inherit nixpkgs;
 
@@ -105,7 +105,7 @@
     };
   };
 ################################################################################
-  programs = import ./programs { inherit pkgs readConfig; };
+  programs = import ./programs { inherit pkgs readConfig lib; };
 ################################################################################
   systemd.user.services = {
     autorepeat = {

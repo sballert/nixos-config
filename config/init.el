@@ -979,6 +979,18 @@
   (local-def
     "p" 'pp-eval-last-sexp))
 
+;; C/C++ =======================================================================
+;; https://github.com/llvm-mirror/clang/blob/master/tools/clang-format/clang-format.el
+;; Format code using clang-format
+(use-package clang-format
+  :hook (cc-mode . (lambda ()
+                     (require 'clang-format))))
+
+;; https://github.com/SavchenkoValeriy/emacs-clang-format-plus
+;; Minor mode for automatic clang-format application
+(use-package clang-format+
+  :hook (c-mode-common . clang-format+-mode))
+
 ;; PHP =========================================================================
 ;; https://github.com/emacs-php/php-mode
 ;; A PHP mode for GNU Emacs

@@ -1,4 +1,4 @@
-{ config, pkgs, options, ... }: let
+{ config, pkgs, options, lib, ... }: let
 
 ################################################################################
   configDir = ./config;
@@ -193,7 +193,7 @@ in {
   };
 ################################################################################
   home-manager.users.sballert = import ./home {
-    inherit pkgs nixpkgs wallpaper pathToConfig readConfig;
+    inherit pkgs nixpkgs wallpaper pathToConfig readConfig lib;
   };
 ################################################################################
 
