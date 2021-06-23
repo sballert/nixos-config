@@ -981,6 +981,11 @@
     "p" 'pp-eval-last-sexp))
 
 ;; C/C++ =======================================================================
+;;; cc-mode.el --- major mode for editing C and similar languages
+(use-package cc-mode
+  :mode (("\\.c$". c-mode)
+         ("\\.h$" . c-mode)))
+
 ;; https://github.com/llvm-mirror/clang/blob/master/tools/clang-format/clang-format.el
 ;; Format code using clang-format
 (use-package clang-format
