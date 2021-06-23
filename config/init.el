@@ -128,7 +128,8 @@
   (evil-collection-company-use-tng nil)
   (evil-collection-setup-minibuffer t)
   :config
-  (evil-collection-init))
+  (evil-collection-init)
+  (diminish 'evil-collection-unimpaired-mode))
 
 ;; Builtins ====================================================================
 (setq-default major-mode 'text-mode
