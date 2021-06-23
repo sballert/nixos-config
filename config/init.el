@@ -990,6 +990,7 @@
 ;; https://github.com/SavchenkoValeriy/emacs-clang-format-plus
 ;; Minor mode for automatic clang-format application
 (use-package clang-format+
+  :diminish
   :hook (c-mode-common . clang-format+-mode))
 
 ;; PHP =========================================================================
