@@ -713,6 +713,17 @@
     "Nu" 'nix-unpack)
   :config (setq nix-indent-function 'nix-indent-line))
 
+;; https://github.com/purcell/emacs-nixpkgs-fmt
+;; Reformat Nix using nixpkgs-fmt
+(use-package nixpkgs-fmt
+  :diminish
+  :hook (nix-mode . nixpkgs-fmt-on-save-mode)
+  :general
+  (local-def
+    :keymaps '(nix-mode-map)
+    "fb" 'nixpkgs-fmt-buffer
+    "fr" 'nixpkgs-fmt-region))
+
 ;; https://github.com/NixOS/nix-mode
 ;; nix-drv-mode.el --- Major mode for viewing .drv files
 (use-package nix-drv-mode :mode "\\.drv\\'")

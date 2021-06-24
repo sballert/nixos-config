@@ -60,6 +60,7 @@ with pkgs;
     magit-gitflow
     markdown-mode
     nix-mode
+    nixpkgs-fmt
     nodejs-repl
     nov
     ob-restclient
