@@ -745,6 +745,7 @@
     "Fc" 'flycheck-buffer
     "FC" 'flycheck-clear
     "Fp" 'flycheck-previous-error
+    "Fv" 'flycheck-verify-setup
     "Fn" 'flycheck-next-error))
 
 ;; https://github.com/wbolster/emacs-direnv
