@@ -1070,7 +1070,13 @@
 ;; Improved JavaScript editing mode for GNU Emacs
 (use-package js2-mode
   :diminish
-  :hook (js-mode . js2-minor-mode))
+  :hook (js-mode . js2-minor-mode)
+  :custom
+  (js2-mode-show-parse-errors nil)
+  (js2-mode-show-strict-warnings nil)
+  (js2-strict-missing-semi-warning nil)
+  :config
+  (diminish 'js2-minor-mode))
 
 ;; https://github.com/jscheid/prettier.el
 ;; Reformats your code by running Prettier on file save or on request
