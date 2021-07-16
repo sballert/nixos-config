@@ -578,6 +578,7 @@
     "o" 'org-open-at-point
     "b" 'org-babel-demarcate-block
     "t" 'org-babel-tangle
+    "e" 'org-export-dispatch
     "l" 'org-insert-link
     "L" 'org-toggle-link-display)
   :custom
