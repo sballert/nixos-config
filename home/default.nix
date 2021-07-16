@@ -59,6 +59,12 @@
       youtube-dl-light
       zip
     ];
+
+    keyboard = {
+      layout = "us";
+      options = ["compose:ralt" "compose:rwin" "ctrl:nocaps"];
+    };
+
     file = {
       ".config/xmobar/xmobarrc".text = readConfig "xmobarrc";
       ".emacs.d/init.el".text = readConfig "init.el";
