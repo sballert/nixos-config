@@ -71,11 +71,9 @@ in {
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        111 2049 20048
         9000
       ];
       allowedUDPPorts = [
-        111 2049 20048
       ];
     };
     hosts = {
@@ -136,12 +134,6 @@ in {
           '';
         };
       };
-    };
-    nfs.server = {
-      enable = true;
-      extraNfsdConfig = ''
-        udp=y
-      '';
     };
     udev.packages = [ pkgs.android-udev-rules ];
   };
