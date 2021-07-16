@@ -156,7 +156,6 @@ in {
   };
 ################################################################################
   virtualisation = {
-    virtualbox.host.enable = true;
     docker.enable = true;
   };
 ################################################################################
@@ -179,7 +178,6 @@ in {
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "vboxusers"
       "video"
       "docker"
       "adbusers"
