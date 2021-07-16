@@ -4,7 +4,7 @@
 
 ################################################################################
   home = {
-    stateVersion = "21.03";
+    stateVersion = "21.05";
     packages = with pkgs; [
       aria2
       backup
