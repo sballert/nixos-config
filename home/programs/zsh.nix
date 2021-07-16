@@ -70,18 +70,6 @@ in {
     ydm = ''${youtube-dl-light}/bin/youtube-dl -f "bestvideo[height<=480]+bestaudio/best[height<=480]"'';
     yda = "${youtube-dl-light}/bin/youtube-dl --extract-audio --audio-format mp3";
 
-    va = "${vagrant}/bin/vagrant";
-    vau = "${vagrant}/bin/vagrant up";
-    vap = "${vagrant}/bin/vagrant provision";
-    vad = "${vagrant}/bin/vagrant destroy";
-    vah = "${vagrant}/bin/vagrant halt";
-    vas = "${vagrant}/bin/vagrant suspend";
-    var = "${vagrant}/bin/vagrant resume";
-    varl = "${vagrant}/bin/vagrant reload";
-    vast = "${vagrant}/bin/vagrant status";
-    vag = "${vagrant}/bin/vagrant global-status";
-    vash = "${vagrant}/bin/vagrant ssh";
-
     dc = "${docker-compose}/bin/docker-compose";
     dcu = "${docker-compose}/bin/docker-compose up -d";
     dcd = "${docker-compose}/bin/docker-compose down";

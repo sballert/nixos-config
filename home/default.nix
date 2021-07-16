@@ -50,7 +50,6 @@
       udiskie
       unzip
       unar
-      vagrant
       veracrypt
       wget
       xlogout
