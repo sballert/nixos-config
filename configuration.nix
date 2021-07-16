@@ -71,7 +71,7 @@ in {
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        9000
+        9000 # php-debug
       ];
       allowedUDPPorts = [
       ];
