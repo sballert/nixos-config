@@ -34,6 +34,7 @@ with pkgs;
     company
     counsel
     dap-mode
+    dictcc
     diminish
     direnv
     es-mode

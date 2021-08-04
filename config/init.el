@@ -920,6 +920,15 @@
 ;; pdf-misc.el --- Miscellaneous commands for PDF buffer.
 (use-package pdf-misc :demand t :after (pdf-tools))
 
+;; dictcc ======================================================================
+;; https://github.com/martenlienen/dictcc.el
+;; An interface to look up translations on dict.cc without leaving emacs.
+(use-package dictcc
+  :general
+  (prefix-def
+    "ml SPC" 'dictcc
+    "ml p" 'dictcc-at-point))
+
 ;; Pass ========================================================================
 ;; https://github.com/zx2c4/password-store
 ;; This package provides functions for working with pass ("the standard Unix password manager").
