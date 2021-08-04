@@ -170,6 +170,7 @@
 (use-package frame
   :config
   (add-to-list 'default-frame-alist '(font . "Roboto Mono-10"))
+  (set-fontset-font t 'symbol "Noto Color Emoji" nil 'append)
   (blink-cursor-mode 0)
   (setq-default cursor-in-non-selected-windows nil))
 

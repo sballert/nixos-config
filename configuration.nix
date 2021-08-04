@@ -152,6 +152,7 @@ in {
       noto-fonts
       roboto-mono
       emacs-all-the-icons-fonts
+      noto-fonts-emoji
     ];
   };
 ################################################################################
