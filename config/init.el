@@ -841,7 +841,7 @@
   (setq nov-text-width 80)
   (defun my-nov-font-setup ()
     (face-remap-add-relative 'variable-pitch :family "Liberation Serif"
-                             :height 1.0))
+                             :height 1.5))
   (add-hook 'nov-mode-hook 'my-nov-font-setup))
 
 ;; https://github.com/Fanael/rainbow-delimiters
