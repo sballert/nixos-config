@@ -12,7 +12,6 @@
       bluetoothctl-menu
       brightnessctl
       docker-compose
-      drill
       exa
       fd
       gimp
@@ -22,6 +21,7 @@
       gnupg
       htop
       jq
+      ldns
       libreoffice
       libxml2
       mpv
