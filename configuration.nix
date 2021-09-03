@@ -79,6 +79,8 @@ in {
     hosts = {
       "127.0.0.1" = [
         "localhost"
+        "redis"
+        "postgres"
       ];
       "192.168.178.24" = [ "ev3dev" ];
       "10.51.51.16" = [ "*.dev7.silversurfer7.de" ];
