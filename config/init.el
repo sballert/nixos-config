@@ -581,7 +581,10 @@
     "t" 'org-babel-tangle
     "e" 'org-export-dispatch
     "l" 'org-insert-link
-    "L" 'org-toggle-link-display)
+    "L" 'org-toggle-link-display
+    "nb" 'org-narrow-to-block
+    "ne" 'org-narrow-to-element
+    "ns" 'org-narrow-to-subtree)
   :custom
   (org-confirm-babel-evaluate nil)
   (org-highlight-latex-and-related '(latex script entities))
