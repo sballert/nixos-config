@@ -30,6 +30,7 @@ with pkgs;
     pdf-tools
   ] ++ (with melpaPackages; [
     aggressive-indent
+    benchmark-init
     clang-format
     company
     counsel

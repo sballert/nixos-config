@@ -41,6 +41,9 @@
   (setq use-package-always-defer t)
   (require 'diminish))
 
+(require 'benchmark-init)
+(add-hook 'after-init-hook 'benchmark-init/deactivate)
+
 ;; general.el ==================================================================
 ;; https://github.com/noctuid/general.el
 ;; More convenient key definitions in emacs
