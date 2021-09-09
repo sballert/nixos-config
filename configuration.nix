@@ -131,7 +131,10 @@ in {
         };
       };
     };
-    udev.packages = [ pkgs.android-udev-rules ];
+    udev.packages = with pkgs; [
+      android-udev-rules
+      onlykey-udev
+    ];
   };
 ################################################################################
   fonts = {

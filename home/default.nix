@@ -28,6 +28,9 @@
       niv
       nix-util
       nix-linter
+      onlykey
+      onlykey-agent
+      onlykey-cli
       openvpn
       p7zip
       pass
