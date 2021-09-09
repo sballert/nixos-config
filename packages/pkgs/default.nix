@@ -7,6 +7,7 @@ with pkgs;
   bluetoothctl-menu = callPackage ./bluetoothctl-menu {};
   gruvbox-rofi = callPackage ./gruvbox-rofi {};
   nix-util = callPackage ./nix-util {};
+  onlykey-udev = callPackage ./onlykey-udev {};
   session-menu = callPackage ./session-menu {};
   toggle-screen-locker = callPackage ./toggle-screen-locker {};
   toggle-touchpad = callPackage ./toggle-touchpad {};
