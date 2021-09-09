@@ -26,6 +26,7 @@
       libxml2
       mpv
       niv
+      nix-prefetch-github
       nix-util
       nix-linter
       onlykey
