@@ -1106,8 +1106,10 @@
 ;; Reformats your code by running Prettier on file save or on request
 (use-package prettier
   :diminish
+  :disabled
   :hook (js-mode . (lambda ()
-                     (direnv-update-environment)(prettier-mode))))
+                     (direnv-update-environment)
+                     (when (executable-find "prettier")(prettier-mode)))))
 
 ;; JSON ========================================================================
 ;; https://github.com/joshwnj/json-mode
