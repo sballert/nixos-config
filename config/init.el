@@ -224,13 +224,13 @@
 
 ;; dired-x.el --- extra Dired functionality
 (use-package dired-x
-  :after (dired)
+  :disabled
   :config
-  (setq dired-guess-shell-alist-user '(("\\.mkv\\'\\|\\.mp4\\'" "mpv")))
-  :general
-  (prefix-def
-    "md" 'dired-jump
-    "mD" 'dired-jump-other-window))
+  (setq dired-guess-shell-alist-user '(("\\.mkv\\'\\|\\.mp4\\'" "mpv"))))
+                                        ;:general
+                                        ;(prefix-def
+                                        ;  "md" 'dired-jump
+;  "mD" 'dired-jump-other-window))
 
 ;; whitespace.el --- minor mode to visualize TAB, (HARD) SPACE, NEWLINE
 (use-package whitespace
