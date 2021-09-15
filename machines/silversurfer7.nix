@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./common.nix
     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
   ];
 
@@ -54,4 +55,5 @@
 
   nix.maxJobs = lib.mkDefault 12;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
 }
