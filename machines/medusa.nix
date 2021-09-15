@@ -72,7 +72,7 @@
 
   networking = {
 
-    hostName = "silversurfer7_sballert";
+    hostName = "medusa";
 
     wireless = {
       enable = true;
