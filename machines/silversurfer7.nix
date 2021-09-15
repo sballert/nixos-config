@@ -56,4 +56,14 @@
   nix.maxJobs = lib.mkDefault 12;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  home-manager.users.sballert = with pkgs; {
+    programs = {
+      zsh = {
+        shellAliases = {
+          s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
+          s7gc = "s7_git_config";
+        };
+      };
+    };
+  };
 }

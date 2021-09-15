@@ -80,9 +80,6 @@ in {
     dclf = "${docker-compose}/bin/docker-compose logs -f";
 
     nosr = "sudo nixos-rebuild switch";
-
-    s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
-    s7gc = "s7_git_config";
   };
 
   history = {
