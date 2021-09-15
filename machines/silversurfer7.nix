@@ -67,16 +67,70 @@
   swapDevices = [ ];
 
   nix.maxJobs = lib.mkDefault 12;
+
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  networking = {
+
+    hostName = "silversurfer7_sballert";
+
+    wireless = {
+      enable = true;
+      interfaces = [ "wlp59s0" ];
+    };
+
+    dhcpcd = {
+
+      enable = true;
+
+      runHook = ''
+        if [[ $reason =~ BOUND ]]; then
+          if grep -q '^domain silversurfer7.de' /etc/resolv.conf; then
+            echo "Add default route for domain silversurfer7.de"
+            ${pkgs.iproute}/bin/ip route add default via 192.168.100.1
+          fi
+        fi
+      '';
+
+    };
+
+    firewall = {
+
+      allowedTCPPorts = [
+        9000 # php-debug
+      ];
+
+      allowedUDPPorts = [
+      ];
+
+    };
+
+    hosts = {
+      "127.0.0.1" = [
+        "localhost"
+        "redis"
+        "postgres"
+      ];
+      "10.51.51.16" = [ "*.dev7.silversurfer7.de" ];
+    };
+
+  };
+
   home-manager.users.sballert = with pkgs; {
+
     programs = {
+
       zsh = {
+
         shellAliases = {
           s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
           s7gc = "s7_git_config";
         };
+
       };
+
     };
+
   };
+
 }

@@ -45,38 +45,17 @@ in {
   };
 ################################################################################
   networking = {
-    hostName = "nixos";
-    wireless = {
-      enable = true;
-      interfaces = [ "wlp59s0" ];
-    };
-    dhcpcd = {
-      enable = true;
-      runHook = ''
-        if [[ $reason =~ BOUND ]]; then
-          if grep -q '^domain silversurfer7.de' /etc/resolv.conf; then
-            echo "Add default route for domain silversurfer7.de"
-            ${pkgs.iproute}/bin/ip route add default via 192.168.100.1
-          fi
-        fi
-      '';
-    };
+    dhcpcd.enable = true;
+
     firewall = {
       enable = true;
-      allowedTCPPorts = [
-        9000 # php-debug
-      ];
-      allowedUDPPorts = [
-      ];
+      allowedTCPPorts = [];
+      allowedUDPPorts = [];
     };
+
     hosts = {
-      "127.0.0.1" = [
-        "localhost"
-        "redis"
-        "postgres"
-      ];
+      "127.0.0.1" = [ "localhost"];
       "192.168.178.24" = [ "ev3dev" ];
-      "10.51.51.16" = [ "*.dev7.silversurfer7.de" ];
     };
   };
 ################################################################################
