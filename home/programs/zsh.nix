@@ -70,15 +70,6 @@ in {
     ydm = ''${youtube-dl-light}/bin/youtube-dl -f "bestvideo[height<=480]+bestaudio/best[height<=480]"'';
     yda = "${youtube-dl-light}/bin/youtube-dl --extract-audio --audio-format mp3";
 
-    dc = "${docker-compose}/bin/docker-compose";
-    dcu = "${docker-compose}/bin/docker-compose up -d";
-    dcd = "${docker-compose}/bin/docker-compose down";
-    dcs = "${docker-compose}/bin/docker-compose stop";
-    dcrm = "${docker-compose}/bin/docker-compose rm";
-    dcr = "${docker-compose}/bin/docker-compose restart";
-    dcl = "${docker-compose}/bin/docker-compose logs";
-    dclf = "${docker-compose}/bin/docker-compose logs -f";
-
     nosr = "sudo nixos-rebuild switch";
   };
 

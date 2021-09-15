@@ -122,9 +122,6 @@ in {
     ];
   };
 ################################################################################
-  virtualisation = {
-    docker.enable = true;
-  };
 ################################################################################
   programs = {
     adb.enable = true;
@@ -146,7 +143,6 @@ in {
     extraGroups = [
       "wheel"
       "video"
-      "docker"
       "adbusers"
     ];
     shell = "/run/current-system/sw/bin/zsh";

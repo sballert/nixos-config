@@ -124,13 +124,34 @@
     };
   };
 
+  virtualisation = {
+    docker.enable = true;
+  };
+
+  users.users.sballert.extraGroups = [ "docker" ];
+
   home-manager.users.sballert = with pkgs; {
+
+    home = {
+      packages = [
+        docker-compose
+      ];
+    };
 
     programs = {
 
       zsh = {
 
         shellAliases = {
+          dc = "${docker-compose}/bin/docker-compose";
+          dcu = "${docker-compose}/bin/docker-compose up -d";
+          dcd = "${docker-compose}/bin/docker-compose down";
+          dcs = "${docker-compose}/bin/docker-compose stop";
+          dcrm = "${docker-compose}/bin/docker-compose rm";
+          dcr = "${docker-compose}/bin/docker-compose restart";
+          dcl = "${docker-compose}/bin/docker-compose logs";
+          dclf = "${docker-compose}/bin/docker-compose logs -f";
+
           s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
           s7gc = "s7_git_config";
         };

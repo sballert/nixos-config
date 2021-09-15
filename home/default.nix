@@ -11,7 +11,6 @@
       bat
       bluetoothctl-menu
       brightnessctl
-      docker-compose
       exa
       fd
       gimp
