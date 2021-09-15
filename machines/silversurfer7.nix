@@ -116,6 +116,14 @@
 
   };
 
+  services = {
+    undervolt = {
+      enable = true;
+      coreOffset = -140;
+      gpuOffset = -75;
+    };
+  };
+
   home-manager.users.sballert = with pkgs; {
 
     programs = {
