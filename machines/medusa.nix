@@ -135,6 +135,8 @@
     home = {
       packages = [
         docker-compose
+        slack
+        teams
       ];
     };
 

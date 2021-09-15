@@ -40,11 +40,9 @@
       pwgen
       session-menu
       shellcheck
-      slack
       spaceship-prompt
       spotify
       st
-      teams
       texlive.combined.scheme-full
       toggle-screen-locker
       toggle-touchpad
