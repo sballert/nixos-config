@@ -6,14 +6,26 @@
     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelParams = [ "acpi_osi=!" ''acpi_osi="Windows 2009"'' ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.blacklistedKernelModules = [ "nouveau" "rivafb" "nvidiafb" "rivatv" "nv" ];
-  boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "ntfs" ];
-  boot.v4l2loopback.enable = true;
+  boot = {
+
+    kernelParams = [ "acpi_osi=!" ''acpi_osi="Windows 2009"'' ];
+
+    kernelModules = [ "kvm-intel" ];
+
+    blacklistedKernelModules = [ "nouveau" "rivafb" "nvidiafb" "rivatv" "nv" ];
+
+    extraModulePackages = [];
+
+    supportedFilesystems = [ "ntfs" ];
+
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+      kernelModules = [];
+    };
+
+    v4l2loopback.enable = true;
+
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/d8e5c9de-6253-49bd-8b7e-20a84d53eb56";
