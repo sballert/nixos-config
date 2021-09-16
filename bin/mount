@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+DEVICE="${DEVICE:-/dev/sda}"
+
+BOOT_DEVICE=${DEVICE}1
+SWAP_DEVICE=${DEVICE}2
+SYSTEM_DEVICE=${DEVICE}3
+
+cryptsetup --allow-discards open --type luks "${BOOT_DEVICE}" boot
+
+mount -t ext4 -o defaults,x-mount.mkdir,nodev,nosuid,noexec \
+      /dev/mapper/boot /mnt/boot
+
+cp /mnt/boot/initrd.key.gz /root/
+
+gunzip initrd.key.gz
+
+cpio -idm < initrd.key
+
+umount /mnt/boot
+
+cryptsetup --allow-discards open --type luks "${SWAP_DEVICE}" swap \
+           --key-file /keyfile
+
+cryptsetup --allow-discards open --type luks "${SYSTEM_DEVICE}" system \
+           --key-file /keyfile
+
+mount -t btrfs -o subvol=root,defaults,x-mount.mkdir,compress=lzo,ssd,noatime \
+      LABEL=system /mnt
+
+mount -t btrfs -o subvol=home,defaults,x-mount.mkdir,compress=lzo,ssd,noatime,nodev,nosuid \
+      LABEL=system /mnt/home
+
+mount -t btrfs -o subvol=var,defaults,x-mount.mkdir,compress=lzo,ssd,noatime,nodev,nosuid,noexec \
+      LABEL=system /mnt/var
+
+mount -t btrfs -o subvol=nix,defaults,x-mount.mkdir,compress=lzo,ssd,noatime,nodev,rw \
+      LABEL=system /mnt/nix
+
+mount -t btrfs -o subvol=snapshots,defaults,x-mount.mkdir,compress=lzo,ssd,noatime \
+      LABEL=system /mnt/.snapshots
+
+mount -t ext4 -o defaults,x-mount.mkdir,nodev,nosuid,noexec \
+      /dev/mapper/boot /mnt/boot
+
