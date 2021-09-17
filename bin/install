@@ -51,19 +51,20 @@ SWAP_END="$(("${RAM_SIZE}" + 1000))MiB"
 #sgdisk -n 0:0:+"${RAM_SIZE}"MiB -t 0:8200 -c 0:swap "${DEVICE}"
 #sgdisk -n 0:0:0 -t 0:8300 -c 0:system "${DEVICE}"
 #sgdisk -p "${DEVICE}"
-parted -s "${DEVICE}" mklabel msdos
-parted -s "${DEVICE}" mkpart ESP fat32 1MiB 1000MiB
-parted -s "${DEVICE}" set 1 esp on
-parted -s "${DEVICE}" mkpart primary 1000MiB "${SWAP_END}"
-parted -s "${DEVICE}" mkpart primary "${SWAP_END}" 100%
-
+parted "${DEVICE}" -- mklabel gpt
+parted "${DEVICE}" -- mkpart ESP fat32 1MiB 512MiB
+parted "${DEVICE}" -- set 1 esp on
+#parted "${DEVICE}" -- mkpart primary 1000MiB "${SWAP_END}"
+#parted "${DEVICE}" -- mkpart primary "${SWAP_END}" 100%
+parted "${DEVICE}" -- mkpart primary 512MiB 100%
 
 dd bs=512 count=4 if=/dev/urandom of="/keyfile" iflag=fullblock
 chmod 000 /keyfile
 
 BOOT_DEVICE=${DEVICE}p1
-SWAP_DEVICE=${DEVICE}p2
-SYSTEM_DEVICE=${DEVICE}p3
+#SWAP_DEVICE=${DEVICE}p2
+#SYSTEM_DEVICE=${DEVICE}p3
+SYSTEM_DEVICE=${DEVICE}p2
 
 cryptsetup -yq --cipher aes-xts-plain64 \
            --key-size 512 \
@@ -74,14 +75,14 @@ cryptsetup -yq --cipher aes-xts-plain64 \
            "${BOOT_DEVICE}" \
            /keyfile
 
-cryptsetup -yq --cipher aes-xts-plain64 \
-           --key-size 512 \
-           --hash sha512 \
-           --iter-time 2000 \
-           --use-urandom \
-           luksFormat \
-           "${SWAP_DEVICE}" \
-           /keyfile
+#cryptsetup -yq --cipher aes-xts-plain64 \
+#           --key-size 512 \
+#           --hash sha512 \
+#           --iter-time 2000 \
+#           --use-urandom \
+#           luksFormat \
+#           "${SWAP_DEVICE}" \
+#           /keyfile
 
 cryptsetup -yq --cipher aes-xts-plain64 \
            --key-size 512 \
@@ -93,26 +94,26 @@ cryptsetup -yq --cipher aes-xts-plain64 \
            /keyfile
 
 cryptsetup luksAddKey "${BOOT_DEVICE}" --key-file /keyfile
-cryptsetup luksAddKey "${SWAP_DEVICE}" --key-file /keyfile
+#cryptsetup luksAddKey "${SWAP_DEVICE}" --key-file /keyfile
 cryptsetup luksAddKey "${SYSTEM_DEVICE}" --key-file /keyfile
 
 cryptsetup --allow-discards open --type luks "${BOOT_DEVICE}" boot \
            --key-file /keyfile
 prepare-cleanup cryptsetup close boot
 
-cryptsetup --allow-discards open --type luks "${SWAP_DEVICE}" swap \
-           --key-file /keyfile
-prepare-cleanup cryptsetup close swap
+#cryptsetup --allow-discards open --type luks "${SWAP_DEVICE}" swap \
+#           --key-file /keyfile
+#prepare-cleanup cryptsetup close swap
 
 cryptsetup --allow-discards open --type luks "${SYSTEM_DEVICE}" system \
            --key-file /keyfile
 prepare-cleanup cryptsetup close system
 
-mkfs.fat -F32 /dev/mapper/boot
+mkfs.fat -F 32 -boot/dev/mapper/boot
 
-mkswap -f -L swap /dev/mapper/swap
-swapon -p 0 -L swap
-prepare-cleanup swapoff -L swap
+#mkswap -f -L swap /dev/mapper/swap
+#swapon -p 0 -L swap
+#prepare-cleanup swapoff -L swap
 
 mkfs.btrfs --force --label system /dev/mapper/system
 
@@ -146,8 +147,7 @@ mount -t btrfs -o subvol=snapshots,defaults,x-mount.mkdir,compress=lzo,ssd,noati
       LABEL=system /mnt/.snapshots
 prepare-cleanup umount /mnt/.snapshots
 
-mount -t vfat -o defaults,x-mount.mkdir,nodev,nosuid,noexec \
-      /dev/mapper/boot /mnt/boot
+mount -t vfat /dev/mapper/boot /mnt/boot
 prepare-cleanup umount /mnt/boot
 
 ls /keyfile | cpio --create --format=newc --owner=+0:+0 --reproducible | gzip -9 > /mnt/boot/initrd.key.gz
@@ -155,13 +155,13 @@ chmod 000 /mnt/boot/initrd.key.gz
 
 nixos-generate-config --root /mnt
 
-mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hardware-configuration.nix.old
-mv /mnt/etc/nixos/configuration.nix /mnt/etc/nixos/configuration.nix.old
-ln -s "${repodir}"/../machines/"${MACHINE}".nix /mnt/etc/nixos/configuration.nix
+#mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hardware-configuration.nix.old
+#mv /mnt/etc/nixos/configuration.nix /mnt/etc/nixos/configuration.nix.old
+#ln -s "${repodir}"/../machines/"${MACHINE}".nix /mnt/etc/nixos/configuration.nix
 
-nixos-install
+#nixos-install
 
-nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+#nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 
 ) |& tee "${LOG_FILE}"
 
