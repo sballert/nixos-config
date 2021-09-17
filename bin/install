@@ -46,7 +46,7 @@ RAM_SIZE="$(free --mega | awk 'FNR==2{print $2}')"
 
 # sgdisk --list-types
 sgdisk -Z "${DEVICE}"
-sgdisk -n 0:0:+1GiB -t 0:ea00 -c 0:boot "${DEVICE}"
+sgdisk -n 0:0:+1GiB -t 0:ef00 -c 0:boot "${DEVICE}"
 sgdisk -n 0:0:+"${RAM_SIZE}"MiB -t 0:8200 -c 0:swap "${DEVICE}"
 sgdisk -n 0:0:0 -t 0:8300 -c 0:system "${DEVICE}"
 sgdisk -p "${DEVICE}"

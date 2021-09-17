@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+IFS=$'\n\t'
+
+set -x
+
 DEVICE="${DEVICE:-/dev/sda}"
 
-BOOT_DEVICE=${DEVICE}1
-SWAP_DEVICE=${DEVICE}2
-SYSTEM_DEVICE=${DEVICE}3
+BOOT_DEVICE=${DEVICE}p1
+SWAP_DEVICE=${DEVICE}p2
+SYSTEM_DEVICE=${DEVICE}p3
 
 cryptsetup --allow-discards open --type luks "${BOOT_DEVICE}" boot
 
 mount -t ext4 -o defaults,x-mount.mkdir,nodev,nosuid,noexec \
       /dev/mapper/boot /mnt/boot
 
-cp /mnt/boot/initrd.key.gz /root/
+cp /mnt/boot/initrd.key.gz /home/nixos/
 
 gunzip initrd.key.gz
 
