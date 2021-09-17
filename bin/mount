@@ -13,7 +13,7 @@ SYSTEM_DEVICE=${DEVICE}p3
 
 cryptsetup --allow-discards open --type luks "${BOOT_DEVICE}" boot
 
-mount -t ext4 -o defaults,x-mount.mkdir,nodev,nosuid,noexec \
+mount -t vfat -o defaults,x-mount.mkdir,nodev,nosuid,noexec \
       /dev/mapper/boot /mnt/boot
 
 cp /mnt/boot/initrd.key.gz /home/nixos/
@@ -45,6 +45,6 @@ mount -t btrfs -o subvol=nix,defaults,x-mount.mkdir,compress=lzo,ssd,noatime,nod
 mount -t btrfs -o subvol=snapshots,defaults,x-mount.mkdir,compress=lzo,ssd,noatime \
       LABEL=system /mnt/.snapshots
 
-mount -t ext4 -o defaults,x-mount.mkdir,nodev,nosuid,noexec \
+mount -t vfat -o defaults,x-mount.mkdir,nodev,nosuid,noexec \
       /dev/mapper/boot /mnt/boot
 

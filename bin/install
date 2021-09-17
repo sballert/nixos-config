@@ -43,13 +43,20 @@ if [ ${SECURE_WIPE} = "yes" ] || [ ${SECURE_WIPE} = "y" ]; then
 fi
 
 RAM_SIZE="$(free --mega | awk 'FNR==2{print $2}')"
+SWAP_END="$(("${RAM_SIZE}" + 1000))MiB"
 
 # sgdisk --list-types
-sgdisk -Z "${DEVICE}"
-sgdisk -n 0:0:+1GiB -t 0:ef00 -c 0:boot "${DEVICE}"
-sgdisk -n 0:0:+"${RAM_SIZE}"MiB -t 0:8200 -c 0:swap "${DEVICE}"
-sgdisk -n 0:0:0 -t 0:8300 -c 0:system "${DEVICE}"
-sgdisk -p "${DEVICE}"
+#sgdisk -Z "${DEVICE}"
+#sgdisk -n 0:0:+1GiB -t 0:ef00 -c 0:boot "${DEVICE}"
+#sgdisk -n 0:0:+"${RAM_SIZE}"MiB -t 0:8200 -c 0:swap "${DEVICE}"
+#sgdisk -n 0:0:0 -t 0:8300 -c 0:system "${DEVICE}"
+#sgdisk -p "${DEVICE}"
+parted -s "${DEVICE}" mklabel msdos
+parted -s "${DEVICE}" mkpart ESP fat32 1MiB 1000MiB
+parted -s "${DEVICE}" set 1 esp on
+parted -s "${DEVICE}" mkpart primary 1000MiB "${SWAP_END}"
+parted -s "${DEVICE}" mkpart primary "${SWAP_END}" 100%
+
 
 dd bs=512 count=4 if=/dev/urandom of="/keyfile" iflag=fullblock
 chmod 000 /keyfile
@@ -101,7 +108,7 @@ cryptsetup --allow-discards open --type luks "${SYSTEM_DEVICE}" system \
            --key-file /keyfile
 prepare-cleanup cryptsetup close system
 
-mkfs.fat -F 32 /dev/mapper/boot
+mkfs.fat -F32 /dev/mapper/boot
 
 mkswap -f -L swap /dev/mapper/swap
 swapon -p 0 -L swap
