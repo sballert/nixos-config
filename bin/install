@@ -109,7 +109,7 @@ cryptsetup --allow-discards open --type luks "${SYSTEM_DEVICE}" system \
            --key-file /keyfile
 prepare-cleanup cryptsetup close system
 
-mkfs.fat -F 32 -boot/dev/mapper/boot
+mkfs.fat -F 32 -n boot /dev/mapper/boot
 
 #mkswap -f -L swap /dev/mapper/swap
 #swapon -p 0 -L swap
