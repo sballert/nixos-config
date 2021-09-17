@@ -1,29 +1,8 @@
 { config, pkgs, options, lib, ... }: let
-
 ################################################################################
-  configDir = ./../config;
-
-  wallpaper = builtins.fetchurl https://s3.amazonaws.com/psiu/wallpapers/heic1209a/heic1209a_desktop.jpg;
-
-  pathToConfig = conf: configDir + "/${conf}";
-
-  readConfig = conf: builtins.readFile (configDir + "/${conf}");
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-    overlays = [
-      (import ./../packages/overlays/mypackages.nix)
-      (import ./../packages/overlays/overwrites.nix)
-      (import (builtins.fetchTarball {
-        url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-      }))
-    ];
-  };
-
+  util = import ./util.nix {};
 ################################################################################
-in {
+in with util; {
   imports = [
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
     ./../modules
@@ -138,27 +117,11 @@ in {
     LC_COLLATE = "C";
   };
 ################################################################################
-  users.users.sballert = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "video"
-      "adbusers"
-    ];
-    shell = "/run/current-system/sw/bin/zsh";
-  };
-################################################################################
-  home-manager.users.sballert = import ./../home {
-    inherit pkgs nixpkgs wallpaper pathToConfig readConfig lib;
-  };
-################################################################################
-
   nix.nixPath = let
     overlaysDir = builtins.toString ./../packages/overlays;
   in (options.nix.nixPath.default ++ [
     "nixpkgs-overlays=${overlaysDir}"
   ]);
-
 ################################################################################
   system.stateVersion = "21.05";
 }

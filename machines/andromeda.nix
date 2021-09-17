@@ -4,6 +4,7 @@
   imports =
     [
         ./common.nix
+        ./pherseus.nix
         (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
