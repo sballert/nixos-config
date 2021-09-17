@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-LOG_FILE="${LOG_FILE:-/root/install.log}"
+LOG_FILE="${LOG_FILE:-/home/nixos/install.log}"
 DEVICE="${DEVICE:-/dev/nvme1n1}"
 SECURE_WIPE="${SECURE_WIPE:-no}"
 CLEANUP="${CLEANUP:-yes}"
 CLEANUP_ONLY="${CLEANUP_ONLY:-no}"
 MACHINE="${MACHINE:-andromeda}"
 
-repdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+repodir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 (
 set -euo pipefail
@@ -43,13 +43,13 @@ if [ ${SECURE_WIPE} = "yes" ] || [ ${SECURE_WIPE} = "y" ]; then
 fi
 
 RAM_SIZE="$(free --mega | awk 'FNR==2{print $2}')"
-SWAP_END="$(("${RAM_SIZE}" + 200))MiB"
 
-parted -s "${DEVICE}" mklabel gpt
-parted -s "${DEVICE}" mkpart primary ext4 1MiB 200MiB
-parted -s "${DEVICE}" set 1 boot on
-parted -s "${DEVICE}" mkpart primary 200MiB "${SWAP_END}"
-parted -s "${DEVICE}" mkpart primary "${SWAP_END}" 100%
+# sgdisk --list-types
+sgdisk -Z "${DEVICE}"
+sgdisk -n 0:0:+1GiB -t 0:ea00 -c 0:boot "${DEVICE}"
+sgdisk -n 0:0:+"${RAM_SIZE}"MiB -t 0:8200 -c 0:swap "${DEVICE}"
+sgdisk -n 0:0:0 -t 0:8300 -c 0:system "${DEVICE}"
+sgdisk -p "${DEVICE}"
 
 dd bs=512 count=4 if=/dev/urandom of="/keyfile" iflag=fullblock
 chmod 000 /keyfile
@@ -58,11 +58,10 @@ BOOT_DEVICE=${DEVICE}p1
 SWAP_DEVICE=${DEVICE}p2
 SYSTEM_DEVICE=${DEVICE}p3
 
-# try --iter-time 2000
 cryptsetup -yq --cipher aes-xts-plain64 \
            --key-size 512 \
            --hash sha512 \
-           --iter-time 5000 \
+           --iter-time 2000 \
            --use-urandom \
            luksFormat \
            "${BOOT_DEVICE}" \
@@ -71,7 +70,7 @@ cryptsetup -yq --cipher aes-xts-plain64 \
 cryptsetup -yq --cipher aes-xts-plain64 \
            --key-size 512 \
            --hash sha512 \
-           --iter-time 5000 \
+           --iter-time 2000 \
            --use-urandom \
            luksFormat \
            "${SWAP_DEVICE}" \
@@ -80,7 +79,7 @@ cryptsetup -yq --cipher aes-xts-plain64 \
 cryptsetup -yq --cipher aes-xts-plain64 \
            --key-size 512 \
            --hash sha512 \
-           --iter-time 5000 \
+           --iter-time 2000 \
            --use-urandom \
            luksFormat \
            "${SYSTEM_DEVICE}" \
@@ -151,7 +150,7 @@ nixos-generate-config --root /mnt
 
 mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hardware-configuration.nix.old
 mv /mnt/etc/nixos/configuration.nix /mnt/etc/nixos/configuration.nix.old
-ln -s "${repodir}"/machines/"${MACHINE}".nix /mnt/etc/nixos/configuration.nix
+ln -s "${repodir}"/../machines/"${MACHINE}".nix /mnt/etc/nixos/configuration.nix
 
 nixos-install
 
