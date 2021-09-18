@@ -58,22 +58,22 @@ parted "${DEVICE}" -- set 1 esp on
 #parted "${DEVICE}" -- mkpart primary "${SWAP_END}" 100%
 parted "${DEVICE}" -- mkpart primary 512MiB 100%
 
-dd bs=512 count=4 if=/dev/urandom of="/keyfile" iflag=fullblock
-chmod 000 /keyfile
+#dd bs=512 count=4 if=/dev/urandom of="/keyfile" iflag=fullblock
+#chmod 000 /keyfile
 
 BOOT_DEVICE=${DEVICE}p1
 #SWAP_DEVICE=${DEVICE}p2
 #SYSTEM_DEVICE=${DEVICE}p3
 SYSTEM_DEVICE=${DEVICE}p2
 
-cryptsetup -yq --cipher aes-xts-plain64 \
-           --key-size 512 \
-           --hash sha512 \
-           --iter-time 2000 \
-           --use-urandom \
-           luksFormat \
-           "${BOOT_DEVICE}" \
-           /keyfile
+#cryptsetup -yq --cipher aes-xts-plain64 \
+#           --key-size 512 \
+#           --hash sha512 \
+#           --iter-time 2000 \
+#           --use-urandom \
+#           luksFormat \
+#           "${BOOT_DEVICE}" \
+#           /keyfile
 
 #cryptsetup -yq --cipher aes-xts-plain64 \
 #           --key-size 512 \
@@ -90,26 +90,25 @@ cryptsetup -yq --cipher aes-xts-plain64 \
            --iter-time 2000 \
            --use-urandom \
            luksFormat \
-           "${SYSTEM_DEVICE}" \
-           /keyfile
+           "${SYSTEM_DEVICE}"
 
-cryptsetup luksAddKey "${BOOT_DEVICE}" --key-file /keyfile
+#cryptsetup luksAddKey "${BOOT_DEVICE}" --key-file /keyfile
 #cryptsetup luksAddKey "${SWAP_DEVICE}" --key-file /keyfile
-cryptsetup luksAddKey "${SYSTEM_DEVICE}" --key-file /keyfile
+#cryptsetup luksAddKey "${SYSTEM_DEVICE}" --key-file /keyfile
 
-cryptsetup --allow-discards open --type luks "${BOOT_DEVICE}" boot \
-           --key-file /keyfile
-prepare-cleanup cryptsetup close boot
+#cryptsetup --allow-discards open --type luks "${BOOT_DEVICE}" boot \
+#           --key-file /keyfile
+#prepare-cleanup cryptsetup close boot
 
 #cryptsetup --allow-discards open --type luks "${SWAP_DEVICE}" swap \
 #           --key-file /keyfile
 #prepare-cleanup cryptsetup close swap
 
-cryptsetup --allow-discards open --type luks "${SYSTEM_DEVICE}" system \
-           --key-file /keyfile
+cryptsetup --allow-discards open --type luks "${SYSTEM_DEVICE}" system
 prepare-cleanup cryptsetup close system
 
-mkfs.fat -F 32 -n boot /dev/mapper/boot
+#mkfs.fat -F 32 -n boot /dev/mapper/boot
+mkfs.fat -F 32 -n boot "${BOOT_DEVICE}"
 
 #mkswap -f -L swap /dev/mapper/swap
 #swapon -p 0 -L swap
@@ -147,11 +146,12 @@ mount -t btrfs -o subvol=snapshots,defaults,x-mount.mkdir,compress=lzo,ssd,noati
       LABEL=system /mnt/.snapshots
 prepare-cleanup umount /mnt/.snapshots
 
-mount -t vfat /dev/mapper/boot /mnt/boot
+mount -t vfat -o defaults,x-mount.mkdir LABEL=boot /mnt/boot
+
 prepare-cleanup umount /mnt/boot
 
-ls /keyfile | cpio --create --format=newc --owner=+0:+0 --reproducible | gzip -9 > /mnt/boot/initrd.key.gz
-chmod 000 /mnt/boot/initrd.key.gz
+#ls /keyfile | cpio --create --format=newc --owner=+0:+0 --reproducible | gzip -9 > /mnt/boot/initrd.key.gz
+#chmod 000 /mnt/boot/initrd.key.gz
 
 nixos-generate-config --root /mnt
 
