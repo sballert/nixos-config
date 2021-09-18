@@ -89,6 +89,7 @@ cryptsetup -yq --cipher aes-xts-plain64 \
            --hash sha512 \
            --iter-time 2000 \
            --use-urandom \
+           --label luks_system \
            luksFormat \
            "${SYSTEM_DEVICE}"
 
@@ -155,13 +156,13 @@ prepare-cleanup umount /mnt/boot
 
 nixos-generate-config --root /mnt
 
-#mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hardware-configuration.nix.old
-#mv /mnt/etc/nixos/configuration.nix /mnt/etc/nixos/configuration.nix.old
-#ln -s "${repodir}"/../machines/"${MACHINE}".nix /mnt/etc/nixos/configuration.nix
+mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hardware-configuration.nix.old
+mv /mnt/etc/nixos/configuration.nix /mnt/etc/nixos/configuration.nix.old
+ln -s "${repodir}"/../machines/"${MACHINE}".nix /mnt/etc/nixos/configuration.nix
 
-#nixos-install
+nixos-install
 
-#nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 
 ) |& tee "${LOG_FILE}"
 
