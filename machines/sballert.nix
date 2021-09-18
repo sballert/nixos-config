@@ -14,6 +14,8 @@ in with util; {
     shell = "/run/current-system/sw/bin/zsh";
   };
 
+  services.xserver.displayManager.lightdm.greeters.mini.user = "pherseus";
+
   home-manager.users.sballert = import ./../home {
     inherit pkgs nixpkgs wallpaper pathToConfig readConfig lib;
   };

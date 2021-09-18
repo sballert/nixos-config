@@ -8,7 +8,7 @@ import XMonad.Util.Run (spawnPipe, hPutStrLn)
 import Graphics.X11.ExtraTypes.XF86
 
 main = do
-  xmobar <- spawnPipe "xmobar /home/sballert/.config/xmobar/xmobarrc"
+  xmobar <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc"
   xmonad $ myConfig xmobar
 
 myConfig xmobar = def

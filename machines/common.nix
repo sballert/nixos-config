@@ -62,7 +62,6 @@ in with util; {
         greeters.gtk.enable = false;
         greeters.mini = {
           enable = true;
-          user = "sballert";
           extraConfig = ''
             [greeter]
             show-password-label = false
