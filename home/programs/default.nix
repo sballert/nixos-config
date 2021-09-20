@@ -13,7 +13,28 @@
     keybindings = { zoom_in = "j"; zoom_out = "k"; };
   };
 
-  firefox.enable = true;
+  firefox = {
+    enable = true;
+    # https://nur.nix-community.org/repos/rycee/
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      browserpass
+      darkreader
+      ublock-origin
+    ];
+    profiles = {
+      default = {
+        id = 0;
+        isDefault = true;
+        settings = {
+          "browser.urlbar.placeholderName" = "DuckDuckGo";
+          "signon.rememberSignons" = false;
+          "permissions.default.geo" = 2;
+          "permissions.default.camera" = 2;
+          "permissions.default.desktop-notification" = 2;
+        };
+      };
+    };
+  };
 
   fzf = {
     enable = true;
