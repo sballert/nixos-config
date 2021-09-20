@@ -92,7 +92,6 @@
     };
     initExtra = ''
       feh --bg-scale ${wallpaper} &
-      ${pkgs.xrandr-util}/bin/xrandr-util primary
       ${pkgs.xorg.xset}/bin/xset -dpms
       ${pkgs.xorg.xset}/bin/xset s off
     '';
