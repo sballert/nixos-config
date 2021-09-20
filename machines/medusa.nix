@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: let
+  util = import ./util.nix {};
+in with util; {
   imports = [
     ./common.nix
     ./sballert.nix
@@ -139,6 +139,10 @@
         slack
         teams
       ];
+
+      file = {
+        ".config/xmobar/xmobarrc".text = readConfig "xmobarrc.medusa";
+      };
     };
 
     programs = {

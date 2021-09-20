@@ -1,0 +1,23 @@
+Config { font = "xft: Noto Sans Display:pixelsize=14:antialias=true:autohint=true"
+       , additionalFonts = [ "xft:FontAwesome:pixelsize=14:antialias=true:hinting=true" ]
+       , bgColor = "#1d2021"
+       , fgColor = "#928374"
+       , alpha = 235
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , commands = [ Run StdinReader
+                    , Run Date "<fc=#458588><fn=1>\xf073</fn> %m/%d/%Y      <fn=1>\xf017</fn> %H:%M:%S</fc>" "date" 10
+                    , Run Volume "default" "Master" [ "-t" , "<fc=#d65d0e> <status> <volume>% </fc>"
+                                                    , "--"
+                                                    , "-O" , "<fn=1>\xf028</fn>"
+                                                    , "-o" , "<fn=1>\xf026</fn>"
+                                                    , "-C" , "#d65d0e"
+                                                    , "-c" , "#cc241d"
+                                                    ] 10
+                    ]
+       , alignSep = "}{"
+       , template = "   %StdinReader% }\
+                    \ %default:Master%      \
+                    \{ %date% "
+}

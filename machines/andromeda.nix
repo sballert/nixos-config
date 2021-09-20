@@ -1,6 +1,6 @@
-{ config, lib, pkgs, modulesPath, ... }:
-
-{
+{ config, lib, pkgs, modulesPath, ... }: let
+  util = import ./util.nix {};
+in with util; {
   imports =
     [
         ./common.nix
@@ -68,4 +68,13 @@
     };
   };
 
+  home-manager.users.pherseus = with pkgs; {
+
+    home = {
+      file = {
+        ".config/xmobar/xmobarrc".text = readConfig "xmobarrc.andromeda";
+      };
+    };
+
+  };
 }
