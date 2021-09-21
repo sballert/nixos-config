@@ -72,7 +72,7 @@ in with util; {
 
     home = {
       file = {
-        ".config/xmobar/xmobarrc".text = readConfig "xmobarrc.andromeda";
+        ".config/xmobar/xmobarrc".text = my.lib.readConfig "xmobarrc.andromeda";
       };
     };
 

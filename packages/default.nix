@@ -3,6 +3,9 @@
 with pkgs;
 
 {
+
+  lib = import ./lib { inherit pkgs; };
+
   backup = callPackage ./pkgs/backup {};
   bluetoothctl-menu = callPackage ./pkgs/bluetoothctl-menu {};
   gruvbox-rofi = callPackage ./pkgs/gruvbox-rofi {};

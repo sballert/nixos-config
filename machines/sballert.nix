@@ -17,7 +17,7 @@ in with util; {
   services.xserver.displayManager.lightdm.greeters.mini.user = "sballert";
 
   home-manager.users.sballert = import ./../home {
-    inherit pkgs nixpkgs wallpaper pathToConfig readConfig lib;
+    inherit pkgs nixpkgs wallpaper lib;
   };
 
 }

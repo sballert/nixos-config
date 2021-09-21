@@ -1,11 +1,5 @@
 {}: let
-  configDir = ./../config;
-
   wallpaper = builtins.fetchurl https://s3.amazonaws.com/psiu/wallpapers/heic1209a/heic1209a_desktop.jpg;
-
-  pathToConfig = conf: configDir + "/${conf}";
-
-  readConfig = conf: builtins.readFile (configDir + "/${conf}");
 
   nixpkgs = {
     config = {
@@ -22,5 +16,5 @@
   };
 
 in {
-  inherit configDir wallpaper pathToConfig readConfig nixpkgs;
+  inherit wallpaper nixpkgs;
 }

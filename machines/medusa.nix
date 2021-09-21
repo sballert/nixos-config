@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }: let
-  util = import ./util.nix {};
-in with util; {
+{ config, lib, pkgs, ... }: {
   imports = [
     ./common.nix
     ./sballert.nix
@@ -146,7 +144,7 @@ in with util; {
       ];
 
       file = {
-        ".config/xmobar/xmobarrc".text = readConfig "xmobarrc.medusa";
+        ".config/xmobar/xmobarrc".text = my.lib.readConfig "xmobarrc.medusa";
       };
     };
 

@@ -1,4 +1,4 @@
-{ pkgs, readConfig }:
+{ pkgs }:
 
 with pkgs;
 
@@ -15,7 +15,7 @@ in {
 
   enableAutosuggestions = false;
 
-  initExtra = readConfig "init-extra.zsh";
+  initExtra = pkgs.my.lib.readConfig "init-extra.zsh";
 
   shellAliases = {
     "-g G" = "| grep -i";

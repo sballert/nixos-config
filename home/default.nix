@@ -1,4 +1,8 @@
-{ pkgs, nixpkgs, wallpaper, pathToConfig, readConfig, lib, ... }: {
+{ pkgs, nixpkgs, wallpaper, lib, ... }: let
+
+  myLib = pkgs.my.lib;
+
+in {
 
   inherit nixpkgs;
 
@@ -67,9 +71,9 @@
     };
 
     file = {
-      ".emacs.d/init.el".text = readConfig "init.el";
-      ".ghci".text = readConfig "ghci";
-      ".guile".text = readConfig "guile";
+      ".emacs.d/init.el".text = myLib.readConfig "init.el";
+      ".ghci".text = myLib.readConfig "ghci";
+      ".guile".text = myLib.readConfig "guile";
       ".gnupg/sshcontrol".text = ''
         447910F828DF001601E7FAECF768DFA93DF87136
       '';
@@ -87,7 +91,7 @@
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
-      config = pathToConfig "xmonad.hs";
+      config = myLib.pathToConfig "xmonad.hs";
     };
     initExtra = ''
       feh --bg-scale ${wallpaper} &
@@ -109,7 +113,7 @@
     };
   };
 ################################################################################
-  programs = import ./programs { inherit pkgs readConfig lib; };
+  programs = import ./programs { inherit pkgs lib; };
 ################################################################################
   systemd.user.services = {
     autorepeat = {
