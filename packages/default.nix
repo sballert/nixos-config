@@ -1,5 +1,22 @@
 { pkgs ? import <nixpkgs> {} }:
 
+with pkgs;
+
 {
-  # here could be `lib`, `modules`, or `overlay`
-} // (import ./pkgs { inherit pkgs; })
+  backup = callPackage ./pkgs/backup {};
+  bluetoothctl-menu = callPackage ./pkgs/bluetoothctl-menu {};
+  gruvbox-rofi = callPackage ./pkgs/gruvbox-rofi {};
+  nix-util = callPackage ./pkgs/nix-util {};
+  onlykey-udev = callPackage ./pkgs/onlykey-udev {};
+  session-menu = callPackage ./pkgs/session-menu {};
+  toggle-screen-locker = callPackage ./pkgs/toggle-screen-locker {};
+  toggle-touchpad = callPackage ./pkgs/toggle-touchpad {};
+  xlogout = callPackage ./pkgs/xlogout {};
+  xrandr-util = callPackage ./pkgs/xrandr-util {};
+
+  myNodePackages = import ./pkgs/node-packages/composition.nix {
+    inherit pkgs;
+    inherit (stdenv.hostPlatform) system;
+    nodejs = pkgs.nodejs-12_x;
+  };
+}

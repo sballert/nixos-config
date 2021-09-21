@@ -78,7 +78,7 @@ in with util; {
     };
     udev.packages = with pkgs; [
       android-udev-rules
-      onlykey-udev
+      my.onlykey-udev
     ];
   };
 ################################################################################

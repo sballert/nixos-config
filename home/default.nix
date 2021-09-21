@@ -6,10 +6,16 @@
   home = {
     stateVersion = "21.11";
     packages = with pkgs; [
+      my.backup
+      my.bluetoothctl-menu
+      my.nix-util
+      my.session-menu
+      my.toggle-screen-locker
+      my.toggle-touchpad
+      my.xlogout
+      my.xrandr-util
       aria2
-      backup
       bat
-      bluetoothctl-menu
       brightnessctl
       exa
       fd
@@ -26,7 +32,6 @@
       mpv
       niv
       nix-prefetch-github
-      nix-util
       nix-linter
       onlykey
       onlykey-agent
@@ -38,14 +43,11 @@
       python3
       python3Packages.yamllint
       pwgen
-      session-menu
       shellcheck
       spaceship-prompt
       spotify
       st
       texlive.combined.scheme-full
-      toggle-screen-locker
-      toggle-touchpad
       traceroute
       tree
       udiskie
@@ -53,10 +55,8 @@
       unar
       veracrypt
       wget
-      xlogout
       xmobar
       xorg.xprop
-      xrandr-util
       youtube-dl-light
       zip
     ];

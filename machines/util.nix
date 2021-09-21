@@ -12,7 +12,7 @@
       allowUnfree = true;
     };
     overlays = [
-      (import ./../packages/overlays/mypackages.nix)
+      (pkgs: _: { my = (import ./../packages { inherit pkgs; }); })
       (import ./../packages/overlays/overwrites.nix)
       (import ./../packages/overlays/nur.nix)
       (import (builtins.fetchTarball {
