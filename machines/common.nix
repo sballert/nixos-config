@@ -2,7 +2,7 @@
 
   imports = [
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
-    ./../modules
+    (import ./../packages { inherit pkgs; }).modules.v4l2loopback
     (import ./../packages { inherit pkgs; }).modules.wallpaper
   ];
 
