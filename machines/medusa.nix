@@ -172,7 +172,7 @@
 
     xsession = {
       initExtra = ''
-        ${pkgs.xrandr-util}/bin/xrandr-util primary
+        ${pkgs.my.xrandr-util}/bin/xrandr-util primary
       '';
     };
 
