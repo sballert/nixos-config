@@ -111,6 +111,11 @@ in with util; {
         "localhost"
         "redis"
         "postgres"
+        "extranet.loc"
+        "newsnet.loc"
+        "expiclub.loc"
+        "gateway.loc"
+        "tui-auth.loc"
       ];
       "10.51.51.16" = [ "*.dev7.silversurfer7.de" ];
     };
