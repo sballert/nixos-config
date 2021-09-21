@@ -1,8 +1,4 @@
-{ config, pkgs, ... }: let
-
-  util = import ./util.nix {};
-
-in with util; {
+{ config, pkgs, lib, ... }: {
 
   users.users.pherseus = {
     isNormalUser = true;
@@ -17,7 +13,7 @@ in with util; {
   services.xserver.displayManager.lightdm.greeters.mini.user = "pherseus";
 
   home-manager.users.pherseus = import ./../home {
-    inherit pkgs nixpkgs lib config;
+    inherit pkgs lib config;
   };
 
 }

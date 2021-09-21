@@ -1,15 +1,13 @@
-{ config, pkgs, options, lib, ... }: let
-################################################################################
-  util = import ./util.nix {};
-################################################################################
-in with util; {
+{ config, pkgs, options, ... }: {
+
   imports = [
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
     ./../modules
     (import ./../packages { inherit pkgs; }).modules.wallpaper
   ];
 
-  inherit nixpkgs;
+  nixpkgs = import ./../nixpkgs/config.nix;
+
 ################################################################################
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

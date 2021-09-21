@@ -1,10 +1,10 @@
-{ pkgs, nixpkgs, lib, config, ... }: let
+{ pkgs, lib, config, ... }: let
 
   myLib = pkgs.my.lib;
 
 in {
 
-  inherit nixpkgs;
+  nixpkgs = import ./../nixpkgs/config.nix;
 
 ################################################################################
   home = {

@@ -1,6 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }: let
-  util = import ./util.nix {};
-in with util; {
+{ pkgs, modulesPath, ... }: {
   imports =
     [
         ./common.nix
