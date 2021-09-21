@@ -122,5 +122,5 @@ in with util; {
     "nixpkgs-overlays=${overlaysDir}"
   ]);
 ################################################################################
-  system.stateVersion = "21.05";
+  system.stateVersion = "21.11";
 }
