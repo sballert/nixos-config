@@ -1,0 +1,86 @@
+* NixOs Configuration
+** Installation
+
+*** [[https://nixos.org/download.html#nixos-iso][Download ISO]]
+
+*** Iso
+
+#+begin_src sh
+  sudo dd bs=4M if=path/to/input.iso of=/dev/sda status=progress
+#+end_src
+
+*** Download Config
+
+#+begin_src sh
+  curl  -L -O https://github.com/sballert/nixos-config/archive/refs/heads/master.zip
+
+  unzip master.zip
+#+end_src
+
+*** Install
+
+#+begin_src
+  sudo nixos-config-master/bin/install
+
+  shutdown -r now
+#+end_src
+
+*** After Install
+
+Login is as root:
+
+#+begin_src sh
+  passwd <username>
+  # enter password
+#+end_src
+
+Login as <user>:
+
+#+begin_src sh
+  curl  -L -O https://github.com/sballert/nixos-config/archive/refs/heads/master.zip
+  unzip master.zip
+  mv nixos-config-master nixos-config
+  sudo rm -rf /etc/nixos/configuration.nix
+  sudo ln -s /home/pherseus/nixos-config/machines/andromeda.nix /etc/nixos/configuration.nix
+
+  sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+  nix-util u
+#+end_src
+
+Download =of4chooV= from Dropbox.
+
+#+begin_src sh
+  mkdir container
+  veracrypt -t --mount <container_file> ./container
+
+  cd ./containter/gpg
+  gpg --import public.key
+  gpg --import subkeys
+  # DONT IMPORT privkey.asc
+  # This is the primary privat key and only needed for editing the keys
+
+  cd
+  sudo umount container
+  rm -rf container
+
+  git clone git@github.com:sballert/pass.git .password-store
+#+end_src
+
+** License
+
+#+begin_src text
+  Copyright (C) 2019-2021 sballert
+
+  This program is free software: you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free Software
+  Foundation, either version 3 of the License, or (at your option) any later
+  version.
+
+  This program is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  You should have received a copy of the GNU General Public License along with
+  this program.  If not, see <http://www.gnu.org/licenses/>
+#+end_src
