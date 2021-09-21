@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 with pkgs;
 
@@ -7,9 +7,9 @@ with pkgs;
 
   overrides = let
 
-    compileEmacsFiles = pkgs.callPackage ../../lib/compile-emacs-files.nix;
+    compileEmacsFiles = pkgs.callPackage my.lib.compileEmacsFiles;
 
-  in self: super: rec {
+  in self: _: rec {
     clang-format-plus = compileEmacsFiles {
       name = "clang-format-plus";
       version = "20190824.221";

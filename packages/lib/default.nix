@@ -8,4 +8,5 @@ in with pkgs.lib; {
 
   pathToConfig = configFile: configDir + "/${configFile}";
 
+  compileEmacsFiles = import ./compile-emacs-files.nix;
 }
