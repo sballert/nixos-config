@@ -17,7 +17,7 @@ in with util; {
   services.xserver.displayManager.lightdm.greeters.mini.user = "pherseus";
 
   home-manager.users.pherseus = import ./../home {
-    inherit pkgs nixpkgs wallpaper lib;
+    inherit pkgs nixpkgs lib config;
   };
 
 }

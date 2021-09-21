@@ -5,6 +5,7 @@ with pkgs;
 {
 
   lib = import ./lib { inherit pkgs; };
+  modules = import ./modules;
 
   backup = callPackage ./pkgs/backup {};
   bluetoothctl-menu = callPackage ./pkgs/bluetoothctl-menu {};

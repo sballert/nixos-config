@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, wallpaper, lib, ... }: let
+{ pkgs, nixpkgs, lib, config, ... }: let
 
   myLib = pkgs.my.lib;
 
@@ -94,7 +94,7 @@ in {
       config = myLib.pathToConfig "xmonad.hs";
     };
     initExtra = ''
-      feh --bg-scale ${wallpaper} &
+      feh --bg-scale ${builtins.fetchurl config.wallpaper.imageUrl} &
       ${pkgs.xorg.xset}/bin/xset -dpms
       ${pkgs.xorg.xset}/bin/xset s off
     '';

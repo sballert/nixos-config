@@ -1,6 +1,4 @@
 {}: let
-  wallpaper = builtins.fetchurl https://s3.amazonaws.com/psiu/wallpapers/heic1209a/heic1209a_desktop.jpg;
-
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -16,5 +14,5 @@
   };
 
 in {
-  inherit wallpaper nixpkgs;
+  inherit nixpkgs;
 }

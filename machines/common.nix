@@ -6,6 +6,7 @@ in with util; {
   imports = [
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
     ./../modules
+    (import ./../packages { inherit pkgs; }).modules.wallpaper
   ];
 
   inherit nixpkgs;
@@ -58,7 +59,7 @@ in with util; {
       desktopManager.xterm.enable = true;
       displayManager.lightdm = {
         enable = true;
-        background = wallpaper;
+        background = builtins.fetchurl config.wallpaper.imageUrl;
         greeters.gtk.enable = false;
         greeters.mini = {
           enable = true;
