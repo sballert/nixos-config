@@ -74,7 +74,7 @@ in {
     ydm = ''${youtube-dl-light}/bin/youtube-dl -f "bestvideo[height<=480]+bestaudio/best[height<=480]"'';
     yda = "${youtube-dl-light}/bin/youtube-dl --extract-audio --audio-format mp3";
 
-    nosr = "sudo nixos-rebuild switch";
+    nosr = "rm -rf ~/.xmonad/xmonad-x86_64-linux && sudo nixos-rebuild switch";
   };
 
   history = {
