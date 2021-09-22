@@ -51,6 +51,7 @@ in {
       spaceship-prompt
       spotify
       st
+      tdesktop
       texlive.combined.scheme-full
       traceroute
       tree
