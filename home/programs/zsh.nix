@@ -49,6 +49,10 @@ in {
     g = "${git}/bin/git";
 
     p = "${pass}/bin/pass";
+    pg = "${pass}/bin/pass git";
+    pt = "${pass}/bin/pass grep --color=never tags | grep tags | sed 's/^tags: //' | tr ' ' '\n' | sort | uniq";
+    pf = "${pass}/bin/pass find";
+    pft = "pass_find_tag";
 
     grep = "grep --color=auto";
     less = "less -R";
