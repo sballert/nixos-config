@@ -153,6 +153,10 @@
       zsh = {
 
         shellAliases = {
+          dk = "${docker}/bin/docker";
+          dkpl = "${docker}/bin/docker pull";
+          dkpsa = "${docker}/bin/docker ps -a";
+
           dc = "${docker-compose}/bin/docker-compose";
           dcu = "${docker-compose}/bin/docker-compose up -d";
           dcd = "${docker-compose}/bin/docker-compose down";
