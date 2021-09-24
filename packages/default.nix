@@ -19,9 +19,9 @@ with pkgs;
   xlogout = callPackage ./pkgs/xlogout {};
   xrandr-util = callPackage ./pkgs/xrandr-util {};
 
-  myNodePackages = import ./pkgs/node-packages/composition.nix {
+  nodePackages = import ./pkgs/node-packages/composition.nix {
     inherit pkgs;
     inherit (stdenv.hostPlatform) system;
-    nodejs = pkgs.nodejs-12_x;
+    nodejs = pkgs.nodejs;
   };
 }

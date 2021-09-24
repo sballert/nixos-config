@@ -66,6 +66,12 @@ Download =of4chooV= from Dropbox.
   git clone git@github.com:sballert/pass.git .password-store
 #+end_src
 
+** Manuell Updates
+
+*** =packages/pkgs/node-packages=
+
+Execute the ./generate.sh script.
+
 ** License
 
 #+begin_src text
