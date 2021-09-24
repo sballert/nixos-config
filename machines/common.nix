@@ -115,10 +115,8 @@
     LC_COLLATE = "C";
   };
 ################################################################################
-  nix.nixPath = let
-    overlaysDir = builtins.toString ./../packages/overlays;
-  in (options.nix.nixPath.default ++ [
-    "nixpkgs-overlays=${overlaysDir}"
+  nix.nixPath = (options.nix.nixPath.default ++ [
+    "mypkgs=${builtins.toString ./../packages}"
   ]);
 ################################################################################
   system.stateVersion = "21.11";
