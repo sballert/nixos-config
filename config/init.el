@@ -70,6 +70,7 @@
     "f" '(:ignore t :which-key "find")
     "m" '(:ignore t :which-key "more")
     "ff" 'find-file
+    "bD" 'kill-buffer
     "w" '(:ignore t :which-key "window")
     "Q" 'save-buffers-kill-terminal))
 
@@ -367,7 +368,9 @@
   :general
   (general-def 'normal  'ivy-occur-mode-map
     "<escape>" 'minibuffer-keyboard-quit)
-  (prefix-def "bb" 'ivy-switch-buffer)
+  (prefix-def
+    "bb" 'ivy-switch-buffer
+    "bB" 'ivy-switch-buffer-other-window)
   :config
   (setq ivy-use-virtual-buffers t
         ivy-count-format "%d/%d "
@@ -585,6 +588,7 @@
     "e" 'org-export-dispatch
     "l" 'org-insert-link
     "L" 'org-toggle-link-display
+    "nw" 'widen
     "nb" 'org-narrow-to-block
     "ne" 'org-narrow-to-element
     "ns" 'org-narrow-to-subtree)
@@ -681,6 +685,7 @@
   (prefix-def
     "p" '(:ignore t :which-key "projectile")
     "p SPC" 'projectile-find-file
+    "f SPC" 'projectile-find-file
 
     "pg" 'projectile-grep
     "pr" 'projectile-replace
@@ -696,9 +701,8 @@
 
     "/gp" 'projectile-grep
 
-    "b SPC" 'projectile-switch-to-buffer
-
-    "f SPC" 'projectile-find-file)
+    "pb" 'projectile-switch-to-buffer
+    "b SPC" 'projectile-switch-to-buffer)
   :config
   (setq projectile-completion-system 'ivy
         projectile-switch-project-action 'projectile-dired
@@ -713,12 +717,12 @@
 (use-package nix-mode
   :mode "\\.nix$"
   :general
-  (prefix-def
-    "N" '(:ignore t :which-key "nix")
-    "Nb" 'nix-build
-    "NR" 'nix-repl
-    "Ns" 'nix-shell
-    "Nu" 'nix-unpack)
+  ;;(prefix-def
+  ;;  "N" '(:ignore t :which-key "nix")
+  ;;  "Nb" 'nix-build
+  ;;  "NR" 'nix-repl
+  ;;  "Ns" 'nix-shell
+  ;;  "Nu" 'nix-unpack)
   :config (setq nix-indent-function 'nix-indent-line))
 
 ;; https://github.com/purcell/emacs-nixpkgs-fmt
@@ -747,14 +751,14 @@
   (flycheck-checker-error-threshold 1000)
   :config
   (prefix-def
-    "F" '(:ignore t :which-key "flycheck")
-    "F SPC" 'flycheck-list-errors
-    "Fl" 'flycheck-list-errors
-    "Fc" 'flycheck-buffer
-    "FC" 'flycheck-clear
-    "Fp" 'flycheck-previous-error
-    "Fv" 'flycheck-verify-setup
-    "Fn" 'flycheck-next-error))
+    "c" '(:ignore t :which-key "flycheck")
+    "c SPC" 'flycheck-list-errors
+    "cl" 'flycheck-list-errors
+    "cc" 'flycheck-buffer
+    "cC" 'flycheck-clear
+    "cp" 'flycheck-previous-error
+    "cv" 'flycheck-verify-setup
+    "cn" 'flycheck-next-error))
 
 ;; https://github.com/wbolster/emacs-direnv
 ;; direnv integration for emacs
@@ -946,7 +950,7 @@
     "Pe" 'password-store-edit
     "Pg" 'password-store-get
     "Pi" 'password-store-insert
-    "Pm" 'password-store-rename
+    "Pr" 'password-store-rename
     "Pu" 'password-store-url
     "PC" 'password-store-clear
     "PG" 'password-store-generate

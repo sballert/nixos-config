@@ -72,6 +72,289 @@ Download =of4chooV= from Dropbox.
 
 Execute the ./generate.sh script.
 
+** Emacs Configuration
+*** Space Map
+
+| Key | Command                    |
+|-----+----------------------------|
+| =b= | Buffer                     |
+| =w= | Window                     |
+| =f= | Find                       |
+| =/= | Search                     |
+| =j= | Jump                       |
+| =p= | Projectile                 |
+| =g= | Magit                      |
+| =c= | Flycheck                   |
+| =d= | DAP                        |
+| =y= | Yasnippet                  |
+| =P= | Password Store             |
+| =m= | More                       |
+| =h= | Help                       |
+| =Q= | [[help:save-buffers-kill-terminal][save-buffers-kill-terminal]] |
+| =!= | [[help:shell-command][shell-command]]              |
+| =:= | [[help:eval-expression][eval-expression]]            |
+| =;= | [[help:pp-eval-expression][pp-eval-expression]]         |
+| =&= | [[help:async-shell-command][async-shell-command]]        |
+| =u= | [[help:universal-argument][universal-argument]]         |
+| =t= | [[help:ansi-term-default][ansi-term-default]]          |
+| =r= | [[help:counsel-recentf][counsel-recentf]]            |
+| =x= | [[help:counsel-M-x][counsel-M-x]]                |
+
+**** Buffer (=b=)
+
+| Key      | Command                        |
+|----------+--------------------------------|
+| =b<SPC>= | [[help:projectile-switch-to-buffer][projectile-switch-to-buffer]]    |
+| =bs=     | [[help:save-buffer][save-buffer]]                    |
+| =bd=     | [[help:kill-current-buffer][kill-current-buffer]]            |
+| =bD=     | [[help:kill-buffer][kill-buffer]]                    |
+| =bb=     | [[help:ivy-switch-buffer][ivy-switch-buffer]]              |
+| =bB=     | [[help:ivy-switch-buffer-other-window][ivy-switch-buffer-other-window]] |
+
+**** Window (=w=)
+
+| Key  | Command                     |
+|------+-----------------------------|
+| =wh= | [[help:evil-window-left][evil-window-left]]            |
+| =wj= | [[help:evil-window-down][evil-window-down]]            |
+| =wk= | [[help:evil-window-up][evil-window-up]]              |
+| =wl= | [[help:evil-window-right][evil-window-right]]           |
+| =wo= | [[help:delete-other-windows][delete-other-windows]]        |
+| =ws= | [[help:evil-window-split][evil-window-split]]           |
+| =wv= | [[help:evil-window-vsplit][evil-window-vsplit]]          |
+| =wq= | [[help:evil-quit][evil-quit]]                   |
+| =wH= | [[help:evil-window-decrease-width][evil-window-decrease-with]]   |
+| =wL= | [[help:evil-window-increase-width][evil-window-increase-width]]  |
+| =wJ= | [[help:evil-window-decrease-height][evil-window-decrease-height]] |
+| =wK= | [[help:evil-window-increase-height][evil-window-increase-height]] |
+
+**** Find (=f=)
+
+| Key      | Command              |
+|----------+----------------------|
+| =f<SPC>= | [[help:projectile-find-file][projectile-find-file]] |
+| =ff=     | [[help:find-file][find-file]]            |
+| =fd=     | [[help:find-dired][find-dired]]           |
+| =fg=     | [[help:find-grep-dired][find-grep-dired]]      |
+| =fs=     | [[help:find-file-as-sudo][find-file-as-sudo]]    |
+| =fl=     | [[help:find-library][find-library]]         |
+
+**** Search (=/=)
+
+| Key   | Command          | Note                           |
+|-------+------------------+--------------------------------|
+| =/gG= | [[help:grep][grep]]             | grep, command                  |
+| =/gl= | [[help:lgrep][lgrep]]            | grep, autocompletion           |
+| =/gf= | [[help:grep-find][grep-find]]        | find exec grep, command        |
+| =/gr= | [[help:rgrep][rgrep]]            | find exec grep, autocompletion |
+| =/gg= | [[help:counsel-git-grep][counsel-git-grep]] |                                |
+| =/s=  | [[help:swiper][swiper]]           |                                |
+| =/gp= | [[help:projectile-grep][projectile-grep]]  |                                |
+
+**** Jump (=j=)
+
+| Key      | Command                            |
+|----------+------------------------------------|
+| =j<SPC>= | [[help:xref-find-definition][xref-find-definition]]               |
+| =jr=     | [[help:xref-find-references][xref-find-references]]               |
+| =jo=     | [[help:xref-find-definitions-other-window][xref-find-definitions-other-window]] |
+| =jb=     | [[help:xref-pop-marker-stack][xref-pop-marker-stack]]              |
+| =ja=     | [[help:xref-find-apropos][xref-find-apropos]]                  |
+
+**** Projectile (=p=)
+
+
+| Key      | Command                                    |
+|----------+--------------------------------------------|
+| =p<SPC>= | [[help:projectile-find-file][projectile-find-file]]                       |
+| =pg=     | [[help:projectile-grep][projectile-grep]]                            |
+| =pr=     | [[help:projectile-replace][projectile-replace]]                         |
+| =pp=     | [[help:projectile-command-map][projectile-command-map]]                     |
+| =pc=     | [[help:projectile-compile-project][projectile-compile-project]]                 |
+| =p!=     | [[help:projectile-run-shell-command-in-root][projectile-run-shell-command-in-root]]       |
+| =p&=     | [[help:projectile-run-async-shell-command-in-root][projectile-run-async-shell-command-in-root]] |
+| =psp=    | [[help:projectile-switch-project][projectile-switch-project]]                  |
+| =pso=    | [[help:projectile-switch-open-project][projectile-switch-open-project]]             |
+| =pb=     | [[help:projectile-switch-to-buffer][projectile-switch-to-buffer]]                |
+|          |                                            |
+
+**** Magit (=g=)
+
+| Key      | Command               |
+|----------+-----------------------|
+| =g<SPC>= | [[help:magit-status][magit-status]]          |
+| =gb=     | [[help:magit-blame][magit-blame]]           |
+| =gf=     | [[help:magit-log-buffer-file][magit-log-buffer-file]] |
+
+**** Flycheck (=c=)
+
+| Key      | Command                 |
+|----------+-------------------------|
+| =c<SPC>= | [[help:flycheck-list-errors][flycheck-list-errors]]    |
+| =cl=     | [[help:flycheck-list-errors][flycheck-list-errors]]    |
+| =cc=     | [[help:flycheck-buffer][flycheck-buffer]]         |
+| =cC=     | [[help:flycheck-clear][flycheck-clear]]          |
+| =cp=     | [[help:flycheck-previous-error][flycheck-previous-error]] |
+| =cn=     | [[help:flycheck-next-error][flycheckt-next-error]]    |
+| =cn=     | [[help:flycheck-next-error][flycheck-next-error]]     |
+
+**** DAP (=d=)
+
+| Key      | Command                      |
+|----------+------------------------------|
+| =d<SPC>= | [[help:dap-debug][dap-debug]]                    |
+| =dd=     | [[help:dap-debug][dap-debug]]                    |
+| =dD=     | [[help:dap-debug-edit-template][dap-debug-edit-template]]      |
+| =dh=     | [[help:dap-hydra/body][dap-hydra/body]]               |
+| =dbt=    | [[help:dap-breakpoint-toggle][dap-breakpoint-toggle]]        |
+| =dba=    | [[help:dap-breakpoint-add][dap-breakpoint-add]]           |
+| =dbd=    | [[help:dap-breakpoint-delete][dap-breakpoint-delete]]        |
+| =dbc=    | [[help:dap-breakpont-condition][dap-breakpoint-condition]]     |
+| =dbh=    | [[help:dap-breakpoint-hit-condition][dap-breakpoint-hit-condition]] |
+| =dbl=    | [[help:dap-breakpoint-log-message][dap-breakpoint-log-message]]   |
+| =dws=    | [[help:dap-ui-session][dap-ui-session]]               |
+| =dwl=    | [[help:dap-ui-locals][dap-ui-locals]]                |
+| =dwe=    | [[help:dap-ui-expressions][dap-ui-expressions]]           |
+| =dwb=    | [[help:dap-ui-breakpoints][dap-ui-breakpoints]]           |
+| =dwr=    | [[help:dap-ui-repl][dap-ui-repl]]                  |
+| =dsd=    | [[help:dap-delete-session][dap-delete-session]]           |
+| =dsD=    | [[help:dap-delete-all-sessions][dap-delete-all-sessions]]      |
+| =dq=     | [[help:dap-disconnect][dap-disconnect]]               |
+
+**** Yasnippet (=y=)
+
+| Key  | Command                |
+|------+------------------------|
+| =yh= | [[help:yas-describe-tables][yas-describe-tables]]    |
+| =yn= | [[help:yas-new-snippet][yas-new-snippet]]        |
+| =yv= | [[help:yas-visit-snippet-file][yas-visit-snippet-file]] |
+| =yr= | [[help:yas-reload-all][yas-reload-all]]         |
+
+**** Passowrd Store (=P=)
+
+| Key  | Command                 |
+|------+-------------------------|
+| =Pd= | [[help:password-store-remove][password-store-remove]]   |
+| =Pe= | [[help:password-store-edit][password-store-edit]]     |
+| =Pg= | [[help:password-store-get][password-store-get]]      |
+| =Pi= | [[help:password-store-insert][password-store-insert]]   |
+| =Pr= | [[help:password-store-rename][password-store-rename]]]  |
+| =Pu= | [[help:password-store-url][password-store-url]]      |
+| =PC= | [[help:password-store-clear][password-store-clear]]    |
+| =PG= | [[help:password-store-generate][password-store-generate]] |
+| =PI= | [[help:password-store-init][password-store-init]]     |
+| =Pc= | [[help:password-store-copy][password-store-copy]]     |
+
+**** More (=m=)
+
+| Key       | Command                |
+|-----------+------------------------|
+| =mm=      | [[help:evil-show-marks][evil-show-marks]]        |
+| =ma=      | [[help:aggressive-indent-mode][aggressive-indent-mode]] |
+| =ml<SPC>= | [[help:dictcc][dictcc]]                 |
+| =mlp=     | [[help:dictcc-at-point][dictcc-at-point]]        |
+
+**** Help (=h=)
+
+| Key  | Command               |
+|------+-----------------------|
+| =hm= | [[help:describe-mode][describe-mode]]         |
+| =hf= | [[help:describe-function][describe-function]]     |
+| =hv= | [[help:describe-variable][describe-variable]]     |
+| =hk= | [[help:describe-key][describe-key]]          |
+| =ha= | [[help:apropos][apropos]]               |
+| =hc= | [[help:apropos-command][apropos-command]]       |
+| =hd= | [[help:apropos-documentation][apropos-documentation]] |
+| =hl= | [[help:apropos-library][apropos-library]]       |
+| =hu= | [[help:apropos-user-options][apropos-user-options]]  |
+| =hV= | [[help:apropos-value][apropos-value]]         |
+| =hi= | [[help:info][info]]                  |
+| =hy= | [[help:yas-describe-tables][yas-describe-tables]]   |
+
+*** Org-Mode Map
+
+| Key      | Command                   |
+|----------+---------------------------|
+| =o=      | [[help:org-open-at-point][org-open-at-point]]         |
+| =b=      | [[help:org-babel-demarcate-black][org-babel-demarcate-block]] |
+| =t=      | [[help:org-babel-tangle][org-babel-tangle]]          |
+| =e=      | [[help:org-export-dispatch][org-export-dispatch]]       |
+| =l=      | [[help:org-insert-link][org-insert-link]]           |
+| =L=      | [[help:org-toggle-link-display][org-toggle-link-display]]   |
+| =nb=     | [[help:org-narrow-to-block][org-narrow-to-block]]       |
+| =ne=     | [[help:org-narrow-to-element][org-narrow-to-element]]     |
+| =ns=     | [[help:org-narrow-to-subtree][org-narrow-to-subtree]]     |
+| =nw=     | [[help:widen][widen]]                     |
+| =d<SPC>= | [[help:org-drill][org-drill]]                 |
+| =dt=     | [[help:org-drill-tree][org-drill-tree]]            |
+| =dd=     | [[help:org-drill-directory][org-drill-directory]]       |
+| =dr=     | [[help:org-drill-resume][org-drill-resume]]          |
+
+*** PDF-Ciew-Mode Map
+
+| Key | Command   |
+|-----+-----------|
+| =o= | [[help:pdf-occur][pdf-occur]] |
+
+*** Prog-Mode Map
+
+| Key | Command      |
+|-----+--------------|
+| =a= | [[help:align-regexp][align-regexp]] |
+
+*** Snippet-Mode Map
+
+| Key | Command                           |
+|-----+-----------------------------------|
+| =l= | [[help:yas-load-snippet-buffer][yas-load-snippet-buffer]]           |
+| =t= | [[help:yas-tryout-snippet][yas-tryout-snippet]]                |
+| =c= | [[help:yas-load-snippet-buffer-and-close][yas-load-snippet-buffer-and-close]] |
+
+*** Elisp-Mode Map
+
+| Key | Command               |
+|-----+-----------------------|
+| =p= | [[help:pp-eval-last-sexp][pp-eval-last-sexp]]     |
+| =b= | [[help:eval-buffer][eval-buffer]]           |
+| =d= | [[help:toggle-debug-on-error][toggle-debug-on-error]] |
+| =f= | [[help:debug-on-entry][debug-on-entry]]        |
+| =F= | [[help:cancel-debug-on-entry][cancel-debug-on-entry]] |
+| =l= | [[help:eval-last-sexp][eval-last-exep]]        |
+| =e= | [[help:eval-defun][eval-defun]]            |
+
+*** Haskell-Mode Map
+
+| Key | Command                     |
+|-----+-----------------------------|
+| =i= | [[help:haskell-navigate-imports][haskell-navigate-imports]]    |
+| =,= | [[help:haskell-mode-format-imports][haskell-mode-format-imports]] |
+| =s= | [[help:haskell-sort-imports][haskell-sort-imports]]        |
+| =r= | [[help:run-haskell][run-haskell]]                 |
+
+*** Js-Mode Map
+
+| Key  | Command                          |
+|------+----------------------------------|
+| =r=  | [[help:nodejs-repl][nodejs-repl]]                      |
+| =ce= | [[help:nodejs-repl-send-last-expression][nodejs-repl-send-last-expression]] |
+| =cj= | [[help:nodejs-repl-send-line][nodejs-repl-send-line]]            |
+| =cr= | [[help:nodejs-repl-send-region][nodejs-repl-send-region]]          |
+| =cc= | [[help:nodejs-repl-send-buffer][nodejs-repl-send-buffer]]          |
+| =cl= | [[help:nodejs-send-load-file][nodejs-send-load-file]]            |
+| =cz= | [[help:nodejs-repl-switch-to-repl][nodejs-repl-switch-to-repl]]       |
+
+*** JSON-Mode Map
+
+| Key | Command                |
+|-----+------------------------|
+| =f= | [[help:evil-json-pretty-print][evil-json-pretty-print]] |
+
+*** Nix-Mode Map
+
+| Key  | Command                 |
+|------+-------------------------|
+| =fb= | [[help:nixpkgs-fmt-buffer][nixpkgs-fmt-buffer]]      |
+| =fr= | [[help:nixpkgs-fmt-region]] |
 ** License
 
 #+begin_src text
@@ -90,3 +373,4 @@ Execute the ./generate.sh script.
   You should have received a copy of the GNU General Public License along with
   this program.  If not, see <http://www.gnu.org/licenses/>
 #+end_src
+
