@@ -111,6 +111,7 @@
         "postgres"
         "extranet.loc"
         "newsnet.loc"
+        "newsnet-at.loc"
         "expiclub.loc"
         "gateway.loc"
         "tui-auth.loc"
