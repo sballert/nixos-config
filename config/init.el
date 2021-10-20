@@ -416,15 +416,6 @@
   (company-idle-delay 0)
   (company-minimum-prefix-length 3))
 
-;; https://github.com/company-mode/company-mode
-;; company-mode configuration for single-button interaction
-(use-package company-tng
-  :disabled
-  :demand t
-  :commands (company-tng-configure-default)
-  :after (company)
-  :config (company-tng-configure-default))
-
 ;; https://github.com/joaotavora/yasnippet
 ;; A template system for Emacs
 (use-package yasnippet
