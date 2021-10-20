@@ -68,6 +68,7 @@ with pkgs;
     ob-restclient
     org-bullets
     org-drill
+    org-roam
     password-store
     php-mode
     prettier

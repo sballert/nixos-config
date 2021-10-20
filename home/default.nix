@@ -23,6 +23,7 @@ in {
       brightnessctl
       exa
       fd
+      gcc
       gimp
       gitAndTools.gitflow
       gnome3.dconf

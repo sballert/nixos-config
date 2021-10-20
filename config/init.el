@@ -574,11 +574,13 @@
   (local-def
     :keymaps '(org-mode-map)
     "o" 'org-open-at-point
+    "O" 'org-mark-ring-goto
     "b" 'org-babel-demarcate-block
     "t" 'org-babel-tangle
     "e" 'org-export-dispatch
     "l" 'org-insert-link
     "L" 'org-toggle-link-display
+    "i" 'org-id-get-create
     "nw" 'widen
     "nb" 'org-narrow-to-block
     "ne" 'org-narrow-to-element
@@ -646,6 +648,32 @@
   :config
   (require 'cl)
   (add-to-list 'org-modules 'org-drill))
+
+;; https://github.com/org-roam/org-roam
+;; A database abstraction layer for Org-mode
+(use-package org-roam
+  :general
+  (prefix-def
+    "B" '(:ignore t :which-key "Brain")
+    "B SPC" 'org-roam-node-find
+    "Bi" 'org-roam-node-insert
+    "Ba" 'org-roam-alias-add
+    "Bb" 'org-roam-buffer-toggle)
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/brain")
+  (org-roam-completion-everywhere t)
+  (org-roam-capture-templates
+   '(
+     ("d"
+      "default"
+      plain
+      "%?"
+      :target (file+head "${slug}.org" "#+title: ${title}")
+      :unnarrowed t)))
+  :config
+  (org-roam-setup))
 
 ;; Magit =======================================================================
 ;; https://github.com/magit/magit

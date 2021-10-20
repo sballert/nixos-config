@@ -89,6 +89,7 @@ Execute the ./generate.sh script.
 | =y= | Yasnippet                  |
 | =P= | Password Store             |
 | =m= | More                       |
+| =B= | Brain                      |
 | =h= | Help                       |
 | =Q= | [[help:save-buffers-kill-terminal][save-buffers-kill-terminal]] |
 | =!= | [[help:shell-command][shell-command]]              |
@@ -254,6 +255,15 @@ Execute the ./generate.sh script.
 | =ml<SPC>= | [[help:dictcc][dictcc]]                 |
 | =mlp=     | [[help:dictcc-at-point][dictcc-at-point]]        |
 
+**** Brain (=B=)
+
+| Key      | Command                |
+|----------+------------------------|
+| =B<SPC>= | [[help:org-roam-node-find][org-roam-node-find]]     |
+| =Bi=     | [[help:org-roam-node-insert][org-roam-node-insert]]   |
+| =Bb=     | [[help:org-roam-buffer-toggle][org-roam-buffer-toggle]] |
+| =Ba=     | [[help:org-roam-alias-add][org-roam-alias-add]]     |
+
 **** Help (=h=)
 
 | Key  | Command               |
@@ -276,11 +286,13 @@ Execute the ./generate.sh script.
 | Key      | Command                   |
 |----------+---------------------------|
 | =o=      | [[help:org-open-at-point][org-open-at-point]]         |
+| =O=      | [[help:org-mark-ring-goto][org-mark-ring-goto]]        |
 | =b=      | [[help:org-babel-demarcate-black][org-babel-demarcate-block]] |
 | =t=      | [[help:org-babel-tangle][org-babel-tangle]]          |
 | =e=      | [[help:org-export-dispatch][org-export-dispatch]]       |
 | =l=      | [[help:org-insert-link][org-insert-link]]           |
 | =L=      | [[help:org-toggle-link-display][org-toggle-link-display]]   |
+| =i=      | [[help:org-id-get-create][org-id-get-create]]         |
 | =nb=     | [[help:org-narrow-to-block][org-narrow-to-block]]       |
 | =ne=     | [[help:org-narrow-to-element][org-narrow-to-element]]     |
 | =ns=     | [[help:org-narrow-to-subtree][org-narrow-to-subtree]]     |
