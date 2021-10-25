@@ -658,6 +658,20 @@
     "B SPC" 'org-roam-node-find
     "Bi" 'org-roam-node-insert
     "Ba" 'org-roam-alias-add
+
+    "Bdn" 'org-roam-dailies-capture-today
+    "BdY" 'org-roam-dailies-capture-yesterday
+    "BdT" 'org-roam-dailies-capture-tomorrow
+
+    "Bdv" 'org-roam-dailies-capture-date
+    "Bdc" 'org-roam-dailies-goto-date
+    "Bdb" 'org-roam-dailies-goto-previous-note
+    "Bdf" 'org-roam-dailies-goto-next-note
+
+    "Bd SPC" 'org-roam-dailies-goto-today
+    "Bdy" 'org-roam-dailies-goto-yesterday
+    "Bdt" 'org-roam-dailies-goto-tomorrow
+
     "Bb" 'org-roam-buffer-toggle)
   :init
   (setq org-roam-v2-ack t)
