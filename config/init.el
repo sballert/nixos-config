@@ -914,7 +914,6 @@
               pdf-tools-advice-evil-refresh-cursor)
   :commands (pdf-isearch-minor-mode
              pdf-view-midnight-minor-mode)
-  :general (local-def :keymaps '(pdf-view-mode-map) "o" 'pdf-occur)
   :config
   (defun pdf-tools-advice-evil-refresh-cursor (evil-refresh-cursor &rest args)
     (if (and (not (derived-mode-p 'evil-view-mode)) evil-default-cursor)

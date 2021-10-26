@@ -302,11 +302,23 @@ Execute the ./generate.sh script.
 | =dd=     | [[help:org-drill-directory][org-drill-directory]]       |
 | =dr=     | [[help:org-drill-resume][org-drill-resume]]          |
 
-*** PDF-Ciew-Mode Map
+*** PDF-View-Mode Map
 
-| Key | Command   |
-|-----+-----------|
-| =o= | [[help:pdf-occur][pdf-occur]] |
+**** From Evil Collection
+
+| Key   | Command                                                 |
+|-------+---------------------------------------------------------|
+| =o=   | [[help:pdf-outline][pdf-outline]]                                             |
+| =j=   | [[help:evil-collection-pdf-view-next-line-or-next-page][evil-collection-pdf-view-next-line-or-next-page]]         |
+| =n=   | [[help:evil-collection-pdf-view-previous-line-or-previous-page][evil-collection-pdf-view-previous-line-or-previous-page]] |
+| =C-f= | [[help:pdf-view-scroll-up-or-next-page][pdf-view-scroll-up-or-next-page]]                         |
+| =C-b= | [[help:pdf-view-scroll-down-or-previous-page][pdf-view-scroll-down-or-previous-page]]                   |
+| =]]=  | [[help:pdf-view-next-page-command][pdf-view-next-page-command]]                              |
+| =[[=  | [[help:pdf-view-previous-page-command][pdf-view-previous-page-command]]                          |
+| =C-j= | [[help:pdf-view-next-page-command][pdf-view-next-page-command]]                              |
+| =C-k= | [[help:pdf-view-previous-page-command][pdf-view-previous-page-command]]                          |
+| =gj=  | [[help:pdf-view-next-page-command][pdf-view-next-page-command]]                              |
+| =gk=  | [[help:pdf-view-previous-page-command][pdf-view-previous-page-command]]                          |
 
 *** Prog-Mode Map
 
