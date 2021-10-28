@@ -1064,6 +1064,7 @@
   (prefix-def
     ";" 'pp-eval-expression)
   (local-def
+    :keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
     "p" 'pp-eval-last-sexp))
 
 ;; C/C++ =======================================================================
