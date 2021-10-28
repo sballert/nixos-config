@@ -166,6 +166,7 @@
           dcr = "${docker-compose}/bin/docker-compose restart";
           dcl = "${docker-compose}/bin/docker-compose logs";
           dclf = "${docker-compose}/bin/docker-compose logs -f";
+          dce = "${docker-compose}/bin/docker-compose exec";
 
           s7vpn = "sudo ${openvpn}/bin/openvpn $HOME/s7/client.ovpn";
           s7gc = "s7_git_config";
