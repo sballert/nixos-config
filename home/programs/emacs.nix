@@ -26,6 +26,7 @@ with pkgs;
   };
 
   extraPackages = epkgs: with epkgs; [
+    auctex
     js2-mode
     pdf-tools
   ] ++ (with melpaPackages; [

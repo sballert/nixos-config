@@ -962,6 +962,27 @@
 ;; pdf-misc.el --- Miscellaneous commands for PDF buffer.
 (use-package pdf-misc :demand t :after (pdf-tools))
 
+;; auctex ======================================================================
+;; https://www.gnu.org/software/auctex/
+;; AUCTeX is an extensible package for writing and formatting TeX files in GNU Emacs.
+(use-package tex-site
+  :demand t
+  :after (tex-mode)
+  :custom
+  (TeX-auto-save t)
+  (TeX-parse-self t)
+  (TeX-save-query nil)
+  (TeX-view-program-selection '((output-pdf "PDF Tools")))
+  (TeX-PDF-mode t))
+
+(use-package tex-mode
+  :general
+  (local-def
+    :keymaps '(LaTeX-mode-map)
+    "a" 'TeX-command-run-all
+    "c" 'TeX-command-master)
+  :mode ("\\.tex\\'" . latex-mode))
+
 ;; dictcc ======================================================================
 ;; https://github.com/martenlienen/dictcc.el
 ;; An interface to look up translations on dict.cc without leaving emacs.
