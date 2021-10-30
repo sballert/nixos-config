@@ -120,7 +120,9 @@
   (setq evil-want-integration t
         evil-want-keybinding nil)
   :config
-  (require 'goto-chg))
+  (require 'goto-chg)
+  (fset 'evil-redirect-digit-argument 'ignore))
+
 
 ;; https://github.com/emacs-evil/evil-collection
 ;; A set of keybindings for evil-mode
@@ -618,6 +620,9 @@
   :after (evil org)
   :hook (org-mode . evil-org-mode)
   :config
+  (add-to-list 'evil-digit-bound-motions 'evil-org-beginning-of-line)
+  (evil-define-key 'motion 'evil-org-mode
+    (kbd "0") 'evil-org-beginning-of-line)
   (evil-org-set-key-theme '(navigation
                             insert
                             textobjects
