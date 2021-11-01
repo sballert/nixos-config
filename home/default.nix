@@ -18,6 +18,7 @@ in {
       my.toggle-touchpad
       my.xlogout
       my.xrandr-util
+      anystyle-cli
       aria2
       bat
       brightnessctl

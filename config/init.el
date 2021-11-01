@@ -148,7 +148,6 @@
 
 ;; files.el --- file input and output commands for Emacs
 (use-package files
-  :demand t
   :general
   (prefix-def
     "bs" 'save-buffer)
@@ -243,7 +242,6 @@
 
 ;; recentf.el --- setup a menu of recently opened files
 (use-package recentf
-  :demand t
   :hook ((after-init) . recentf-mode)
   :config
   (setq recentf-max-saved-items 1000
@@ -571,7 +569,8 @@
 ;; https://orgmode.org/
 ;; Org mode is for keeping notes, maintaining TODO lists, planning projects,
 ;; and authoring documents with a fast and effective plain-text system.
-(use-package org :demand t
+(use-package org
+  :demand t
   :general
   (local-def
     :keymaps '(org-mode-map)
@@ -607,6 +606,27 @@
 ;; https://orgmode.org/
 ;; Dynamic indentation for Org
 (use-package org-indent :diminish :hook (org-mode . org-indent-mode))
+
+;; https://github.com/jkitchin/org-ref
+;; citations, cross-references and bibliographies in org-mode
+(use-package org-ref
+  :demand t
+  :after (org)
+  :general
+  (local-def
+    :keymaps 'org-mode-map
+    "r" 'org-ref-insert-link)
+  (:keymaps 'bibtex-mode-map
+            "H-b" 'org-ref-bibtex-hydra/body)
+  :custom
+  (org-ref-insert-link-function 'org-ref-insert-link-hydra/body)
+  (org-ref-insert-cite-function 'org-ref-cite-insert-ivy)
+  (org-ref-insert-label-function 'org-ref-insert-label-link)
+  (org-ref-insert-ref-function 'org-ref-insert-ref-link)
+  (org-ref-cite-onclick-function (lambda (_) (org-ref-citation-hydra/body)))
+  :config
+  (require 'ivy-bibtex)
+  (require 'org-ref-ivy))
 
 ;; https://github.com/sabof/org-bullets
 ;; utf-8 bullets for org-mode
@@ -657,6 +677,8 @@
 ;; https://github.com/org-roam/org-roam
 ;; A database abstraction layer for Org-mode
 (use-package org-roam
+  :demand t
+  :after (org)
   :general
   (prefix-def
     "B" '(:ignore t :which-key "Brain")
@@ -693,6 +715,15 @@
       :unnarrowed t)))
   :config
   (org-roam-setup))
+
+;; https://github.com/org-roam/org-roam-bibtex
+;; Org Roam meets BibTeX
+(use-package org-roam-bibtex
+  :demand t
+  :after (org-roam)
+  :config
+  (require 'org-ref)
+  (org-roam-bibtex-mode))
 
 ;; Magit =======================================================================
 ;; https://github.com/magit/magit
@@ -987,6 +1018,38 @@
     "a" 'TeX-command-run-all
     "c" 'TeX-command-master)
   :mode ("\\.tex\\'" . latex-mode))
+
+;; bibtex ======================================================================
+;; bibtex.el --- BibTeX mode for GNU Emacs
+(use-package bibtex :mode ("\\.bib\\'" . bibtex-mode))
+
+;; https://github.com/tmalsburg/helm-bibtex
+;; A bibliography manager based on Ivy
+(use-package ivy-bibtex
+  :after (ivy)
+  :general
+  (prefix-def
+    "fb" 'ivy-bibtex)
+  :custom
+  (bibtex-completion-notes-path "~/library/notes.org")
+  (bibtex-completion-library-path '("~/library"))
+  (bibtex-completion-bibliography '("~/library/bibliography.bib"))
+  (bibtex-completion-notes-template-multiple-files
+   "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n")
+  (bibtex-completion-additional-search-fields '(keywords))
+  (bibtex-completion-display-formats
+   '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+     (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+     (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+     (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+     (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}")))
+  (bibtex-autokey-year-length 4)
+  (bibtex-autokey-name-year-separator "-")
+  (bibtex-autokey-year-title-separator "-")
+  (bibtex-autokey-titleword-separator "-")
+  (bibtex-autokey-titlewords 2)
+  (bibtex-autokey-titlewords-stretch 1)
+  (bibtex-autokey-titleword-length 5))
 
 ;; dictcc ======================================================================
 ;; https://github.com/martenlienen/dictcc.el

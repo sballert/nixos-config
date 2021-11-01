@@ -301,6 +301,7 @@ Execute the ./generate.sh script.
 | =dt=     | [[help:org-drill-tree][org-drill-tree]]            |
 | =dd=     | [[help:org-drill-directory][org-drill-directory]]       |
 | =dr=     | [[help:org-drill-resume][org-drill-resume]]          |
+| =r=      | [[help:org-ref-insert-link][org-ref-insert-link]]       |
 
 *** PDF-View-Mode Map
 
@@ -319,6 +320,14 @@ Execute the ./generate.sh script.
 | =C-k= | [[help:pdf-view-previous-page-command][pdf-view-previous-page-command]]                          |
 | =gj=  | [[help:pdf-view-next-page-command][pdf-view-next-page-command]]                              |
 | =gk=  | [[help:pdf-view-previous-page-command][pdf-view-previous-page-command]]                          |
+
+*** Bibtex-Mode Map
+
+**** From Bibtex-Mode
+
+| Key       | Command           |
+|-----------+-------------------|
+| =C-c C-q= | [[help:bibtex-fill-entry][bibtex-fill-entry]] |
 
 *** Prog-Mode Map
 

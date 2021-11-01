@@ -51,6 +51,7 @@ with pkgs;
     gruvbox-theme
     haskell-mode
     hydra
+    ivy-bibtex
     json-mode
     kotlin-mode
     lispy
@@ -69,7 +70,9 @@ with pkgs;
     ob-restclient
     org-bullets
     org-drill
+    org-ref
     org-roam
+    org-roam-bibtex
     password-store
     php-mode
     prettier
