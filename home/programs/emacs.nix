@@ -70,6 +70,7 @@ with pkgs;
     ob-restclient
     org-bullets
     org-drill
+    org-noter
     org-ref
     org-roam
     org-roam-bibtex

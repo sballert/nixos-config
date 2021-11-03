@@ -637,6 +637,19 @@
 ;; utf-8 bullets for org-mode
 (use-package org-bullets :hook (org-mode . org-bullets-mode))
 
+;; https://github.com/weirdNox/org-noter
+;; A synchronized, Org-mode, document annotator
+(use-package org-noter
+  :demand t
+  :after (org)
+  :general
+  (local-def
+    :keymaps 'org-mode-map
+    "N" 'org-noter)
+  :custom
+  (org-noter-notes-search-path '("~/brain"))
+  (org-noter-always-create-frame nil))
+
 ;; https://github.com/Somelauw/evil-org-mode
 ;; Supplemental evil-mode keybindings to emacs org-mode
 (use-package evil-org
@@ -717,6 +730,12 @@
       plain
       "%?"
       :target (file+head "${slug}.org" "#+title: ${title}")
+      :unnarrowed t)
+     ("r"
+      "bibliography reference"
+      plain
+      "- tags ::\n- keywords :: %^{keywords}\n\n* %^{title}\n:PROPERTIES:\n:CUSTOM_ID: %^{citekey}\n:URL: %^{url}\n:AUTHOR: %^{author-or-editor}\n:NOTER_DOCUMENT: %^{file}\n:NOTER_PAGE:\n:END:\n"
+      :target (file+head "${citekey}.org" "#+title: ${title}\n")
       :unnarrowed t)))
   :config
   (org-roam-setup))
@@ -724,8 +743,13 @@
 ;; https://github.com/org-roam/org-roam-bibtex
 ;; Org Roam meets BibTeX
 (use-package org-roam-bibtex
+  :diminish
   :demand t
   :after (org-roam)
+  :custom
+  (orb-preformat-keywords '("citekey" "title" "url" "author-or-editor" "keywords" "file"))
+  (orb-process-file-keyword t)
+  (orb-file-field-extensions '("pdf"))
   :config
   (require 'org-ref)
   (org-roam-bibtex-mode))
