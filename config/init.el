@@ -572,6 +572,9 @@
 (use-package org
   :demand t
   :general
+  (prefix-def
+    "o" '(:ignore t :which-key "org")
+    "ot" 'org-timer-set-timer)
   (local-def
     :keymaps '(org-mode-map)
     "o" 'org-open-at-point
@@ -590,6 +593,8 @@
   (org-confirm-babel-evaluate nil)
   (org-highlight-latex-and-related '(latex script entities))
   (org-startup-folded t)
+  (org-clock-sound (concat user-emacs-directory "alarm.wav"))
+  (org-timer-default-timer "0:20:00")
   :config
   (let ((languages '(
                      elasticsearch

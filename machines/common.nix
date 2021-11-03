@@ -4,6 +4,7 @@
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
     (import ./../packages { inherit pkgs; }).modules.v4l2loopback
     (import ./../packages { inherit pkgs; }).modules.wallpaper
+    (import ./../packages { inherit pkgs; }).modules.alarm-sound
   ];
 
   nixpkgs = import ./../nixpkgs/config.nix;

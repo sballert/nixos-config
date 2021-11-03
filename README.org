@@ -83,6 +83,7 @@ Execute the ./generate.sh script.
 | =/= | Search                     |
 | =j= | Jump                       |
 | =p= | Projectile                 |
+| =o= | Org                        |
 | =g= | Magit                      |
 | =c= | Flycheck                   |
 | =d= | DAP                        |
@@ -178,6 +179,12 @@ Execute the ./generate.sh script.
 | =pso=    | [[help:projectile-switch-open-project][projectile-switch-open-project]]             |
 | =pb=     | [[help:projectile-switch-to-buffer][projectile-switch-to-buffer]]                |
 |          |                                            |
+
+**** Org (=o=)
+
+| Key  | Command              |
+|------+----------------------|
+| =ot= | [[help:org-timer-set-timer][orgg-timer-set-timer]] |
 
 **** Magit (=g=)
 
@@ -302,6 +309,7 @@ Execute the ./generate.sh script.
 | =dd=     | [[help:org-drill-directory][org-drill-directory]]       |
 | =dr=     | [[help:org-drill-resume][org-drill-resume]]          |
 | =r=      | [[help:org-ref-insert-link][org-ref-insert-link]]       |
+| =N=      | [[help:org-noter][org-noter]]                 |
 
 *** PDF-View-Mode Map
 

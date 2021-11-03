@@ -75,6 +75,7 @@ in {
 
     file = {
       ".emacs.d/init.el".text = myLib.readConfig "init.el";
+      ".emacs.d/alarm.wav".source = builtins.fetchurl config.alarm-sound.wavUrl;
       ".ghci".text = myLib.readConfig "ghci";
       ".guile".text = myLib.readConfig "guile";
       ".gnupg/sshcontrol".text = ''
