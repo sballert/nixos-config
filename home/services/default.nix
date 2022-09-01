@@ -7,6 +7,7 @@
     blur = false;
     fade = true;
     shadow = false;
+    backend = "xr_glx_hybrid";
   };
 
   dunst = import ./dunst.nix;
