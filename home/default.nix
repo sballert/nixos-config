@@ -27,7 +27,6 @@ in {
       gcc
       gimp
       gitAndTools.gitflow
-      gnome3.dconf
       google-chrome
       gnupg
       htop
@@ -45,6 +44,7 @@ in {
       openvpn
       p7zip
       pass
+      pkgs.dconf
       pulseaudio-ctl
       python3
       python3Packages.yamllint
