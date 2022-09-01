@@ -88,8 +88,6 @@ with pkgs;
     ws-butler
     yaml-mode
     yasnippet
-  ]) ++ (with orgPackages; [
-    org-plus-contrib
   ]) ++ [
     clang-format-plus
   ];
