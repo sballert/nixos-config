@@ -8,7 +8,7 @@ in {
 
 ################################################################################
   home = {
-    stateVersion = "21.11";
+    stateVersion = "22.05";
     packages = with pkgs; [
       my.backup
       my.bluetoothctl-menu

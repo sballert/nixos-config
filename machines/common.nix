@@ -1,7 +1,7 @@
 { config, pkgs, options, ... }: {
 
   imports = [
-    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
+    "${builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz}/nixos"
     (import ./../packages { inherit pkgs; }).modules.v4l2loopback
     (import ./../packages { inherit pkgs; }).modules.wallpaper
     (import ./../packages { inherit pkgs; }).modules.alarm-sound
@@ -127,5 +127,5 @@
     "mypkgs=${builtins.toString ./../packages}"
   ]);
 ################################################################################
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.05";
 }
