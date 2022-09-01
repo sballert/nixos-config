@@ -38,18 +38,24 @@
     };
   };
 ################################################################################
-  sound.enable = true;
+  sound.enable = false;
 ################################################################################
   hardware = {
     bluetooth.enable = true;
 
     pulseaudio = {
-      enable = true;
+      enable = false;
       package = pkgs.pulseaudioFull;
     };
   };
 ################################################################################
   services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
     xserver = {
       enable = true;
       layout = "us";
@@ -100,6 +106,7 @@
     ];
   };
 ################################################################################
+  security.rtkit.enable = true;
 ################################################################################
   programs = {
     adb.enable = true;
