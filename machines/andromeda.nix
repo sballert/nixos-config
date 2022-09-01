@@ -66,6 +66,8 @@
     };
   };
 
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   home-manager.users.pherseus = with pkgs; {
 
     home = {
