@@ -45,7 +45,7 @@ in {
       p7zip
       pass
       pkgs.dconf
-      pulseaudio-ctl
+      pulseaudio
       python3
       python3Packages.yamllint
       pwgen
