@@ -259,12 +259,14 @@ Execute the ./generate.sh script.
 
 **** More (=m=)
 
-| Key       | Command                |
-|-----------+------------------------|
-| =mm=      | [[help:evil-show-marks][evil-show-marks]]        |
-| =ma=      | [[help:aggressive-indent-mode][aggressive-indent-mode]] |
-| =ml<SPC>= | [[help:dictcc][dictcc]]                 |
-| =mlp=     | [[help:dictcc-at-point][dictcc-at-point]]        |
+| Key       | Command                 |
+|-----------+-------------------------|
+| =mm=      | [[help:evil-show-marks][evil-show-marks]]         |
+| =ma=      | [[help:aggressive-indent-mode][aggressive-indent-mode]]  |
+| =ml<SPC>= | [[help:dictcc][dictcc]]                  |
+| =mlp=     | [[help:dictcc-at-point][dictcc-at-point]]         |
+| =md=      | [[help:dired-jump][dired-jump]]              |
+| =mD=      | [[help:dired-jump-other-window][dired-jump-other-window]] |
 
 **** Brain (=B=)
 

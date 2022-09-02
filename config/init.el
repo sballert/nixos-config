@@ -200,6 +200,10 @@
              dired-mark-files-regexp
              dired-do-kill-lines)
   :defines (dired-dotfiles-show-p)
+  :general
+  (prefix-def
+    "md" 'dired-jump
+    "mD" 'dired-jump-other-window)
   :config
   (defun dired-mode-setup ()
     "Dired setup hook"
@@ -222,17 +226,10 @@
   (setq dired-auto-revert-buffer t
         dired-dwim-target t
         dired-listing-switches "-alh --group-directories-first")
-  (put 'dired-find-alternate-file 'disabled nil))
+  (put 'dired-find-alternate-file 'disabled nil)
 
-;; dired-x.el --- extra Dired functionality
-(use-package dired-x
-  :disabled
-  :config
+  (require 'dired-x)
   (setq dired-guess-shell-alist-user '(("\\.mkv\\'\\|\\.mp4\\'" "mpv"))))
-                                        ;:general
-                                        ;(prefix-def
-                                        ;  "md" 'dired-jump
-;  "mD" 'dired-jump-other-window))
 
 ;; whitespace.el --- minor mode to visualize TAB, (HARD) SPACE, NEWLINE
 (use-package whitespace
