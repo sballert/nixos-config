@@ -658,7 +658,6 @@
   :after (evil org)
   :hook (org-mode . evil-org-mode)
   :config
-  (add-to-list 'evil-digit-bound-motions 'evil-org-beginning-of-line)
   (evil-define-key 'motion 'evil-org-mode
     (kbd "0") 'evil-org-beginning-of-line)
   (evil-org-set-key-theme '(navigation
