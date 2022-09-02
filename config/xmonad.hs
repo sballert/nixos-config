@@ -1,7 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, ppOutput, ppCurrent, wrap
                                ,xmobarColor)
-import XMonad.Hooks.ManageDocks (avoidStruts, manageDocks, docksEventHook)
+import XMonad.Hooks.ManageDocks (avoidStruts, docks )
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.Run (spawnPipe, hPutStrLn)
 
@@ -9,7 +9,7 @@ import Graphics.X11.ExtraTypes.XF86
 
 main = do
   xmobar <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc"
-  xmonad $ myConfig xmobar
+  xmonad $ docks $ myConfig xmobar
 
 myConfig xmobar = def
   { modMask = mod4Mask
@@ -18,9 +18,7 @@ myConfig xmobar = def
   , normalBorderColor = "#3c3836"
   , focusedBorderColor = "#665c54"
   , logHook = dynamicLogWithPP $ myLogHook xmobar
-  , layoutHook = avoidStruts $ layoutHook defaultConfig
-  , manageHook = manageDocks <+> manageHook defaultConfig
-  , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
+  , layoutHook = avoidStruts $ layoutHook def
   }
   `additionalKeysP`
   [ ("M-<Return>", spawn "rofi -show drun")
