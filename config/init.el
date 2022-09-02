@@ -865,6 +865,7 @@
   ((after-init . direnv-mode)
    (flycheck-before-syntax-check . direnv-update-environment))
   :config
+  (add-to-list 'warning-suppress-types '(direnv))
   (setq direnv-always-show-summary nil))
 
 ;; https://github.com/bbatsov/super-save
