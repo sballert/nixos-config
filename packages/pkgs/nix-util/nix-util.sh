@@ -31,6 +31,12 @@ function cleanup {
     nix-collect-garbage -d
 }
 
+function rebuild {
+    rm -f /home/pherseus/.xmonad/xmonad-x86_64-linux
+
+    sudo nixos-rebuild switch
+}
+
 SELF="${0}"
 
 if [ "$#" -ne 1 ]; then
@@ -47,6 +53,10 @@ case "${action}" in
 
     c|cleanup )          # Cleanup the system
         cleanup
+    ;;
+
+    r|rebuild )          # rebuild the system
+        rebuild
     ;;
 
     *)
